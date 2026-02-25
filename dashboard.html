@@ -46,7 +46,20 @@
             <div class="px-3 mb-4">
                 <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden">
                     <h2 class="time-display display-3 fw-bold mb-1">09:41:25</h2>
-                    <p class="date-display text-uppercase fw-medium text-muted tracking-wide mb-4">Monday, 12 Aug</p>
+                    <p class="date-display text-uppercase fw-medium text-muted tracking-wide mb-3">Monday, 12 Aug</p>
+
+                    <!-- Explicit Check In/Out Times -->
+                    <div class="d-flex justify-content-center gap-4 mb-4">
+                        <div class="text-start">
+                            <p class="mb-0 text-muted" style="font-size: 0.7rem; font-weight: 600;">CHECK IN AT</p>
+                            <p class="mb-0 fw-bold text-dark fs-6">09:15 AM</p>
+                        </div>
+                        <div class="border-start border-secondary opacity-25"></div>
+                        <div class="text-start">
+                            <p class="mb-0 text-muted" style="font-size: 0.7rem; font-weight: 600;">CHECK OUT AT</p>
+                            <p class="mb-0 fw-bold text-dark fs-6">--:-- --</p>
+                        </div>
+                    </div>
 
                     <div
                         class="check-in-btn rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3 shadow-lg">
@@ -59,6 +72,11 @@
 
             <!-- Action Grid -->
             <div class="px-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Quick Actions</h4>
+                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View
+                        All</a>
+                </div>
                 <div class="row g-3">
                     <div class="col-4">
                         <a href="Leave-Dashboard.html" class="text-decoration-none d-block h-100">
@@ -119,6 +137,30 @@
                 </div>
             </div>
 
+            <!-- Leave Balance Mini-Summary -->
+            <div class="px-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Leave Balances</h4>
+                    <a href="Leave-Dashboard.html" class="text-primary smaller fw-bold text-decoration-none">View
+                        All</a>
+                </div>
+                <!-- Glass card for mini leave summary -->
+                <div class="glass-effect p-3 d-flex justify-content-between text-center">
+                    <div class="flex-grow-1 border-end border-light border-opacity-50 px-2">
+                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">PRIVILEGE</p>
+                        <h4 class="mb-0 fw-bold text-primary">12</h4>
+                    </div>
+                    <div class="flex-grow-1 border-end border-light border-opacity-50 px-2">
+                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">SICK</p>
+                        <h4 class="mb-0 fw-bold text-danger">4</h4>
+                    </div>
+                    <div class="flex-grow-1 px-2">
+                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">CASUAL</p>
+                        <h4 class="mb-0 fw-bold text-warning">2</h4>
+                    </div>
+                </div>
+            </div>
+
             <!-- Pending Approvals -->
             <div class="px-3 mb-4">
                 <h4 class="section-title h5 fw-bold mb-3">Pending Approvals</h4>
@@ -170,6 +212,47 @@
                 </div>
             </div>
 
+            <!-- Company News & Events (Horizontal Scroll) -->
+            <div class="px-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Company News</h4>
+                    <div class="nav-arrows text-muted">
+                        <i class="bi bi-chevron-left me-1 small"></i>
+                        <i class="bi bi-chevron-right small"></i>
+                    </div>
+                </div>
+                <div class="horizontal-scroll-container d-flex gap-3 pb-2 pe-3">
+                    <!-- News Card 1 -->
+                    <div class="news-card position-relative overflow-hidden flex-shrink-0"
+                        style="width: 280px; height: 160px; border-radius: 20px;">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
+                            alt="Team Building" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <span class="badge bg-primary mb-2 border-0 fw-semibold"
+                                style="font-size: 0.65rem;">EVENTS</span>
+                            <h5 class="text-white h6 fw-bold text-shadow mb-1">Annual Tech Conference 2024 Highlights
+                            </h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.7rem;">Read about key takeaways...</p>
+                        </div>
+                    </div>
+                    <!-- News Card 2 -->
+                    <div class="news-card position-relative overflow-hidden flex-shrink-0"
+                        style="width: 280px; height: 160px; border-radius: 20px;">
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800"
+                            alt="Office Life" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <span class="badge bg-success mb-2 border-0 fw-semibold"
+                                style="font-size: 0.65rem;">NEWS</span>
+                            <h5 class="text-white h6 fw-bold text-shadow mb-1">Q2 Performance Review & Market Update
+                            </h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.7rem;">A message from the CEO...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Announcement Banner -->
             <div class="px-3 mb-4">
                 <div class="announcement-banner rounded-4 position-relative overflow-hidden p-4 text-white shadow-sm">
@@ -184,35 +267,45 @@
             <!-- Alerts Grid (Meeting Reminders / Training Calendar) -->
             <div class="px-3 mb-4 row g-3">
                 <div class="col-6">
-                    <div class="info-card h-100 p-3">
-                        <h5 class="fw-bold h6 mb-3 text-dark">Meeting Reminders</h5>
-                        <ul class="list-unstyled mb-0 smaller">
-                            <li class="d-flex justify-content-between mb-2">
-                                <span class="d-flex align-items-center gap-2"><span
-                                        class="dot bg-secondary rounded-circle"></span> 1:1 with Manager</span>
-                                <span class="text-muted">(11:00 AM)</span>
+                    <div class="info-card h-100 p-3 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 p-2 opacity-25">
+                            <i class="bi bi-camera-video-fill fs-1 text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold h6 mb-3 text-dark position-relative z-1">Meeting Reminders</h5>
+                        <ul class="list-unstyled mb-0 position-relative z-1">
+                            <li class="mb-3">
+                                <p class="mb-0 fw-bold small text-dark d-flex align-items-center gap-1">
+                                    <span class="dot bg-primary rounded-circle shadow-sm"></span> 1:1 Manager
+                                </p>
+                                <p class="mb-0 text-muted smaller tracking-wide ps-2 ms-1">11:00 AM</p>
                             </li>
-                            <li class="d-flex justify-content-between">
-                                <span class="d-flex align-items-center gap-2"><span
-                                        class="dot bg-secondary rounded-circle"></span> Team Sync</span>
-                                <span class="text-muted">(2:00 PM)</span>
+                            <li>
+                                <p class="mb-0 fw-bold small text-dark d-flex align-items-center gap-1">
+                                    <span class="dot bg-info rounded-circle shadow-sm"></span> Team Sync
+                                </p>
+                                <p class="mb-0 text-muted smaller tracking-wide ps-2 ms-1">2:00 PM</p>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="info-card h-100 p-3">
-                        <h5 class="fw-bold h6 mb-3 text-dark">Training Calendar</h5>
-                        <ul class="list-unstyled mb-0 smaller">
-                            <li class="d-flex justify-content-between mb-2">
-                                <span class="d-flex align-items-center gap-2 text-truncate pe-1"><span
-                                        class="dot bg-secondary rounded-circle"></span> Leadership...</span>
-                                <span class="text-muted flex-shrink-0">(18 Aug)</span>
+                    <div class="info-card h-100 p-3 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 p-2 opacity-25">
+                            <i class="bi bi-calendar-event-fill fs-1 text-purple"></i>
+                        </div>
+                        <h5 class="fw-bold h6 mb-3 text-dark position-relative z-1">Training Calendar</h5>
+                        <ul class="list-unstyled mb-0 position-relative z-1">
+                            <li class="mb-3">
+                                <p class="mb-0 fw-bold small text-dark text-truncate d-flex align-items-center gap-1">
+                                    <span class="dot bg-purple rounded-circle shadow-sm"></span> Leadership
+                                </p>
+                                <p class="mb-0 text-muted smaller tracking-wide ps-2 ms-1">Aug 18</p>
                             </li>
-                            <li class="d-flex justify-content-between">
-                                <span class="d-flex align-items-center gap-2 text-truncate pe-1"><span
-                                        class="dot bg-secondary rounded-circle"></span> DevOps Basics</span>
-                                <span class="text-muted flex-shrink-0">(21 Aug)</span>
+                            <li>
+                                <p class="mb-0 fw-bold small text-dark text-truncate d-flex align-items-center gap-1">
+                                    <span class="dot bg-warning rounded-circle shadow-sm"></span> DevOps 101
+                                </p>
+                                <p class="mb-0 text-muted smaller tracking-wide ps-2 ms-1">Aug 21</p>
                             </li>
                         </ul>
                     </div>
@@ -221,36 +314,54 @@
 
             <!-- Team Birthdays -->
             <div class="px-3 mb-5 pb-4"> <!-- Extra padding for bottom nav -->
-                <h4 class="section-title h6 fw-bold mb-3 d-flex justify-content-between align-items-center">
-                    Team Birthdays
-                    <div class="nav-arrows text-muted">
-                        <i class="bi bi-chevron-left me-1 small"></i>
-                        <i class="bi bi-chevron-right small"></i>
-                    </div>
-                </h4>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Team Birthdays</h4>
+                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View Calendar</a>
+                </div>
 
-                <div class="birthday-card d-flex gap-3 align-items-center p-3">
-                    <div
-                        class="d-flex align-items-center gap-2 flex-grow-1 border-end border-light border-opacity-50 pe-2">
-                        <img src="https://i.pravatar.cc/150?img=5" alt="Priya S." class="rounded-circle avatar-sm">
-                        <div class="lh-sm">
-                            <p class="mb-0 fw-bold small text-dark">Priya S.</p>
-                            <span class="smaller text-muted">Today</span>
-                        </div>
+                <!-- Featured Birthday (Today) -->
+                <div class="birthday-highlight-card glass-effect position-relative overflow-hidden p-3 mb-3 d-flex align-items-center gap-3"
+                    style="border-radius: 20px;">
+                    <div class="position-absolute top-0 end-0 p-2 opacity-25">
+                        <i class="bi bi-balloon-fill fs-1 text-warning"></i>
                     </div>
-                    <div
-                        class="d-flex align-items-center gap-2 flex-grow-1 border-end border-light border-opacity-50 pe-2 ps-2">
+                    <div class="position-relative z-1">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Priya S."
+                            class="rounded-circle avatar-md border border-2 border-warning shadow-sm"
+                            style="width: 50px; height: 50px; object-fit: cover;">
+                    </div>
+                    <div class="position-relative z-1">
+                        <span class="badge bg-warning text-dark mb-1 fw-bold" style="font-size: 0.65rem;">TODAY</span>
+                        <h5 class="mb-0 fw-bold text-dark h6">Priya Sharma</h5>
+                        <p class="mb-0 text-muted" style="font-size: 0.75rem;">Product Designer</p>
+                    </div>
+                    <div class="ms-auto position-relative z-1">
+                        <button
+                            class="btn btn-sm btn-warning text-dark rounded-circle shadow-sm d-flex justify-content-center align-items-center"
+                            style="width: 36px; height: 36px;">
+                            <i class="bi bi-gift-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Upcoming Birthdays -->
+                <h6 class="fw-bold text-muted mb-2 tracking-wide" style="font-size: 0.7rem; text-transform: uppercase;">
+                    Upcoming</h6>
+                <div class="upcoming-birthdays d-flex flex-column gap-2">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
+                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
                         <img src="https://i.pravatar.cc/150?img=12" alt="Vikram R." class="rounded-circle avatar-sm">
-                        <div class="lh-sm">
-                            <p class="mb-0 fw-bold small text-dark">Vikram R.</p>
-                            <span class="smaller text-muted">Tomorrow</span>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fw-bold small text-dark">Vikram Rathore</h6>
+                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Engineering · Tomorrow</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-2 flex-grow-1 ps-2">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
+                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
                         <img src="https://i.pravatar.cc/150?img=9" alt="Elena C." class="rounded-circle avatar-sm">
-                        <div class="lh-sm">
-                            <p class="mb-0 fw-bold small text-dark">Elena C.</p>
-                            <span class="smaller text-muted">15 Aug</span>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fw-bold small text-dark">Elena Cruz</h6>
+                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Marketing · Aug 15</p>
                         </div>
                     </div>
                 </div>
@@ -284,6 +395,100 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // SweetAlert custom configuration for Luminous Glass aesthetic
+            const swalConfig = {
+                background: 'rgba(255, 255, 255, 0.95)',
+                customClass: {
+                    popup: 'rounded-4 shadow-lg border border-white',
+                    confirmButton: 'btn btn-primary rounded-pill px-4',
+                    cancelButton: 'btn btn-light rounded-pill px-4 ms-2'
+                },
+                buttonsStyling: false,
+                backdrop: 'rgba(200, 230, 255, 0.4)'
+            };
+
+            // Approve Actions
+            const approveBtns = document.querySelectorAll('.approval-card .btn-soft-primary');
+            approveBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const card = this.closest('.approval-card');
+                    const userName = card.querySelector('.d-flex > div > p.text-muted').textContent;
+
+                    Swal.fire({
+                        ...swalConfig,
+                        title: 'Approve Request?',
+                        text: `Are you sure you want to approve the request for ${userName}?`,
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, Approve',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                ...swalConfig,
+                                title: 'Approved!',
+                                text: 'The request has been processed.',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+
+                            // Optional: animate card removal for better UX
+                            card.style.transition = 'all 0.4s ease';
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.9)';
+                            setTimeout(() => card.remove(), 400);
+                        }
+                    });
+                });
+            });
+
+            // Reject Actions
+            const rejectBtns = document.querySelectorAll('.approval-card .btn-soft-danger');
+            rejectBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const card = this.closest('.approval-card');
+                    const userName = card.querySelector('.d-flex > div > p.text-muted').textContent;
+
+                    Swal.fire({
+                        ...swalConfig,
+                        title: 'Reject Request?',
+                        text: `Are you sure you want to reject the request for ${userName}?`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, Reject',
+                        cancelButtonText: 'Cancel',
+                        customClass: {
+                            ...swalConfig.customClass,
+                            confirmButton: 'btn btn-danger rounded-pill px-4'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                ...swalConfig,
+                                title: 'Rejected',
+                                text: 'The request has been denied.',
+                                icon: 'error',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+
+                            // Optional: animate card removal for better UX
+                            card.style.transition = 'all 0.4s ease';
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.9)';
+                            setTimeout(() => card.remove(), 400);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

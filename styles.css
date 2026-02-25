@@ -123,19 +123,21 @@ body {
 
 /* --- Layout Constraints (Mobile Feel on Desktop) --- */
 .mobile-wrapper {
-    max-width: 414px;
-    /* Typical large mobile width (iPhone Pro Max) */
-
+    max-width: 480px;
+    /* Increased to accommodate larger phones like iPhone Pro Max / Android devices */
+    margin: 0 auto;
+    /* Center on tablet/desktop */
+    width: 100%;
     min-height: 100vh;
     background-color: transparent;
     position: relative;
-
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
     /* Shadow to separate from desktop bg */
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 480px) {
     .mobile-wrapper {
         box-shadow: none;
         /* No shadow on actual mobile */
@@ -255,6 +257,12 @@ body {
     color: var(--text-main);
 }
 
+/* Application padding to prevent bottom nav from covering content */
+.app-content {
+    padding-bottom: 120px;
+    /* Gives enough space for FAB + Bottom Nav */
+}
+
 /* Horizontal Scroll for Approvals */
 .horizontal-scroll-container {
     overflow-x: auto;
@@ -354,8 +362,8 @@ body {
     transform: translateX(-50%);
     width: calc(100% - 40px);
     /* Padding */
-    max-width: 374px;
-    /* match container - padding */
+    max-width: 440px;
+    /* match container (480) - padding (40) */
     background: rgba(255, 255, 255, 0.85);
     /* Slightly transparent white */
     backdrop-filter: blur(20px);
@@ -557,14 +565,14 @@ body {
     height: 60px;
     bottom: 90px;
     /* Above the bottom nav */
-    right: max(20px, calc(50% - 180px));
-    /* Keep it inside the mobile wrapper bounds */
+    right: max(20px, calc(50% - 220px));
+    /* Keep it inside the mobile wrapper bounds (max-width 480 / 2 = 240, 240 - 20 = 220) */
     box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 480px) {
     .btn-fab {
         right: 20px;
         /* Standard placement on native mobile screens */
@@ -663,7 +671,7 @@ body {
 }
 
 .action-drawer {
-    max-width: 414px;
+    max-width: 480px;
     /* constraint for desktop view */
 }
 
