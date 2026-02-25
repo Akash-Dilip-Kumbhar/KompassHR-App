@@ -1,0 +1,686 @@
+/* 
+    Luminous Glass Premium Mobile UI 
+    Theme inspired by modern glassmorphism and subtle gradients
+*/
+
+/* --- Variables & Theming --- */
+:root {
+    /* Color Palette */
+    --bg-primary-app: #eef3ff;
+    /* Very soft blue/slate background */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+
+    /* Soft Colors for Icons/Labels */
+    --soft-primary: rgba(59, 130, 246, 0.15);
+    --soft-success: rgba(34, 197, 94, 0.15);
+    --success: #16a34a;
+    --soft-purple: rgba(168, 85, 247, 0.15);
+    --purple: #9333ea;
+    --soft-warning: rgba(245, 158, 11, 0.15);
+    --warning: #d97706;
+    --soft-danger: rgba(239, 68, 68, 0.15);
+    --danger: #dc2626;
+    --soft-indigo: rgba(79, 70, 229, 0.15);
+    --indigo: #4f46e5;
+
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.15);
+    --glass-blur: blur(12px);
+
+    /* Stronger Glass for specific elements */
+    --glass-heavy-bg: rgba(255, 255, 255, 0.85);
+    --glass-heavy-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+
+    /* Typography */
+    --font-family-base: 'Outfit', sans-serif;
+}
+
+/* --- Base Reset & Typography --- */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-main);
+    background-color: var(--bg-primary-app);
+    /* Subtle radial gradient background for premium feel */
+    background-image: radial-gradient(circle at 80% 10%, rgba(200, 220, 255, 0.7) 0%, transparent 40%),
+        radial-gradient(circle at 0% 80%, rgba(230, 215, 255, 0.5) 0%, transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Typography utilities */
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.smaller {
+    font-size: 0.75rem;
+}
+
+.text-dark {
+    color: var(--text-main) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Custom Color Classes for Icons */
+.bg-soft-primary {
+    background-color: var(--soft-primary);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-soft-success {
+    background-color: var(--soft-success);
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.bg-soft-purple {
+    background-color: var(--soft-purple);
+}
+
+.text-purple {
+    color: var(--purple) !important;
+}
+
+.bg-soft-warning {
+    background-color: var(--soft-warning);
+}
+
+.text-warning {
+    color: var(--warning) !important;
+}
+
+.bg-soft-danger {
+    background-color: var(--soft-danger);
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+.bg-soft-indigo {
+    background-color: var(--soft-indigo);
+}
+
+.text-indigo {
+    color: var(--indigo) !important;
+}
+
+
+/* --- Layout Constraints (Mobile Feel on Desktop) --- */
+.mobile-wrapper {
+    max-width: 414px;
+    /* Typical large mobile width (iPhone Pro Max) */
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: transparent;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+    /* Shadow to separate from desktop bg */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+@media (max-width: 414px) {
+    .mobile-wrapper {
+        box-shadow: none;
+        /* No shadow on actual mobile */
+    }
+}
+
+/* --- Components --- */
+
+/* Header */
+.greeting {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.user-name {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    color: #111827;
+}
+
+.profile-avatar img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover img {
+    transform: scale(1.05);
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #0ea5e9 !important;
+    /* Brighter blue for active status */
+}
+
+/* Luminous Glass Mixin Classes */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 24px;
+}
+
+/* Main Check-in Card */
+.luminous-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-radius: 32px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.luminous-card:active {
+    transform: scale(0.98);
+}
+
+.time-display {
+    color: #0f172a;
+    letter-spacing: -1px;
+}
+
+.check-in-btn {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5) !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.check-in-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6) !important;
+}
+
+/* Action Grid Cards */
+.action-card {
+    background: var(--glass-heavy-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-heavy-shadow);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.action-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+.action-label {
+    color: var(--text-main);
+}
+
+/* Horizontal Scroll for Approvals */
+.horizontal-scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+/* Approval Card */
+.approval-card {
+    width: 260px;
+    background: var(--glass-heavy-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-heavy-shadow);
+}
+
+.avatar-sm {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+}
+
+.btn-soft-primary {
+    background-color: var(--soft-primary);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-soft-primary:hover {
+    background-color: rgba(59, 130, 246, 0.25);
+}
+
+.btn-soft-danger {
+    background-color: var(--soft-danger);
+    color: var(--danger);
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-soft-danger:hover {
+    background-color: rgba(239, 68, 68, 0.25);
+}
+
+
+/* Announcement / Banner */
+.announcement-banner {
+    min-height: 120px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Info Cards (Meeting/Training) */
+.info-card {
+    background: var(--glass-heavy-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+}
+
+/* Birthday Card */
+.birthday-card {
+    background: var(--glass-heavy-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    /* Floating look */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    /* Padding */
+    max-width: 374px;
+    /* match container - padding */
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly transparent white */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+.nav-item {
+    color: #94a3b8;
+    /* disabled gray */
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 16px;
+}
+
+.nav-item .nav-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0;
+    /* Hide label by default for cleaner look, animate on active */
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    display: none;
+    /* completely hide by default to save space */
+}
+
+.nav-item:hover {
+    color: var(--primary-color);
+}
+
+/* Active Nav Item State */
+.nav-item.active {
+    color: var(--primary-color);
+    background-color: var(--soft-primary);
+}
+
+.nav-item.active .nav-label {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+    /* Show text for active item */
+}
+
+/* --- Welcome Screen Specifics --- */
+.welcome-screen-body {
+    background-image: none;
+    /* Inherit global premium background from body */
+}
+
+.welcome-card {
+    /* More transparent glass effect instead of almost solid white */
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    height: calc(100vh - 40px);
+    /* Fill most of the mobile view */
+    max-height: 800px;
+    /* Cap height on very tall displays */
+}
+
+.logo-circle {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.7);
+    /* Glassy circle instead of solid soft blue */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+    margin-top: 1rem;
+}
+
+.company-name {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.cover-image-wrapper {
+    height: 180px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+}
+
+.welcome-title {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    padding-bottom: 20px;
+}
+
+.title-underline {
+    height: 3px;
+    width: 60px;
+    background-color: #bfdbfe;
+    /* Soft blue underline */
+    border-radius: 2px;
+    bottom: 5px !important;
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.shadow-primary {
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+.hover-up:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5);
+}
+
+.footer-note {
+    font-size: 0.75rem;
+}
+
+/* --- Leave Dashboard Specifics --- */
+.bg-luminous-header {
+    background: rgba(238, 243, 255, 0.85);
+    /* Matches body but slightly transparent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.leave-card {
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.75);
+    /* Slightly more opaque glass */
+    transition: transform 0.2s ease;
+}
+
+.leave-card:active {
+    transform: scale(0.98);
+}
+
+.bg-shape {
+    width: 120px;
+    height: 120px;
+    transform: translate(20%, -30%);
+    opacity: 0.3;
+    /* Subtle background glow */
+}
+
+.shape-blue {
+    background-color: var(--soft-primary);
+}
+
+.shape-red {
+    background-color: var(--soft-danger);
+}
+
+.shape-yellow {
+    background-color: var(--soft-warning);
+}
+
+.custom-progress {
+    background-color: #f1f5f9;
+    /* Slate 100 */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.breakdown-card {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.request-card {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.date-box {
+    width: 45px;
+}
+
+/* Base adjustment for bottom nav to match new screen design (all uppercase, smaller) */
+.bottom-nav .nav-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.bottom-nav .nav-item.active .nav-label {
+    color: var(--primary-color);
+}
+
+/* Floating Action Button (FAB) */
+.btn-fab {
+    width: 60px;
+    height: 60px;
+    bottom: 90px;
+    /* Above the bottom nav */
+    right: max(20px, calc(50% - 180px));
+    /* Keep it inside the mobile wrapper bounds */
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+@media (max-width: 414px) {
+    .btn-fab {
+        right: 20px;
+        /* Standard placement on native mobile screens */
+    }
+}
+
+.btn-fab:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.6);
+}
+
+.btn-fab:active {
+    transform: scale(0.95);
+}
+
+/* --- New Request Screen Specifics --- */
+.new-request-body {
+    background-image:
+        radial-gradient(circle at 50% 10%, rgba(200, 230, 255, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(230, 240, 255, 0.4) 0%, transparent 60%);
+}
+
+.calendar-card {
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px 0;
+}
+
+.date-cell {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 40px;
+    color: #1e293b;
+    position: relative;
+    z-index: 2;
+}
+
+/* Custom Calendar Range Styling */
+.date-range-start {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+.date-range-start::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    width: 100%;
+    background-color: var(--soft-primary);
+    z-index: -1;
+}
+
+.date-range-middle {
+    background-color: var(--soft-primary) !important;
+    border-radius: 0;
+    width: 100%;
+}
+
+.date-range-end {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+.date-range-end::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50%;
+    width: 100%;
+    background-color: var(--soft-primary);
+    z-index: -1;
+}
+
+.type-selector.active {
+    border: 1px solid var(--primary-dark);
+}
+
+.reason-input-container {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.reason-input-container textarea::placeholder {
+    color: #94a3b8;
+}
+
+.action-drawer {
+    max-width: 414px;
+    /* constraint for desktop view */
+}
+
+.slide-button-track {
+    background-color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Inset shadow wrapper for depth */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.slide-knob {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+}

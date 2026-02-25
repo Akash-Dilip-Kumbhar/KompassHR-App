@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Glass UI - Leave Dashboard</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-luminous pb-5 mb-5"> <!-- Extra padding for bottom nav and FAB -->
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper min-vh-100 position-relative">
+
+        <!-- Sticky Header Container -->
+        <div class="sticky-top bg-luminous-header pt-4 pb-2 px-3 z-3">
+            <header class="d-flex justify-content-between align-items-center">
+                <a href="index.html" class="text-dark fs-4 text-decoration-none">
+                    <i class="bi bi-chevron-left fw-bold"></i>
+                </a>
+                <h2 class="h5 mb-0 fw-bold">Leave Balance</h2>
+                <div class="profile-avatar border border-2 border-white rounded-circle shadow-sm overflow-hidden"
+                    style="width: 40px; height: 40px; background-color: #fce7db;">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
+                        class="img-fluid w-100 h-100 object-fit-cover opacity-75 mix-blend-multiply">
+                </div>
+            </header>
+        </div>
+
+        <div class="app-content px-3 pt-3">
+
+            <!-- Employee Overview -->
+            <div class="mb-4">
+                <p class="text-muted small mb-1">Employee Overview</p>
+                <h1 class="h3 fw-bold text-dark mb-0">Akash Dilip Kumbhar</h1>
+                <p class="text-primary small fw-medium mt-1">Senior Software Engineer</p>
+            </div>
+
+            <!-- Leave Balances -->
+            <div class="d-flex flex-column gap-3 mb-4">
+
+                <!-- Privilege Leave Card -->
+                <div class="leave-card glass-effect p-4 position-relative overflow-hidden">
+                    <div class="bg-shape shape-blue position-absolute top-0 end-0 rounded-circle"></div>
+
+                    <div class="d-flex justify-content-between align-items-start position-relative z-1 mb-3">
+                        <div>
+                            <i class="bi bi-airplane-fill fs-3 text-primary"></i>
+                            <h3 class="h6 fw-bold text-dark mt-2 mb-0">Privilege Leave</h3>
+                        </div>
+                        <div class="text-end">
+                            <span class="display-6 fw-bold text-primary">12</span><span
+                                class="text-muted small">/15</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container mt-4">
+                        <div class="progress custom-progress" style="height: 6px;">
+                            <div class="progress-bar bg-primary rounded-pill" role="progressbar" style="width: 80%"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span class="smaller text-muted fw-bold">USED: 3</span>
+                            <span class="smaller text-muted fw-bold">80% AVAILABLE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sick Leave Card -->
+                <div class="leave-card glass-effect p-4 position-relative overflow-hidden">
+                    <div class="bg-shape shape-red position-absolute top-0 end-0 rounded-circle"></div>
+
+                    <div class="d-flex justify-content-between align-items-start position-relative z-1 mb-3">
+                        <div>
+                            <i class="bi bi-briefcase-fill fs-3 text-danger"></i>
+                            <!-- Using briefcase as placeholder for medic bag -->
+                            <h3 class="h6 fw-bold text-dark mt-2 mb-0">Sick Leave</h3>
+                        </div>
+                        <div class="text-end">
+                            <span class="display-6 fw-bold text-danger">4</span><span
+                                class="text-muted small">/12</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container mt-4">
+                        <div class="progress custom-progress" style="height: 6px;">
+                            <div class="progress-bar bg-danger rounded-pill" role="progressbar" style="width: 66%"
+                                aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span class="smaller text-muted fw-bold">USED: 8</span>
+                            <span class="smaller text-muted fw-bold">33% AVAILABLE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Casual Leave Card -->
+                <div class="leave-card glass-effect p-4 position-relative overflow-hidden">
+                    <div class="bg-shape shape-yellow position-absolute top-0 end-0 rounded-circle"></div>
+
+                    <div class="d-flex justify-content-between align-items-start position-relative z-1 mb-3">
+                        <div>
+                            <i class="bi bi-calendar-check fs-3 text-warning"></i>
+                            <h3 class="h6 fw-bold text-dark mt-2 mb-0">Casual Leave</h3>
+                        </div>
+                        <div class="text-end">
+                            <span class="display-6 fw-bold text-warning">2</span><span
+                                class="text-muted small">/8</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container mt-4">
+                        <div class="progress custom-progress" style="height: 6px;">
+                            <div class="progress-bar bg-warning rounded-pill" role="progressbar" style="width: 75%"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span class="smaller text-muted fw-bold">USED: 6</span>
+                            <span class="smaller text-muted fw-bold">25% AVAILABLE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Leave Balances -->
+
+            <!-- Detailed Breakdown -->
+            <div class="mb-5">
+                <h4 class="h6 fw-bold text-dark mb-3">Detailed Breakdown</h4>
+                <div class="breakdown-card glass-effect p-3 d-flex flex-column gap-3">
+
+                    <!-- Item 1 -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-circle bg-soft-primary text-primary d-flex align-items-center justify-content-center rounded-circle"
+                                style="width: 40px; height: 40px;">
+                                <i class="bi bi-calendar-range"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0 fw-bold small text-dark">Earned Leaves</h5>
+                                <p class="mb-0 text-muted smaller">Accrued monthly</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 text-center">
+                            <div>
+                                <p class="mb-0 text-muted" style="font-size: 0.65rem;">TOTAL</p>
+                                <span class="fw-bold text-dark small">24</span>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-muted" style="font-size: 0.65rem;">USED</p>
+                                <span class="fw-bold text-dark small">10</span>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-primary" style="font-size: 0.65rem; font-weight: 700;">AVAIL</p>
+                                <span class="fw-bold text-primary small">14</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-circle bg-soft-purple text-purple d-flex align-items-center justify-content-center rounded-circle"
+                                style="width: 40px; height: 40px;">
+                                <i class="bi bi-person-hearts"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0 fw-bold small text-dark">Paternity Leave</h5>
+                                <p class="mb-0 text-muted smaller">Special grant</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 text-center">
+                            <div>
+                                <p class="mb-0 text-muted" style="font-size: 0.65rem;">TOTAL</p>
+                                <span class="fw-bold text-dark small">15</span>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-muted" style="font-size: 0.65rem;">USED</p>
+                                <span class="fw-bold text-dark small">0</span>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-primary" style="font-size: 0.65rem; font-weight: 700;">AVAIL</p>
+                                <span class="fw-bold text-primary small">15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Recent Requests -->
+            <div class="mb-5 pb-5"> <!-- Extra padding to ensure content isn't hidden by FAB -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="h6 fw-bold text-dark mb-0">Recent Requests</h4>
+                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View All</a>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+
+                    <!-- Request 1 -->
+                    <div class="request-card glass-effect p-3 d-flex align-items-center gap-3">
+                        <div class="date-box text-center">
+                            <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">OCT</span>
+                            <span class="d-block text-dark fw-bold fs-5 lh-1">12</span>
+                        </div>
+                        <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
+                            <h5 class="mb-0 fw-bold small text-dark">Privilege Leave</h5>
+                            <p class="mb-0 text-muted smaller">2 days (Oct 12-13)</p>
+                        </div>
+                        <span
+                            class="badge bg-soft-success text-success fw-bold rounded-pill px-3 py-2 border border-success border-opacity-25"
+                            style="font-size: 0.65rem;">APPROVED</span>
+                    </div>
+
+                    <!-- Request 2 -->
+                    <div class="request-card glass-effect p-3 d-flex align-items-center gap-3">
+                        <div class="date-box text-center">
+                            <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">NOV</span>
+                            <span class="d-block text-dark fw-bold fs-5 lh-1">05</span>
+                        </div>
+                        <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
+                            <h5 class="mb-0 fw-bold small text-dark">Casual Leave</h5>
+                            <p class="mb-0 text-muted smaller">1 day (Nov 05)</p>
+                        </div>
+                        <span
+                            class="badge bg-soft-warning text-warning fw-bold rounded-pill px-3 py-2 border border-warning border-opacity-25"
+                            style="font-size: 0.65rem;">PENDING</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- End App Content -->
+
+        <!-- Floating Action Button -->
+        <a href="/New-Request.html"
+            class="btn-fab bg-primary text-white rounded-circle shadow-lg d-flex justify-content-center align-items-center position-fixed z-3">
+            <i class="bi bi-plus fs-2"></i>
+        </a>
+
+        <!-- Bottom Navigation Bar (Assuming global style added in previous step) -->
+        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-3">
+            <a href="index.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-house-door-fill fs-5"></i>
+                <span class="nav-label">HOME</span>
+            </a>
+            <a href="Leave-Dashboard.html"
+                class="nav-item active text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-bar-chart-fill fs-5"></i> <!-- closest to graphic in design -->
+                <span class="nav-label">LEAVES</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-calendar4-week fs-5"></i>
+                <span class="nav-label">CALENDAR</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-person-fill fs-5"></i>
+                <span class="nav-label">PROFILE</span>
+            </a>
+        </nav>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+</body>
+
+</html>
