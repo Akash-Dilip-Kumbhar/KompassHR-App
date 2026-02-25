@@ -37,108 +37,147 @@
 
         <div class="app-content px-3 pt-2">
 
-            <!-- Calendar Component -->
-            <div class="calendar-card glass-effect p-4 mb-4 text-center">
-                <!-- Calendar Header -->
-                <div class="d-flex justify-content-between align-items-center mb-4 px-2">
-                    <i class="bi bi-chevron-left text-dark"></i>
-                    <h5 class="mb-0 fw-bold text-dark">August 2024</h5>
-                    <i class="bi bi-chevron-right text-dark"></i>
-                </div>
+            <!-- Comprehensive Leave Request Form -->
+            <form class="leave-request-form mb-5 pb-5">
 
-                <!-- Days of Week -->
-                <div class="calendar-grid mb-3">
-                    <div class="text-muted fw-bold smaller">S</div>
-                    <div class="text-muted fw-bold smaller">M</div>
-                    <div class="text-muted fw-bold smaller">T</div>
-                    <div class="text-muted fw-bold smaller">W</div>
-                    <div class="text-muted fw-bold smaller">T</div>
-                    <div class="text-muted fw-bold smaller">F</div>
-                    <div class="text-muted fw-bold smaller">S</div>
-                </div>
+                <!-- Use a more mobile-friendly spacing -->
+                <div class="d-flex flex-column gap-3">
 
-                <!-- Dates Grid -->
-                <div class="calendar-grid dates-grid">
-                    <!-- Week 1 (Offset) -->
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div class="date-cell">1</div>
-                    <div class="date-cell">2</div>
-                    <div class="date-cell">3</div>
-
-                    <!-- Week 2 (Selected Range: 5 to 7) -->
-                    <div class="date-cell">4</div>
-                    <div class="date-cell date-range-start text-white fw-bold">5</div>
-                    <div class="date-cell date-range-middle text-primary fw-bold">6</div>
-                    <div class="date-cell date-range-end text-white fw-bold">7</div>
-                    <div class="date-cell">8</div>
-                    <div class="date-cell">9</div>
-                    <div class="date-cell">10</div>
-
-                    <!-- Week 3 -->
-                    <div class="date-cell">11</div>
-                    <div class="date-cell">12</div>
-                    <div class="date-cell">13</div>
-                    <div class="date-cell">14</div>
-                    <div class="date-cell">15</div>
-                    <div class="date-cell">16</div>
-                    <div class="date-cell">17</div>
-
-                    <!-- Week 4 -->
-                    <div class="date-cell">18</div>
-                    <div class="date-cell">19</div>
-                    <div class="date-cell">20</div>
-                    <div class="date-cell">21</div>
-                    <div class="date-cell">22</div>
-                    <div class="date-cell">23</div>
-                    <div class="date-cell">24</div>
-
-                    <!-- Week 5 -->
-                    <div class="date-cell">25</div>
-                    <div class="date-cell">26</div>
-                    <div class="date-cell">27</div>
-                    <div class="date-cell">28</div>
-                    <div class="date-cell">29</div>
-                    <div class="date-cell">30</div>
-                    <div class="date-cell">31</div>
-                </div>
-            </div>
-
-            <!-- Select Type -->
-            <div class="mb-4">
-                <p class="text-muted fw-bold smaller tracking-wide mb-3 px-1 text-uppercase">Select Type</p>
-                <div class="horizontal-scroll-container d-flex gap-3 pb-2">
-                    <!-- Active Type -->
-                    <div
-                        class="type-selector active d-flex align-items-center gap-2 p-3 rounded-4 bg-primary text-white shadow-sm flex-shrink-0">
-                        <i class="bi bi-briefcase-fill"></i>
-                        <span class="fw-semibold">Sick Leave</span>
+                    <!-- Doc No & Year Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-hash glass-input-icon"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Doc No.</label>
+                                    <input type="number" class="premium-input" value="10045" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-calendar-event glass-input-icon text-primary"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Year</label>
+                                    <select class="premium-select">
+                                        <option value="2024" selected>2024</option>
+                                        <option value="2023">2023</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Inactive Type -->
-                    <div
-                        class="type-selector glass-effect d-flex align-items-center gap-2 p-3 rounded-4 text-dark flex-shrink-0">
-                        <i class="bi bi-emoji-smile"></i>
-                        <span class="fw-semibold">Casual</span>
-                    </div>
-                    <!-- Inactive Type -->
-                    <div
-                        class="type-selector glass-effect d-flex align-items-center gap-2 p-3 rounded-4 text-dark flex-shrink-0">
-                        <i class="bi bi-star-fill text-muted"></i>
-                        <span class="fw-semibold">Privilege</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Reason Input -->
-            <div class="mb-5 pb-5"> <!-- Extra padding for fixed drawer -->
-                <p class="text-muted fw-bold smaller tracking-wide mb-3 px-1 text-uppercase">Reason</p>
-                <div class="reason-input-container glass-effect rounded-4 p-3">
-                    <textarea class="form-control border-0 bg-transparent text-dark shadow-none p-0" rows="3"
-                        placeholder="Add a note (optional)..."></textarea>
+                    <!-- Leave Type -->
+                    <div class="glass-input-wrapper">
+                        <i class="bi bi-briefcase glass-input-icon text-primary"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Leave Type</label>
+                            <select class="premium-select">
+                                <option value="PL">Privilege Leave (PL)</option>
+                                <option value="SL">Sick Leave (SL)</option>
+                                <option value="CL">Casual Leave (CL)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Leave Day -->
+                    <div class="glass-input-wrapper">
+                        <i class="bi bi-sun glass-input-icon text-warning"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Duration Type</label>
+                            <select class="premium-select">
+                                <option value="full" selected>Full Day</option>
+                                <option value="half-first">Half Day - First</option>
+                                <option value="half-last">Half Day - Last</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dates Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-calendar-minus glass-input-icon text-primary"
+                                    style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">From</label>
+                                    <input type="date" id="fromDate" class="premium-input" value="2024-08-05"
+                                        style="letter-spacing: -0.5px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-calendar-plus glass-input-icon text-primary"
+                                    style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">To</label>
+                                    <input type="date" id="toDate" class="premium-input" value="2024-08-07"
+                                        style="letter-spacing: -0.5px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shift & Total -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-clock glass-input-icon text-primary"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Shift</label>
+                                    <select class="premium-select">
+                                        <option value="general" selected>General</option>
+                                        <option value="morning">Morning</option>
+                                        <option value="night">Night</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper bg-soft-primary border-0">
+                                <i class="bi bi-calculator glass-input-icon text-primary"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label text-primary">Total Days</label>
+                                    <input type="number" id="totalDays" class="premium-input text-primary fw-bold fs-5"
+                                        value="3" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reason -->
+                    <div class="glass-input-wrapper align-items-start">
+                        <i class="bi bi-pencil-square glass-input-icon text-primary mt-1"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Reason</label>
+                            <textarea class="premium-textarea" rows="3"
+                                placeholder="Type your reason here..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Proof Upload -->
+                    <div>
+                        <label class="glass-input-label mb-2 px-1 text-dark text-uppercase fw-bold">Attachment <span
+                                class="fw-normal text-muted">(Optional)</span></label>
+                        <div class="premium-dropzone p-4 text-center position-relative">
+                            <input type="file" id="proofUpload"
+                                class="position-absolute top-0 start-0 w-100 h-100 opacity-0" style="cursor: pointer;">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="icon-wrapper bg-soft-primary rounded-circle mb-2"
+                                    style="width: 44px; height: 44px;">
+                                    <i class="bi bi-cloud-arrow-up text-primary fs-4"></i>
+                                </div>
+                                <h6 class="mb-0 fw-semibold small text-dark">Tap to Upload Proof</h6>
+                                <p class="mb-0 text-muted smaller mt-1">PDF, JPG, PNG (Max 5MB)</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+            </form>
 
         </div> <!-- End App Content -->
 
@@ -161,16 +200,23 @@
             </div>
 
             <!-- Slide to Request Button -->
-            <div class="slide-button-track rounded-pill bg-light d-flex align-items-center p-2 position-relative w-100 overflow-hidden"
+            <div class="slider-container slide-button-track rounded-pill d-flex align-items-center p-2 position-relative w-100 overflow-hidden"
                 style="height: 64px;">
-                <!-- Simulated Slide Knob -->
-                <div class="slide-knob bg-primary rounded-circle text-white d-flex justify-content-center align-items-center shadow-sm position-absolute"
-                    style="width: 48px; height: 48px; left: 8px;">
+
+                <!-- Expanding Background -->
+                <div class="slider-bg position-absolute top-0 start-0 h-100 bg-success"
+                    style="width: 0px; transition: width 0.3s ease; z-index: 0; border-radius: 50rem;"></div>
+
+                <!-- Shimmer text -->
+                <p class="slider-text w-100 text-center mb-0 fw-bold text-muted"
+                    style="z-index: 1; pointer-events: none; transition: opacity 0.3s ease;">Slide to
+                    Request</p>
+
+                <!-- Slide Knob -->
+                <div class="slider-thumb slide-knob rounded-circle text-white d-flex justify-content-center align-items-center shadow-sm position-absolute cursor-pointer"
+                    style="width: 48px; height: 48px; left: 8px; z-index: 2; transition: transform 0.3s ease;">
                     <i class="bi bi-chevron-right fs-5"></i>
                 </div>
-                <!-- Shimmer text -->
-                <p class="w-100 text-center mb-0 fw-bold text-muted" style="z-index: 0; pointer-events: none;">Slide to
-                    Request</p>
             </div>
 
         </div>
@@ -179,6 +225,167 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Form Calculation Logic ---
+            const fromDateInput = document.getElementById('fromDate');
+            const toDateInput = document.getElementById('toDate');
+            const totalDaysInput = document.getElementById('totalDays');
+            const drawerDaysDisplay = document.querySelector('.action-drawer h2.display-6');
+            const drawerDatesDisplay = document.querySelector('.action-drawer p.fw-bold.small:not(.mb-1)');
+
+            function calculateDays() {
+                if (fromDateInput.value && toDateInput.value) {
+                    const fromDate = new Date(fromDateInput.value);
+                    const toDate = new Date(toDateInput.value);
+
+                    if (toDate >= fromDate) {
+                        const diffTime = Math.abs(toDate - fromDate);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // inclusive
+
+                        totalDaysInput.value = diffDays;
+                        drawerDaysDisplay.textContent = `${diffDays} Days`;
+
+                        const formatOpt = { month: 'short', day: 'numeric' };
+                        const startStr = fromDate.toLocaleDateString('en-US', formatOpt);
+                        const endStr = toDate.toLocaleDateString('en-US', formatOpt);
+                        drawerDatesDisplay.textContent = `${startStr} - ${endStr}`;
+                    } else {
+                        // Invalid range, reset
+                        totalDaysInput.value = 0;
+                        drawerDaysDisplay.textContent = `0 Days`;
+                        drawerDatesDisplay.textContent = `Invalid Range`;
+                    }
+                }
+            }
+
+            fromDateInput.addEventListener('change', calculateDays);
+            toDateInput.addEventListener('change', calculateDays);
+
+            // Initial calc
+            calculateDays();
+
+            // --- Slide to Request Interaction ---
+            const sliderContainer = document.querySelector('.slider-container');
+            const sliderThumb = document.querySelector('.slider-thumb');
+            const sliderText = document.querySelector('.slider-text');
+            const sliderBg = document.querySelector('.slider-bg');
+            let isDragging = false;
+            let startX = 0;
+            let maxSlide = 0;
+
+            // ... (keep the existing slider JS here)
+            // Just copying the slider logic from previous implementation if I had it, 
+            // but since it wasn't there, let's implement the slider logic too!
+
+            maxSlide = sliderContainer.offsetWidth - sliderThumb.offsetWidth - 8; // 4px padding on each side
+
+            sliderThumb.addEventListener('mousedown', startDrag);
+            sliderThumb.addEventListener('touchstart', startDrag, { passive: true });
+
+            function startDrag(e) {
+                isDragging = true;
+                sliderThumb.style.transition = 'none';
+                sliderBg.style.transition = 'none';
+                startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+                document.addEventListener('mousemove', onDrag);
+                document.addEventListener('touchmove', onDrag, { passive: false });
+                document.addEventListener('mouseup', endDrag);
+                document.addEventListener('touchend', endDrag);
+            }
+
+            function onDrag(e) {
+                if (!isDragging) return;
+
+                // Prevent default scrolling on touch devices while sliding
+                if (e.cancelable) e.preventDefault();
+
+                const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                let moveX = currentX - startX;
+
+                if (moveX < 0) moveX = 0;
+                if (moveX > maxSlide) moveX = maxSlide;
+
+                sliderThumb.style.transform = `translateX(${moveX}px)`;
+                sliderBg.style.width = `${moveX + sliderThumb.offsetWidth / 2}px`;
+
+                // Opacity fade as you slide
+                const progress = moveX / maxSlide;
+                sliderText.style.opacity = 1 - progress;
+            }
+
+            function endDrag() {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const currentTransform = sliderThumb.style.transform;
+                const match = currentTransform.match(/translateX\(([-\d.]+)px\)/);
+                const currentX = match ? parseFloat(match[1]) : 0;
+
+                document.removeEventListener('mousemove', onDrag);
+                document.removeEventListener('touchmove', onDrag);
+                document.removeEventListener('mouseup', endDrag);
+                document.removeEventListener('touchend', endDrag);
+
+                if (currentX > maxSlide * 0.8) {
+                    // Success! Slide completed
+                    sliderThumb.style.transform = `translateX(${maxSlide}px)`;
+                    sliderBg.style.width = `100%`;
+
+                    // Change icon to check
+                    sliderThumb.innerHTML = '<i class="bi bi-check fs-4"></i>';
+                    sliderThumb.classList.remove('bg-primary');
+                    sliderThumb.classList.add('bg-success', 'text-white');
+                    sliderThumb.style.background = 'none'; // reset gradient
+                    sliderThumb.style.backgroundColor = 'var(--success)';
+
+                    // Use SweetAlert2 for success msg
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: 'Leave Generated!',
+                            text: 'Your leave request has been submitted successfully for approval.',
+                            icon: 'success',
+                            background: 'rgba(255, 255, 255, 0.95)',
+                            customClass: {
+                                popup: 'rounded-4 shadow-lg border border-white',
+                                confirmButton: 'btn btn-primary rounded-pill px-4',
+                                title: 'fs-4 fw-bold text-dark',
+                                htmlContainer: 'text-muted'
+                            },
+                            buttonsStyling: false,
+                            confirmButtonText: 'Great!'
+                        }).then((result) => {
+                            // Redirect to dashboard after clicking OK
+                            window.location.href = 'Leave-Dashboard.html';
+                        });
+                    }, 300);
+
+                } else {
+                    // Snap back
+                    sliderThumb.style.transition = 'transform 0.3s ease';
+                    sliderBg.style.transition = 'width 0.3s ease';
+                    sliderText.style.transition = 'opacity 0.3s ease';
+
+                    sliderThumb.style.transform = 'translateX(0px)';
+                    sliderBg.style.width = '0px';
+                    sliderText.style.opacity = 1;
+                }
+            }
+
+            // Recalculate maxSlide on window resize
+            window.addEventListener('resize', () => {
+                maxSlide = sliderContainer.offsetWidth - sliderThumb.offsetWidth - 8;
+                if (!isDragging && sliderThumb.style.transform === 'translateX(0px)') {
+                    sliderBg.style.width = '0px';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
