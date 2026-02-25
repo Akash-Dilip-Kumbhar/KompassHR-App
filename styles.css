@@ -125,11 +125,11 @@ body {
 .mobile-wrapper {
     max-width: 414px;
     /* Typical large mobile width (iPhone Pro Max) */
-    margin: 0 auto;
+
     min-height: 100vh;
     background-color: transparent;
     position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+
     /* Shadow to separate from desktop bg */
     overflow-x: hidden;
     overflow-y: auto;
@@ -403,24 +403,17 @@ body {
 }
 
 /* --- Welcome Screen Specifics --- */
-.welcome-screen-body {
-    background-image: none;
-    /* Inherit global premium background from body */
-}
 
 .welcome-card {
     /* More transparent glass effect instead of almost solid white */
     background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 40px;
-    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    height: calc(100vh - 40px);
-    /* Fill most of the mobile view */
-    max-height: 800px;
-    /* Cap height on very tall displays */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    /* Fill entire mobile view vertically */
 }
 
 .logo-circle {
