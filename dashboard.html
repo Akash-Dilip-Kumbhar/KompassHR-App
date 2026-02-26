@@ -101,8 +101,9 @@
             <!-- Check-in Widget (Luminous Glass Card) -->
             <div class="px-3 mb-4">
                 <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden">
-                    <h2 class="time-display display-3 fw-bold mb-1">09:41:25</h2>
-                    <p class="date-display text-uppercase fw-medium text-muted tracking-wide mb-3">Monday, 12 Aug</p>
+                    <h2 id="liveTimeDisplay" class="time-display display-3 fw-bold mb-1">09:41:25</h2>
+                    <p id="liveDateDisplay" class="date-display text-uppercase fw-medium text-muted tracking-wide mb-3">
+                        Monday, 12 Aug</p>
 
                     <!-- Explicit Check In/Out Times -->
                     <div class="d-flex justify-content-center gap-4 mb-4">
@@ -710,6 +711,49 @@
                 });
             });
         });
+
+        // --- Live Clock for Check-In Widget ---
+        function updateLiveClock() {
+            const timeDisplay = document.getElementById('liveTimeDisplay');
+            const dateDisplay = document.getElementById('liveDateDisplay');
+
+            if (!timeDisplay || !dateDisplay) return;
+
+            const now = new Date();
+
+            // Format strictly to Indian Standard Time (IST), 12-hour AM/PM
+            const timeOptions = {
+                timeZone: 'Asia/Kolkata',
+                hour12: true,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const timeString = new Intl.DateTimeFormat('en-IN', timeOptions).format(now);
+            timeDisplay.textContent = timeString;
+
+            // Format Date: Weekday, DD Mon
+            const dateOptions = {
+                timeZone: 'Asia/Kolkata',
+                weekday: 'long',
+                day: '2-digit',
+                month: 'short'
+            };
+            const dateParts = new Intl.DateTimeFormat('en-IN', dateOptions).formatToParts(now);
+
+            let weekday = '', day = '', month = '';
+            dateParts.forEach(({ type, value }) => {
+                if (type === 'weekday') weekday = value;
+                if (type === 'day') day = value;
+                if (type === 'month') month = value;
+            });
+            dateDisplay.textContent = `${weekday}, ${day} ${month}`;
+        }
+
+        // Update clock immediately then every 1 second
+        updateLiveClock();
+        setInterval(updateLiveClock, 1000);
+
     </script>
 </body>
 
