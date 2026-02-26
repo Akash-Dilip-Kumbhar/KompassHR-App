@@ -421,7 +421,7 @@ body {
 
 .welcome-card {
     /* More transparent glass effect instead of almost solid white */
-    background: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: none;
@@ -432,13 +432,12 @@ body {
 }
 
 .logo-circle {
-    width: 280px;
-    height: 280px;
+    width: 180px;
+    height: 180px;
     background: rgba(255, 255, 255, 0.7);
     /* Glassy circle instead of solid soft blue */
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    margin-top: 1rem;
     animation: floatIcon 4s ease-in-out infinite;
 }
 
@@ -488,9 +487,8 @@ body {
 }
 
 .welcome-title {
-    font-size: min(2.5rem, 8vw);
-    line-height: 1.1;
-    letter-spacing: -1px;
+    font-size: min(1.8rem, 9vw);
+    line-height: 1.1;  
     padding-bottom: 16px;
     background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
     -webkit-background-clip: text;
@@ -500,7 +498,8 @@ body {
 
 .title-underline {
     height: 3px;
-    width: 60px;
+    width: 80px;
+    margin-top: 20px;
     background-color: #bfdbfe;
     /* Soft blue underline */
     border-radius: 2px;
