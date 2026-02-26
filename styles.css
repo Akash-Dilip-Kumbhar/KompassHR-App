@@ -49,7 +49,7 @@ body {
     background-image: radial-gradient(circle at 80% 10%, rgba(200, 220, 255, 0.7) 0%, transparent 40%),
         radial-gradient(circle at 0% 80%, rgba(230, 215, 255, 0.5) 0%, transparent 40%);
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -128,7 +128,7 @@ body {
     margin: 0 auto;
     /* Center on tablet/desktop */
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: transparent;
     position: relative;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
@@ -420,41 +420,48 @@ body {
     border: none;
     border-radius: 0;
     box-shadow: none;
-    min-height: 100vh;
+    min-height: 100dvh;
     /* Fill entire mobile view vertically */
 }
 
 .logo-circle {
-    width: 64px;
-    height: 64px;
+    width: 130px;
+    height: 130px;
     background: rgba(255, 255, 255, 0.7);
     /* Glassy circle instead of solid soft blue */
     border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     margin-top: 1rem;
+    animation: floatIcon 4s ease-in-out infinite;
 }
 
 .company-name {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+    text-align: center;
 }
 
 .cover-image-wrapper {
-    height: 180px;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    height: 260px;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
 }
 
 .welcome-subtitle {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 0.15em;
     color: var(--primary-color);
 }
 
 .welcome-title {
-    font-size: 2.2rem;
-    line-height: 1.1;
+    font-size: 2.8rem;
+    line-height: 1.2;
     letter-spacing: -1px;
-    padding-bottom: 20px;
+    padding-bottom: 24px;
+    background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .title-underline {
@@ -767,4 +774,164 @@ body {
 .premium-dropzone:hover {
     background: rgba(59, 130, 246, 0.05);
     border-color: var(--primary-color);
+}
+
+/* --- Premium Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+@keyframes breathingBtn {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+    }
+
+    50% {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 35px -5px rgba(59, 130, 246, 0.6);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+    }
+}
+
+.pulse-btn {
+    animation: breathingBtn 3s ease-in-out infinite;
+}
+
+.pulse-btn:hover {
+    animation-play-state: paused;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.7);
+}
+
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 25px rgba(59, 130, 246, 0.5);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+}
+
+@keyframes subtleZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+.animated-zoom {
+    animation: subtleZoom 15s infinite alternate ease-in-out;
+}
+
+/* Moving background blobs for Luminous feel */
+.bg-blobs {
+    position: fixed;
+    width: 100vw;
+    height: 100dvh;
+    z-index: -1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: moveBlobs 15s infinite alternate ease-in-out;
+    border-radius: 50%;
+}
+
+@keyframes moveBlobs {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(5vw, -5vh) scale(1.2);
+    }
+
+    66% {
+        transform: translate(-3vw, 8vh) scale(0.8);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(59, 130, 246, 0.5);
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(168, 85, 247, 0.3);
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: rgba(14, 165, 233, 0.4);
+    top: 40%;
+    left: 60%;
+    animation-delay: -2s;
 }
