@@ -133,28 +133,6 @@
             </div>
 
         </div> <!-- End App Content -->
-
-        <!-- Bottom Navigation -->
-        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-2">
-            <a href="dashboard.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
-                <i class="bi bi-grid-fill fs-5"></i>
-                <span class="nav-label">Home</span>
-            </a>
-            <a href="Leave-Dashboard.html"
-                class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
-                <i class="bi bi-file-earmark-text fs-5"></i>
-                <span class="nav-label">Requests</span>
-            </a>
-            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
-                <i class="bi bi-people fs-5"></i>
-                <span class="nav-label">Team</span>
-            </a>
-            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
-                <i class="bi bi-person fs-5"></i>
-                <span class="nav-label">Profile</span>
-            </a>
-        </nav>
-
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
@@ -165,55 +143,115 @@
             const markAllReadBtn = document.getElementById('markAllReadBtn');
             const notificationsContainer = document.getElementById('notificationsContainer');
 
-            if (markAllReadBtn && notificationsContainer) {
-                markAllReadBtn.addEventListener('click', () => {
-                    // Get all notification children (excluding the empty state message if it exists)
-                    const notifications = Array.from(notificationsContainer.children).filter(child => !child.classList.contains('empty-state'));
+            // Helper to show empty state when all notifications are cleared
+            const checkEmptyState = () => {
+                const remaining = Array.from(notificationsContainer.children).filter(child => !child.classList.contains('empty-state'));
+                if (remaining.length === 0 && !notificationsContainer.querySelector('.empty-state')) {
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'empty-state text-center mt-5 p-4 animate-fade-up';
+                    emptyState.style.animationDelay = '0.2s';
+                    emptyState.innerHTML = `
+                        <div class="mb-3 d-inline-flex justify-content-center align-items-center rounded-circle bg-soft-success" style="width: 80px; height: 80px;">
+                            <i class="bi bi-check2-all text-success" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mt-3 h5">You're all caught up!</h4>
+                        <p class="text-muted small">No new notifications right now.</p>
+                    `;
+                    notificationsContainer.appendChild(emptyState);
 
-                    if (notifications.length === 0) return;
-
-                    // Play a subtle click animation on the button
-                    markAllReadBtn.style.transform = 'scale(0.95)';
-                    setTimeout(() => markAllReadBtn.style.transform = 'scale(1)', 150);
-
-                    // Add transition CSS dynamically to ensure smooth animation
-                    notifications.forEach((notif, index) => {
-                        notif.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                        // Stagger the animation delay based on index
-                        notif.style.transitionDelay = `${index * 50}ms`;
-
-                        // Set the specific property to animate: transformX to slide right, fade out
-                        setTimeout(() => {
-                            notif.style.opacity = '0';
-                            notif.style.transform = 'translateX(100%)';
-                        }, 50); // slight initial delay to let CSS pick up transition property
-                    });
-
-                    // Wait for the longest animation to finish before removing from DOM
-                    const totalAnimationTime = 400 + (notifications.length * 50);
-
-                    setTimeout(() => {
-                        // Clear the container
-                        notificationsContainer.innerHTML = '';
-
-                        // Add "All Caught Up" Empty State
-                        const emptyState = document.createElement('div');
-                        emptyState.className = 'empty-state text-center mt-5 p-4 animate-fade-up';
-                        emptyState.style.animationDelay = '0.2s';
-                        emptyState.innerHTML = `
-                            <div class="mb-3 d-inline-flex justify-content-center align-items-center rounded-circle bg-soft-success" style="width: 80px; height: 80px;">
-                                <i class="bi bi-check2-all text-success" style="font-size: 2.5rem;"></i>
-                            </div>
-                            <h4 class="fw-bold text-dark mt-3 h5">You're all caught up!</h4>
-                            <p class="text-muted small">No new notifications right now.</p>
-                        `;
-                        notificationsContainer.appendChild(emptyState);
-
-                        // Disable the button since there's nothing left to read
+                    if (markAllReadBtn) {
                         markAllReadBtn.disabled = true;
                         markAllReadBtn.classList.replace('btn-soft-primary', 'btn-light');
                         markAllReadBtn.classList.add('text-muted');
+                    }
+                }
+            };
+
+            // Setup Mark All Read functionality
+            if (markAllReadBtn && notificationsContainer) {
+                markAllReadBtn.addEventListener('click', () => {
+                    const notifications = Array.from(notificationsContainer.children).filter(child => !child.classList.contains('empty-state'));
+                    if (notifications.length === 0) return;
+
+                    markAllReadBtn.style.transform = 'scale(0.95)';
+                    setTimeout(() => markAllReadBtn.style.transform = 'scale(1)', 150);
+
+                    notifications.forEach((notif, index) => {
+                        notif.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                        notif.style.transitionDelay = `${index * 50}ms`;
+                        setTimeout(() => {
+                            notif.style.opacity = '0';
+                            notif.style.transform = 'translateX(100%)';
+                        }, 50);
+                    });
+
+                    const totalAnimationTime = 400 + (notifications.length * 50);
+                    setTimeout(() => {
+                        notificationsContainer.innerHTML = '';
+                        checkEmptyState();
                     }, totalAnimationTime);
+                });
+            }
+
+            // Setup Mobile Swipe-to-Dismiss for individual notifications
+            if (notificationsContainer) {
+                // Select all current notifications built-in
+                const notificationItems = notificationsContainer.querySelectorAll('.glass-effect');
+
+                notificationItems.forEach(notif => {
+                    let startX = 0;
+                    let currentX = 0;
+                    let isSwiping = false;
+
+                    notif.addEventListener('touchstart', (e) => {
+                        startX = e.touches[0].clientX;
+                        currentX = startX;
+                        isSwiping = true;
+                        notif.style.transition = 'none'; // Disable CSS transitions for instant dragging
+                    }, { passive: true });
+
+                    notif.addEventListener('touchmove', (e) => {
+                        if (!isSwiping) return;
+                        currentX = e.touches[0].clientX;
+                        const deltaX = currentX - startX;
+
+                        // Only slide to the right
+                        if (deltaX > 0) {
+                            notif.style.transform = `translateX(${deltaX}px)`;
+                            // Fade out dynamically based on swipe distance
+                            notif.style.opacity = Math.max(0, 1 - (deltaX / window.innerWidth) * 1.5).toString();
+                        }
+                    }, { passive: true });
+
+                    notif.addEventListener('touchend', () => {
+                        if (!isSwiping) return;
+                        isSwiping = false;
+
+                        const deltaX = currentX - startX;
+                        const swipeThreshold = 100; // minimum pixels to dismiss
+
+                        // Re-enable smooth transition for the finish animation
+                        notif.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+
+                        if (deltaX > swipeThreshold) {
+                            // Committing dismiss: slide all the way and fade
+                            notif.style.transform = 'translateX(100%)';
+                            notif.style.opacity = '0';
+
+                            // Remove from DOM when animation is guaranteed done
+                            setTimeout(() => {
+                                notif.style.display = 'none'; // Collapse space cleanly
+                                setTimeout(() => {
+                                    notif.remove();
+                                    checkEmptyState(); // Check if list is empty now
+                                }, 10);
+                            }, 300);
+                        } else {
+                            // Cancel dismiss: Snap back
+                            notif.style.transform = 'translateX(0)';
+                            notif.style.opacity = '1';
+                        }
+                    });
                 });
             }
         });
