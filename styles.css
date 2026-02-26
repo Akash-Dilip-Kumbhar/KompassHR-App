@@ -489,7 +489,7 @@ body {
 
 .welcome-title {
     font-size: min(1.8rem, 9vw);
-    line-height: 1.1;  
+    line-height: 1.1;
     padding-bottom: 16px;
     background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
     -webkit-background-clip: text;
@@ -969,4 +969,9 @@ body {
     top: 50%;
     left: 70%;
     animation-delay: -2s;
+}
+
+/* Ensure offcanvas shows above mobile wrapper */
+.offcanvas {
+    z-index: 1050 !important;
 }
