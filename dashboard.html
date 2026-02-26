@@ -23,6 +23,51 @@
 
 <body class="bg-luminous">
 
+    <!-- User Slide-out Sidebar -->
+    <div class="offcanvas offcanvas-start rounded-end-4 shadow-lg border-0" tabindex="-1" id="userSidebar"
+        aria-labelledby="userSidebarLabel"
+        style="width: 80%; max-width: 320px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);">
+        <div class="offcanvas-header border-bottom border-light pb-4 pt-4">
+            <div class="d-flex align-items-center gap-3">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Akash"
+                    class="rounded-circle shadow-sm border border-2 border-primary" style="width: 60px; height: 60px;">
+                <div>
+                    <h5 class="offcanvas-title fw-bold text-dark mb-0" id="userSidebarLabel">Akash Kumbhar</h5>
+                    <p class="text-muted small mb-0">Frontend Developer</p>
+                </div>
+            </div>
+            <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-4">
+            <div class="list-group list-group-flush border-0 gap-2">
+                <a href="#"
+                    class="list-group-item list-group-item-action border-0 rounded-3 d-flex align-items-center gap-3 py-3"
+                    style="background: rgba(255, 255, 255, 0.5);">
+                    <i class="bi bi-person-badge fs-5 text-primary"></i> <span class="fw-semibold text-dark">My
+                        Profile</span>
+                </a>
+                <a href="#"
+                    class="list-group-item list-group-item-action border-0 rounded-3 d-flex align-items-center gap-3 py-3"
+                    style="background: rgba(255, 255, 255, 0.5);">
+                    <i class="bi bi-gear fs-5 text-secondary"></i> <span class="fw-semibold text-dark">Settings</span>
+                </a>
+                <a href="#"
+                    class="list-group-item list-group-item-action border-0 rounded-3 d-flex align-items-center gap-3 py-3"
+                    style="background: rgba(255, 255, 255, 0.5);">
+                    <i class="bi bi-clock-history fs-5 text-info"></i> <span class="fw-semibold text-dark">Attendance
+                        History</span>
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-footer p-4 border-top border-light">
+            <a href="index.html"
+                class="btn btn-soft-danger w-100 py-2 fw-bold d-flex justify-content-center align-items-center gap-2 rounded-pill">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
+        </div>
+    </div>
+
     <!-- Mobile Wrapper -->
     <div class="mobile-wrapper">
 
@@ -35,10 +80,21 @@
                     <h2 class="greeting fw-light mb-0">Good Afternoon,</h2>
                     <h1 class="user-name fw-bold">Akash</h1>
                 </div>
-                <div class="profile-avatar position-relative">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
-                        class="rounded-circle shadow-sm border border-2 border-white">
-                    <span class="status-indicator position-absolute bg-info border border-light rounded-circle"></span>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="Notifications.html" class="position-relative cursor-pointer text-decoration-none">
+                        <i class="bi bi-bell fs-4 text-dark"></i>
+                        <span
+                            class="position-absolute top-25 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    </a>
+                    <div class="profile-avatar position-relative" data-bs-toggle="offcanvas"
+                        data-bs-target="#userSidebar" role="button" aria-controls="userSidebar">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
+                            class="rounded-circle shadow-sm border border-2 border-white">
+                        <span
+                            class="status-indicator position-absolute bg-info border border-light rounded-circle"></span>
+                    </div>
                 </div>
             </header>
 
@@ -142,29 +198,47 @@
             <div class="px-3 mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="section-title h5 fw-bold mb-0">Leave Balances</h4>
-                    <a href="Leave-Dashboard.html" class="text-primary smaller fw-bold text-decoration-none">View
-                        All</a>
+                    <div class="nav-arrows text-muted">
+                        <i class="bi bi-chevron-left me-1 small"></i>
+                        <i class="bi bi-chevron-right small"></i>
+                    </div>
                 </div>
                 <!-- Glass card for mini leave summary -->
-                <div class="glass-effect p-3 d-flex justify-content-between text-center">
-                    <div class="flex-grow-1 border-end border-light border-opacity-50 px-2">
-                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">PRIVILEGE</p>
-                        <h4 class="mb-0 fw-bold text-primary">12</h4>
-                    </div>
-                    <div class="flex-grow-1 border-end border-light border-opacity-50 px-2">
-                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">SICK</p>
-                        <h4 class="mb-0 fw-bold text-danger">4</h4>
-                    </div>
-                    <div class="flex-grow-1 px-2">
-                        <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">CASUAL</p>
-                        <h4 class="mb-0 fw-bold text-warning">2</h4>
+                <div class="horizontal-scroll-container d-flex gap-3 pb-2">
+                    <div class="glass-effect p-3 d-flex text-center flex-shrink-0">
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">PRIVILEGE</p>
+                            <h4 class="mb-0 fw-bold text-primary">12</h4>
+                        </div>
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">SICK</p>
+                            <h4 class="mb-0 fw-bold text-danger">4</h4>
+                        </div>
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">CASUAL</p>
+                            <h4 class="mb-0 fw-bold text-warning">2</h4>
+                        </div>
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">MATERNITY</p>
+                            <h4 class="mb-0 fw-bold text-purple">90</h4>
+                        </div>
+                        <div class="flex-grow-1 px-2 text-center">
+                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">COMP OFF</p>
+                            <h4 class="mb-0 fw-bold text-success">1</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Pending Approvals -->
             <div class="px-3 mb-4">
-                <h4 class="section-title h5 fw-bold mb-3">Pending Approvals</h4>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Pending Approvals</h4>
+                    <div class="nav-arrows text-muted">
+                        <i class="bi bi-chevron-left me-1 small"></i>
+                        <i class="bi bi-chevron-right small"></i>
+                    </div>
+                </div>
 
                 <div class="horizontal-scroll-container d-flex gap-3 pb-2 pe-3">
                     <!-- Approval Card 1 -->
@@ -320,8 +394,8 @@
                     <a href="#" class="text-primary smaller fw-bold text-decoration-none">View Calendar</a>
                 </div>
 
-                <!-- Featured Birthday (Today) -->
-                <div class="birthday-highlight-card glass-effect position-relative overflow-hidden p-3 mb-3 d-flex align-items-center gap-3"
+                <!-- Featured Birthday (Today) with Confetti -->
+                <div class="birthday-highlight-card glass-effect position-relative overflow-hidden p-3 mb-3 d-flex align-items-center gap-3 confetti-container"
                     style="border-radius: 20px;">
                     <div class="position-absolute top-0 end-0 p-2 opacity-25">
                         <i class="bi bi-balloon-fill fs-1 text-warning"></i>
@@ -368,6 +442,89 @@
                 </div>
             </div>
 
+            <!-- Work Anniversaries (Task 5, 6) -->
+            <div class="px-3 mb-5 pb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Work Anniversaries</h4>
+                </div>
+
+                <!-- Featured Work Anniversary with Confetti Class -->
+                <div class="anniversary-highlight-card glass-effect position-relative overflow-hidden p-3 mb-3 d-flex align-items-center gap-3 confetti-container"
+                    style="border-radius: 20px;">
+                    <div class="position-absolute top-0 end-0 p-2 opacity-25">
+                        <i class="bi bi-award-fill fs-1 text-primary"></i>
+                    </div>
+                    <div class="position-relative z-1">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="David M."
+                            class="rounded-circle avatar-md border border-2 border-primary shadow-sm"
+                            style="width: 50px; height: 50px; object-fit: cover;">
+                    </div>
+                    <div class="position-relative z-1">
+                        <span class="badge bg-primary text-white mb-1 fw-bold" style="font-size: 0.65rem;">TODAY (3
+                            YEARS)</span>
+                        <h5 class="mb-0 fw-bold text-dark h6">David Miller</h5>
+                        <p class="mb-0 text-muted" style="font-size: 0.75rem;">Senior Developer</p>
+                    </div>
+                    <div class="ms-auto position-relative z-1">
+                        <button
+                            class="btn btn-sm btn-primary text-white rounded-circle shadow-sm d-flex justify-content-center align-items-center"
+                            style="width: 36px; height: 36px;">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Upcoming Anniversaries -->
+                <h6 class="fw-bold text-muted mb-2 tracking-wide" style="font-size: 0.7rem; text-transform: uppercase;">
+                    Upcoming</h6>
+                <div class="upcoming-birthdays d-flex flex-column gap-2">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
+                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Anita R." class="rounded-circle avatar-sm">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fw-bold small text-dark">Anita Rao</h6>
+                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">HR Manager · 2 Years (Aug 18)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Public Holidays (Task 4) -->
+            <div class="px-3 mb-5 pb-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">Public Holidays</h4>
+                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View All</a>
+                </div>
+
+                <div class="glass-effect p-3 mb-2 rounded-4 d-flex align-items-center gap-3">
+                    <div class="holiday-date text-center" style="min-width: 60px;">
+                        <span class="d-block text-danger fw-bold fs-5 lh-1">15</span>
+                        <span class="d-block text-muted text-uppercase"
+                            style="font-size: 0.65rem; font-weight: 700;">Aug</span>
+                    </div>
+                    <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
+                    <div class="flex-grow-1 ps-2">
+                        <h6 class="mb-0 fw-bold text-dark">Independence Day</h6>
+                        <p class="mb-0 text-muted" style="font-size: 0.75rem;">Thursday · <span
+                                class="text-primary fw-bold">In 3 Days</span></p>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-3 rounded-4 d-flex align-items-center gap-3 opacity-75">
+                    <div class="holiday-date text-center" style="min-width: 60px;">
+                        <span class="d-block text-dark fw-bold fs-5 lh-1">19</span>
+                        <span class="d-block text-muted text-uppercase"
+                            style="font-size: 0.65rem; font-weight: 700;">Aug</span>
+                    </div>
+                    <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
+                    <div class="flex-grow-1 ps-2">
+                        <h6 class="mb-0 fw-bold text-dark">Raksha Bandhan</h6>
+                        <p class="mb-0 text-muted" style="font-size: 0.75rem;">Monday · <span
+                                class="text-muted fw-bold">In 7 Days</span></p>
+                    </div>
+                </div>
+            </div>
+
         </div> <!-- End App Content -->
 
         <!-- Bottom Navigation -->
@@ -399,6 +556,10 @@
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // SweetAlert custom configuration for Luminous Glass aesthetic
