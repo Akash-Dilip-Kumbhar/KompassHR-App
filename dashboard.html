@@ -17,6 +17,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -108,12 +111,12 @@
                     <!-- Explicit Check In/Out Times -->
                     <div class="d-flex justify-content-center gap-4 mb-4">
                         <div class="text-start">
-                            <p class="mb-0 text-muted" style="font-size: 0.7rem; font-weight: 600;">CHECK IN AT</p>
+                            <p class="mb-0 text-muted fw-semibold text-xs text-uppercase">CHECK IN AT</p>
                             <p class="mb-0 fw-bold text-dark fs-6">09:15 AM</p>
                         </div>
                         <div class="border-start border-secondary opacity-25"></div>
                         <div class="text-start">
-                            <p class="mb-0 text-muted" style="font-size: 0.7rem; font-weight: 600;">CHECK OUT AT</p>
+                            <p class="mb-0 text-muted fw-semibold text-xs text-uppercase">CHECK OUT AT</p>
                             <p class="mb-0 fw-bold text-dark fs-6">--:-- --</p>
                         </div>
                     </div>
@@ -132,65 +135,100 @@
             <div class="px-3 mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="section-title h5 fw-bold mb-0">Quick Actions</h4>
-                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View
+                    <a href="quickactionall.html" class="text-primary smaller fw-bold text-decoration-none">View
                         All</a>
                 </div>
                 <div class="row g-3">
-                    <div class="col-4">
+                    <div class="col-3">
                         <a href="Leave-Dashboard.html" class="text-decoration-none d-block h-100">
                             <div
-                                class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
                                 <div class="icon-wrapper bg-soft-primary text-primary mb-2 rounded p-2">
-                                    <i class="bi bi-box-arrow-right fs-5"></i>
+                                    <i class="ti ti-calendar-off fs-4"></i>
                                 </div>
-                                <span class="action-label small fw-medium">Leave</span>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">Leave</span>
                             </div>
                         </a>
                     </div>
-                    <div class="col-4">
-                        <div
-                            class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="icon-wrapper bg-soft-purple text-purple mb-2 rounded p-2">
-                                <i class="bi bi-calendar3 fs-5"></i>
+                    <div class="col-3">
+                        <a href="coff.html" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-success text-success mb-2 rounded p-2">
+                                    <i class="ti ti-clock-plus fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">COff</span>
                             </div>
-                            <span class="action-label small fw-medium">Calendar</span>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4">
-                        <div
-                            class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="icon-wrapper bg-soft-success text-success mb-2 rounded p-2">
-                                <i class="bi bi-receipt fs-5"></i>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-warning text-warning mb-2 rounded p-2">
+                                    <i class="ti ti-briefcase fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark text-truncate w-100 text-xs">Outdoor</span>
                             </div>
-                            <span class="action-label small fw-medium">Payslip</span>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4">
-                        <div
-                            class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="icon-wrapper bg-soft-warning text-warning mb-2 rounded p-2">
-                                <i class="bi bi-house-door fs-5"></i>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-danger text-danger mb-2 rounded p-2">
+                                    <i class="ti ti-fingerprint-off fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Punch<br>Miss</span>
                             </div>
-                            <span class="action-label small fw-medium">WFH</span>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4">
-                        <div
-                            class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="icon-wrapper bg-soft-indigo text-indigo mb-2 rounded p-2">
-                                <i class="bi bi-briefcase fs-5"></i>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-info text-info mb-2 rounded p-2">
+                                    <i class="ti ti-ticket fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Personal<br>Gatepass</span>
                             </div>
-                            <span class="action-label small fw-medium">On Duty</span>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4">
-                        <div
-                            class="action-card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="icon-wrapper bg-soft-danger text-danger mb-2 rounded p-2">
-                                <i class="bi bi-stars fs-5"></i>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-purple text-purple mb-2 rounded p-2">
+                                    <i class="ti ti-home fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">WFH</span>
                             </div>
-                            <span class="action-label small fw-medium">Holidays</span>
-                        </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-indigo text-indigo mb-2 rounded p-2">
+                                    <i class="ti ti-calendar-time fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark text-truncate w-100 text-xs">Calendar</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-primary text-primary mb-2 rounded p-2">
+                                    <i class="ti ti-receipt fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Salary<br>Slip</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -208,23 +246,23 @@
                 <div class="horizontal-scroll-container d-flex gap-3 pb-2">
                     <div class="glass-effect p-3 d-flex text-center flex-shrink-0">
                         <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">PRIVILEGE</p>
+                            <p class="mb-1 text-muted fw-bold text-xs">PRIVILEGE</p>
                             <h4 class="mb-0 fw-bold text-primary">12</h4>
                         </div>
                         <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">SICK</p>
+                            <p class="mb-1 text-muted fw-bold text-xs">SICK</p>
                             <h4 class="mb-0 fw-bold text-danger">4</h4>
                         </div>
                         <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">CASUAL</p>
+                            <p class="mb-1 text-muted fw-bold text-xs">CASUAL</p>
                             <h4 class="mb-0 fw-bold text-warning">2</h4>
                         </div>
                         <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">MATERNITY</p>
+                            <p class="mb-1 text-muted fw-bold text-xs">MATERNITY</p>
                             <h4 class="mb-0 fw-bold text-purple">90</h4>
                         </div>
                         <div class="flex-grow-1 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold" style="font-size: 0.65rem;">COMP OFF</p>
+                            <p class="mb-1 text-muted fw-bold text-xs">COMP OFF</p>
                             <h4 class="mb-0 fw-bold text-success">1</h4>
                         </div>
                     </div>
@@ -299,28 +337,24 @@
                 </div>
                 <div class="horizontal-scroll-container d-flex gap-3 pb-2 pe-3">
                     <!-- News Card 1 -->
-                    <div class="news-card position-relative overflow-hidden flex-shrink-0"
-                        style="width: 280px; height: 160px; border-radius: 20px;">
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0">
                         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
                             alt="Team Building" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
                         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                         <div class="position-absolute bottom-0 start-0 p-3 w-100">
-                            <span class="badge bg-primary mb-2 border-0 fw-semibold"
-                                style="font-size: 0.65rem;">EVENTS</span>
+                            <span class="badge bg-primary mb-2 border-0 fw-semibold text-xs">EVENTS</span>
                             <h5 class="text-white h6 fw-bold text-shadow mb-1">Annual Tech Conference 2024 Highlights
                             </h5>
                             <p class="text-white-50 mb-0" style="font-size: 0.7rem;">Read about key takeaways...</p>
                         </div>
                     </div>
                     <!-- News Card 2 -->
-                    <div class="news-card position-relative overflow-hidden flex-shrink-0"
-                        style="width: 280px; height: 160px; border-radius: 20px;">
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0">
                         <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800"
                             alt="Office Life" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
                         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
                         <div class="position-absolute bottom-0 start-0 p-3 w-100">
-                            <span class="badge bg-success mb-2 border-0 fw-semibold"
-                                style="font-size: 0.65rem;">NEWS</span>
+                            <span class="badge bg-success mb-2 border-0 fw-semibold text-xs">NEWS</span>
                             <h5 class="text-white h6 fw-bold text-shadow mb-1">Q2 Performance Review & Market Update
                             </h5>
                             <p class="text-white-50 mb-0" style="font-size: 0.7rem;">A message from the CEO...</p>
@@ -403,11 +437,10 @@
                     </div>
                     <div class="position-relative z-1">
                         <img src="https://i.pravatar.cc/150?img=5" alt="Priya S."
-                            class="rounded-circle avatar-md border border-2 border-warning shadow-sm"
-                            style="width: 50px; height: 50px; object-fit: cover;">
+                            class="rounded-circle avatar-lg border border-2 border-warning shadow-sm">
                     </div>
                     <div class="position-relative z-1">
-                        <span class="badge bg-warning text-dark mb-1 fw-bold" style="font-size: 0.65rem;">TODAY</span>
+                        <span class="badge bg-warning text-dark mb-1 fw-bold text-xs">TODAY</span>
                         <h5 class="mb-0 fw-bold text-dark h6">Priya Sharma</h5>
                         <p class="mb-0 text-muted" style="font-size: 0.75rem;">Product Designer</p>
                     </div>
@@ -421,39 +454,35 @@
                 </div>
 
                 <!-- Upcoming Birthdays -->
-                <h6 class="fw-bold text-muted mb-2 tracking-wide" style="font-size: 0.7rem; text-transform: uppercase;">
-                    Upcoming</h6>
+                <h6 class="fw-bold text-muted mb-2 tracking-wide text-uppercase" style="font-size: 0.7rem;">Upcoming
+                </h6>
                 <div class="upcoming-birthdays d-flex flex-column gap-2">
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=12" alt="Vikram R." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Vikram Rathore</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Engineering · Tomorrow</p>
+                            <p class="mb-0 text-muted text-xs">Engineering · Tomorrow</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=9" alt="Elena C." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Elena Cruz</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Marketing · Aug 15</p>
+                            <p class="mb-0 text-muted text-xs">Marketing · Aug 15</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=50" alt="Neha P." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Neha Patel</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Finance · Aug 20</p>
+                            <p class="mb-0 text-muted text-xs">Finance · Aug 20</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=60" alt="Rajeev K." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Rajeev Kumar</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Sales · Aug 22</p>
+                            <p class="mb-0 text-muted text-xs">Sales · Aug 22</p>
                         </div>
                     </div>
                 </div>
@@ -473,12 +502,10 @@
                     </div>
                     <div class="position-relative z-1">
                         <img src="https://i.pravatar.cc/150?img=33" alt="David M."
-                            class="rounded-circle avatar-md border border-2 border-primary shadow-sm"
-                            style="width: 50px; height: 50px; object-fit: cover;">
+                            class="rounded-circle avatar-lg border border-2 border-primary shadow-sm">
                     </div>
                     <div class="position-relative z-1">
-                        <span class="badge bg-primary text-white mb-1 fw-bold" style="font-size: 0.65rem;">TODAY (3
-                            YEARS)</span>
+                        <span class="badge bg-primary text-white mb-1 fw-bold text-xs">TODAY (3 YEARS)</span>
                         <h5 class="mb-0 fw-bold text-dark h6">David Miller</h5>
                         <p class="mb-0 text-muted" style="font-size: 0.75rem;">Senior Developer</p>
                     </div>
@@ -492,31 +519,28 @@
                 </div>
 
                 <!-- Upcoming Anniversaries -->
-                <h6 class="fw-bold text-muted mb-2 tracking-wide" style="font-size: 0.7rem; text-transform: uppercase;">
-                    Upcoming</h6>
+                <h6 class="fw-bold text-muted mb-2 tracking-wide text-uppercase" style="font-size: 0.7rem;">Upcoming
+                </h6>
                 <div class="upcoming-birthdays d-flex flex-column gap-2">
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=47" alt="Anita R." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Anita Rao</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">HR Manager · 2 Years (Aug 18)</p>
+                            <p class="mb-0 text-muted text-xs">HR Manager · 2 Years (Aug 18)</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=34" alt="Sunil S." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Sunil Sharma</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">Operations · 5 Years (Aug 25)</p>
+                            <p class="mb-0 text-muted text-xs">Operations · 5 Years (Aug 25)</p>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-3 p-2 rounded-4"
-                        style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.6);">
+                    <div class="d-flex align-items-center gap-3 p-2 rounded-4 bg-opacity-40 border-opacity-60">
                         <img src="https://i.pravatar.cc/150?img=15" alt="Pooja G." class="rounded-circle avatar-sm">
                         <div class="flex-grow-1">
                             <h6 class="mb-0 fw-bold small text-dark">Pooja Gupta</h6>
-                            <p class="mb-0 text-muted" style="font-size: 0.65rem;">IT · 1 Year (Aug 28)</p>
+                            <p class="mb-0 text-muted text-xs">IT · 1 Year (Aug 28)</p>
                         </div>
                     </div>
                 </div>
@@ -532,8 +556,7 @@
                 <div class="glass-effect p-3 mb-2 rounded-4 d-flex align-items-center gap-3">
                     <div class="holiday-date text-center" style="min-width: 60px;">
                         <span class="d-block text-danger fw-bold fs-5 lh-1">15</span>
-                        <span class="d-block text-muted text-uppercase"
-                            style="font-size: 0.65rem; font-weight: 700;">Aug</span>
+                        <span class="d-block text-muted text-uppercase fw-bold text-xs mt-1">Aug</span>
                     </div>
                     <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
                     <div class="flex-grow-1 ps-2">
@@ -546,8 +569,7 @@
                 <div class="glass-effect p-3 mb-2 rounded-4 d-flex align-items-center gap-3 opacity-75">
                     <div class="holiday-date text-center" style="min-width: 60px;">
                         <span class="d-block text-dark fw-bold fs-5 lh-1">19</span>
-                        <span class="d-block text-muted text-uppercase"
-                            style="font-size: 0.65rem; font-weight: 700;">Aug</span>
+                        <span class="d-block text-muted text-uppercase fw-bold text-xs mt-1">Aug</span>
                     </div>
                     <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
                     <div class="flex-grow-1 ps-2">
@@ -560,8 +582,7 @@
                 <div class="glass-effect p-3 mb-2 rounded-4 d-flex align-items-center gap-3 opacity-75">
                     <div class="holiday-date text-center" style="min-width: 60px;">
                         <span class="d-block text-dark fw-bold fs-5 lh-1">07</span>
-                        <span class="d-block text-muted text-uppercase"
-                            style="font-size: 0.65rem; font-weight: 700;">Sep</span>
+                        <span class="d-block text-muted text-uppercase fw-bold text-xs mt-1">Sep</span>
                     </div>
                     <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
                     <div class="flex-grow-1 ps-2">
@@ -574,8 +595,7 @@
                 <div class="glass-effect p-3 rounded-4 d-flex align-items-center gap-3 opacity-75">
                     <div class="holiday-date text-center" style="min-width: 60px;">
                         <span class="d-block text-dark fw-bold fs-5 lh-1">02</span>
-                        <span class="d-block text-muted text-uppercase"
-                            style="font-size: 0.65rem; font-weight: 700;">Oct</span>
+                        <span class="d-block text-muted text-uppercase fw-bold text-xs mt-1">Oct</span>
                     </div>
                     <div class="border-start border-secondary opacity-25" style="height: 30px;"></div>
                     <div class="flex-grow-1 ps-2">

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Glass UI - COff Request</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-luminous pb-5 mb-5 new-request-body">
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper min-vh-100 position-relative">
+
+        <!-- Header -->
+        <div class="sticky-top pt-4 pb-3 px-3 z-3">
+            <header class="d-flex justify-content-between align-items-center">
+                <h2 class="h3 mb-0 fw-bold text-dark">COff Request</h2>
+                <a href="dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
+            </header>
+        </div>
+
+        <div class="app-content px-3 pt-2">
+
+            <!-- COff Request Form -->
+            <form class="leave-request-form mb-5 pb-5">
+
+                <div class="d-flex flex-column gap-3">
+
+                    <!-- Doc No & Date Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-hash glass-input-icon"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Doc No.</label>
+                                    <input type="number" class="premium-input text-muted" value="10234" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-calendar-check glass-input-icon text-primary"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Doc Date</label>
+                                    <input type="date" class="premium-input text-muted" value="2024-08-26" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shift & Day Type Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-clock-history glass-input-icon text-primary"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Shift</label>
+                                    <select class="premium-select">
+                                        <option value="general" selected>General</option>
+                                        <option value="night">Night</option>
+                                        <option value="second">Second</option>
+                                        <option value="first">First</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-sun glass-input-icon text-warning"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Day Type</label>
+                                    <select class="premium-select">
+                                        <option value="full" selected>Full Day</option>
+                                        <option value="first-half">First Half</option>
+                                        <option value="second-half">Second Half</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dates Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-calendar-minus glass-input-icon text-primary"
+                                    style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">From Date</label>
+                                    <input type="date" id="fromDate" class="premium-input" value="2024-08-27"
+                                        style="letter-spacing: -0.5px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-calendar-plus glass-input-icon text-primary"
+                                    style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">To Date</label>
+                                    <input type="date" id="toDate" class="premium-input" value="2024-08-27"
+                                        style="letter-spacing: -0.5px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manager Name (Disabled) -->
+                    <div class="glass-input-wrapper">
+                        <i class="bi bi-person-badge glass-input-icon text-info"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Manager Name</label>
+                            <input type="text" class="premium-input text-muted" value="Akash Kumbhar" disabled>
+                        </div>
+                    </div>
+
+                    <!-- Reason -->
+                    <div class="glass-input-wrapper align-items-start">
+                        <i class="bi bi-pencil-square glass-input-icon text-primary mt-1"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Reason</label>
+                            <textarea class="premium-textarea" rows="3"
+                                placeholder="Type your reason here..."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div> <!-- End App Content -->
+
+        <!-- Bottom Action Drawer -->
+        <div
+            class="action-drawer bg-white rounded-top-5 p-4 position-fixed bottom-0 start-50 translate-middle-x w-100 shadow-lg z-3">
+
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <p class="text-muted mb-1 small">Comp Off</p>
+                    <div class="d-flex align-items-baseline gap-2">
+                        <h2 class="display-6 fw-bold text-dark mb-0 lh-1" id="daysDisplay">1 Day</h2>
+                        <span class="text-primary fw-medium small">Selected</span>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <p class="text-muted mb-1 small">Date Range</p>
+                    <p class="fw-bold text-dark mb-0 small" id="datesDisplay">Aug 27</p>
+                </div>
+            </div>
+
+            <!-- Slide to Request Button -->
+            <div class="slider-container slide-button-track rounded-pill d-flex align-items-center p-2 position-relative w-100 overflow-hidden"
+                style="height: 64px;">
+
+                <!-- Expanding Background -->
+                <div class="slider-bg position-absolute top-0 start-0 h-100 bg-success"
+                    style="width: 0px; transition: width 0.3s ease; z-index: 0; border-radius: 50rem;"></div>
+
+                <!-- Shimmer text -->
+                <p class="slider-text w-100 text-center mb-0 fw-bold text-muted"
+                    style="z-index: 1; pointer-events: none; transition: opacity 0.3s ease;">Slide to Request</p>
+
+                <!-- Slide Knob -->
+                <div class="slider-thumb slide-knob rounded-circle text-white d-flex justify-content-center align-items-center shadow-sm position-absolute cursor-pointer"
+                    style="width: 48px; height: 48px; left: 8px; z-index: 2; transition: transform 0.3s ease;">
+                    <i class="bi bi-chevron-right fs-5"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fromDateInput = document.getElementById('fromDate');
+            const toDateInput = document.getElementById('toDate');
+            const daysDisplay = document.getElementById('daysDisplay');
+            const datesDisplay = document.getElementById('datesDisplay');
+
+            function calculateDays() {
+                if (fromDateInput.value && toDateInput.value) {
+                    const fromDate = new Date(fromDateInput.value);
+                    const toDate = new Date(toDateInput.value);
+
+                    if (toDate >= fromDate) {
+                        const diffTime = Math.abs(toDate - fromDate);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+                        daysDisplay.textContent = `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
+
+                        const formatOpt = { month: 'short', day: 'numeric' };
+                        const startStr = fromDate.toLocaleDateString('en-US', formatOpt);
+                        const endStr = toDate.toLocaleDateString('en-US', formatOpt);
+                        datesDisplay.textContent = startStr === endStr ? startStr : `${startStr} - ${endStr}`;
+                    } else {
+                        daysDisplay.textContent = `0 Days`;
+                        datesDisplay.textContent = `Invalid Range`;
+                    }
+                }
+            }
+
+            fromDateInput.addEventListener('change', calculateDays);
+            toDateInput.addEventListener('change', calculateDays);
+            calculateDays();
+
+            // Slide to Request Logic
+            const sliderContainer = document.querySelector('.slider-container');
+            const sliderThumb = document.querySelector('.slider-thumb');
+            const sliderText = document.querySelector('.slider-text');
+            const sliderBg = document.querySelector('.slider-bg');
+            let isDragging = false;
+            let startX = 0;
+            let maxSlide = sliderContainer.offsetWidth - sliderThumb.offsetWidth - 16;
+
+            sliderThumb.addEventListener('mousedown', startDrag);
+            sliderThumb.addEventListener('touchstart', startDrag, { passive: true });
+
+            function startDrag(e) {
+                isDragging = true;
+                sliderThumb.style.transition = 'none';
+                sliderBg.style.transition = 'none';
+                startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+                document.addEventListener('mousemove', onDrag);
+                document.addEventListener('touchmove', onDrag, { passive: false });
+                document.addEventListener('mouseup', endDrag);
+                document.addEventListener('touchend', endDrag);
+            }
+
+            function onDrag(e) {
+                if (!isDragging) return;
+                if (e.cancelable) e.preventDefault();
+
+                const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                let moveX = currentX - startX;
+
+                if (moveX < 0) moveX = 0;
+                if (moveX > maxSlide) moveX = maxSlide;
+
+                sliderThumb.style.transform = `translateX(${moveX}px)`;
+                sliderBg.style.width = `${moveX + sliderThumb.offsetWidth / 2}px`;
+                sliderText.style.opacity = 1 - (moveX / maxSlide);
+            }
+
+            function endDrag() {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const currentTransform = sliderThumb.style.transform;
+                const match = currentTransform.match(/translateX\(([-\d.]+)px\)/);
+                const currentX = match ? parseFloat(match[1]) : 0;
+
+                document.removeEventListener('mousemove', onDrag);
+                document.removeEventListener('touchmove', onDrag);
+                document.removeEventListener('mouseup', endDrag);
+                document.removeEventListener('touchend', endDrag);
+
+                if (currentX > maxSlide * 0.8) {
+                    sliderThumb.style.transform = `translateX(${maxSlide}px)`;
+                    sliderBg.style.width = `100%`;
+                    sliderThumb.innerHTML = '<i class="bi bi-check fs-4"></i>';
+                    sliderThumb.classList.add('bg-success');
+
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: 'COff Request Sent!',
+                            text: 'Your request has been submitted for approval.',
+                            icon: 'success',
+                            confirmButtonText: 'Great!',
+                            customClass: {
+                                confirmButton: 'btn btn-primary rounded-pill px-4'
+                            },
+                            buttonsStyling: false
+                        }).then(() => {
+                            window.location.href = 'dashboard.html';
+                        });
+                    }, 300);
+                } else {
+                    sliderThumb.style.transition = 'transform 0.3s ease';
+                    sliderBg.style.transition = 'width 0.3s ease';
+                    sliderText.style.transition = 'opacity 0.3s ease';
+                    sliderThumb.style.transform = 'translateX(0px)';
+                    sliderBg.style.width = '0px';
+                    sliderText.style.opacity = 1;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

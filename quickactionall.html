@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Glass UI - Quick Actions</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-luminous">
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper">
+
+        <!-- App Content -->
+        <div class="app-content pb-5 offset-bottom-nav">
+
+            <!-- Header -->
+            <header class="d-flex align-items-center mb-4 pt-4 px-3 gap-3">
+                <a href="dashboard.html" class="text-dark text-decoration-none">
+                    <i class="ti ti-arrow-left fs-4"></i>
+                </a>
+                <h2 class="h5 fw-bold mb-0 flex-grow-1">All Quick Actions</h2>
+            </header>
+
+            <!-- Action Categories -->
+            <div class="px-3 mb-5 pb-5">
+
+                <!-- ATTENDANCE SECTION -->
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+                    <h4 class="section-title h6 fw-bold mb-0 text-muted text-uppercase tracking-wide"
+                        style="font-size: 0.8rem;">Attendance</h4>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-danger text-danger mb-2 rounded p-2">
+                                    <i class="ti ti-fingerprint-off fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Punch<br>Miss</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-indigo text-indigo mb-2 rounded p-2">
+                                    <i class="ti ti-calendar-time fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark text-truncate w-100 text-xs">Calendar</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-purple text-purple mb-2 rounded p-2">
+                                    <i class="ti ti-clock-edit fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Shift<br>Change</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LEAVE SECTION -->
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                    <h4 class="section-title h6 fw-bold mb-0 text-muted text-uppercase tracking-wide"
+                        style="font-size: 0.8rem;">Leave</h4>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-3">
+                        <a href="Leave-Dashboard.html" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-primary text-primary mb-2 rounded p-2">
+                                    <i class="ti ti-calendar-off fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">Leave</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="coff.html" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-success text-success mb-2 rounded p-2">
+                                    <i class="ti ti-clock-plus fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">C-Off</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-indigo text-indigo mb-2 rounded p-2">
+                                    <i class="ti ti-calendar-repeat fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Week
+                                    Off<br>Change</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-danger text-danger mb-2 rounded p-2">
+                                    <i class="ti ti-balloon fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Public<br>Holiday</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PAYROLL SECTION -->
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                    <h4 class="section-title h6 fw-bold mb-0 text-muted text-uppercase tracking-wide"
+                        style="font-size: 0.8rem;">Payroll</h4>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-primary text-primary mb-2 rounded p-2">
+                                    <i class="ti ti-receipt fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Salary<br>Slip</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-primary text-primary mb-2 rounded p-2">
+                                    <i class="ti ti-file-analytics fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">IT<br>Declares</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-danger text-danger mb-2 rounded p-2">
+                                    <i class="ti ti-receipt-tax fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark text-truncate w-100 text-xs">Challan</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-warning text-warning mb-2 rounded p-2">
+                                    <i class="ti ti-percentage fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">TDS</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-success text-success mb-2 rounded p-2">
+                                    <i class="ti ti-calculator fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Tax<br>Calculator</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-info text-info mb-2 rounded p-2">
+                                    <i class="ti ti-report fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark w-100 text-xxs lh-1">Tax<br>Reports</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- OTHERS SECTION -->
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                    <h4 class="section-title h6 fw-bold mb-0 text-muted text-uppercase tracking-wide"
+                        style="font-size: 0.8rem;">Others</h4>
+                </div>
+                <div class="row g-3">
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-warning text-warning mb-2 rounded p-2">
+                                    <i class="ti ti-briefcase fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark text-truncate w-100 text-xs">Outdoor</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-info text-info mb-2 rounded p-2">
+                                    <i class="ti ti-ticket fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Personal<br>Gatepass</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-purple text-purple mb-2 rounded p-2">
+                                    <i class="ti ti-home fs-4"></i>
+                                </div>
+                                <span class="action-label fw-medium text-dark text-truncate w-100 text-xs">WFH</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-info text-info mb-2 rounded p-2">
+                                    <i class="ti ti-plane fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Travel<br>Claim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-warning text-warning mb-2 rounded p-2">
+                                    <i class="ti ti-file-certificate fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Generation<br>Claim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" class="text-decoration-none d-block h-100">
+                            <div
+                                class="action-card text-center p-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                                <div class="icon-wrapper bg-soft-success text-success mb-2 rounded p-2">
+                                    <i class="ti ti-id-badge-2 fs-4"></i>
+                                </div>
+                                <span
+                                    class="action-label fw-medium text-dark w-100 text-xxs lh-1">Visitor<br>Pass</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End App Content -->
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-2 w-100 position-fixed bottom-0 start-50 translate-middle-x"
+            style="max-width: 480px; z-index: 1000;">
+            <a href="dashboard.html"
+                class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1 active">
+                <i class="bi bi-grid-fill fs-5"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="Leave-Dashboard.html"
+                class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-file-earmark-text fs-5"></i>
+                <span class="nav-label">Requests</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-people fs-5"></i>
+                <span class="nav-label">Team</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-person fs-5"></i>
+                <span class="nav-label">Profile</span>
+            </a>
+        </nav>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+
+</body>
+
+</html>

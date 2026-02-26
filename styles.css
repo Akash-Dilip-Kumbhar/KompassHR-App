@@ -242,8 +242,8 @@ body {
 }
 
 .icon-wrapper {
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,6 +599,49 @@ body {
 
 .bottom-nav .nav-item.active .nav-label {
     color: var(--primary-color);
+}
+
+/* --- Reusable Utility Classes --- */
+.avatar-lg {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.avatar-xl {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.text-xs {
+    font-size: 0.65rem;
+}
+
+.text-xxs {
+    font-size: 0.6rem;
+}
+
+.lh-1 {
+    line-height: 1 !important;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+.border-opacity-60 {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.bg-opacity-40 {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.news-card-img {
+    width: 280px;
+    height: 160px;
+    border-radius: 20px;
 }
 
 /* Floating Action Button (FAB) */
@@ -973,5 +1016,5 @@ body {
 
 /* Ensure offcanvas shows above mobile wrapper */
 .offcanvas {
-    z-index: 1050 !important;
+    z-index: 1099 !important;
 }
