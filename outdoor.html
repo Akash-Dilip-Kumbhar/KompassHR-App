@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminous Glass UI - COff Request</title>
+    <title>Luminous Glass UI - Outdoor Duty Request</title>
 
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +30,14 @@
         <!-- Header -->
         <div class="sticky-top pt-4 pb-3 px-3 z-3">
             <header class="d-flex justify-content-between align-items-center">
-                <h2 class="h3 mb-0 fw-bold text-dark">COff Request</h2>
+                <h2 class="h3 mb-0 fw-bold text-dark">Outdoor Duty</h2>
                 <a href="dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
             </header>
         </div>
 
         <div class="app-content px-3 pt-2">
 
-            <!-- COff Request Form -->
+            <!-- Outdoor Request Form -->
             <form class="leave-request-form mb-5 pb-5">
 
                 <div class="d-flex flex-column gap-3">
@@ -49,7 +49,7 @@
                                 <i class="bi bi-hash glass-input-icon"></i>
                                 <div class="glass-input-content">
                                     <label class="glass-input-label">Doc No.</label>
-                                    <input type="number" class="premium-input text-muted" value="10234" disabled>
+                                    <input type="number" class="premium-input text-muted" value="10567" disabled>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <!-- Shift & Day Type Row -->
+                    <!-- Shift & Outdoor Type Row -->
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="glass-input-wrapper">
@@ -82,13 +82,12 @@
                         </div>
                         <div class="col-6">
                             <div class="glass-input-wrapper">
-                                <i class="bi bi-sun glass-input-icon text-warning"></i>
+                                <i class="bi bi-geo-alt glass-input-icon text-danger"></i>
                                 <div class="glass-input-content">
-                                    <label class="glass-input-label">Day Type</label>
-                                    <select class="premium-select">
-                                        <option value="full" selected>Full Day</option>
-                                        <option value="first-half">First Half</option>
-                                        <option value="second-half">Second Half</option>
+                                    <label class="glass-input-label">Outdoor Type</label>
+                                    <select class="premium-select" id="outdoorType">
+                                        <option value="short" selected>Short Period</option>
+                                        <option value="full">Full Day</option>
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +102,7 @@
                                     style="font-size: 1rem;"></i>
                                 <div class="glass-input-content">
                                     <label class="glass-input-label">From Date</label>
-                                    <input type="date" id="fromDate" class="premium-input" value="2024-08-27"
+                                    <input type="date" id="fromDate" class="premium-input" value="2024-08-28"
                                         style="letter-spacing: -0.5px">
                                 </div>
                             </div>
@@ -114,8 +113,30 @@
                                     style="font-size: 1rem;"></i>
                                 <div class="glass-input-content">
                                     <label class="glass-input-label">To Date</label>
-                                    <input type="date" id="toDate" class="premium-input" value="2024-08-27"
+                                    <input type="date" id="toDate" class="premium-input" value="2024-08-28"
                                         style="letter-spacing: -0.5px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Row -->
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-clock-fill glass-input-icon text-success" style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">From Time</label>
+                                    <input type="time" class="premium-input" id="fromTime" value="09:00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper pl-2 pr-1">
+                                <i class="bi bi-clock-fill glass-input-icon text-danger" style="font-size: 1rem;"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">To Time</label>
+                                    <input type="time" class="premium-input" id="toTime" value="10:30">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +157,7 @@
                         <div class="glass-input-content">
                             <label class="glass-input-label">Reason</label>
                             <textarea class="premium-textarea" rows="3"
-                                placeholder="Type your reason here..."></textarea>
+                                placeholder="Purpose of outdoor duty..."></textarea>
                         </div>
                     </div>
 
@@ -150,18 +171,31 @@
         <div
             class="action-drawer bg-white rounded-top-5 p-4 position-fixed bottom-0 start-50 translate-middle-x w-100 shadow-lg z-3">
 
-            <div class="d-flex justify-content-between align-items-end mb-4">
+            <div class="mb-3 d-flex justify-content-between align-items-end">
                 <div>
-                    <p class="text-muted mb-1 small">Comp Off</p>
+                    <p class="text-muted mb-1 small">Outdoor Duty</p>
                     <div class="d-flex align-items-baseline gap-2">
-                        <h2 class="display-6 fw-bold text-dark mb-0 lh-1" id="daysDisplay">1 Day</h2>
-                        <span class="text-primary fw-medium small">Selected</span>
+                        <h2 class="display-6 fw-bold text-dark mb-0 lh-1" id="daysDisplay">90 Mins</h2>
+                        <span class="text-primary fw-medium small" id="durationLabel">Selected</span>
                     </div>
                 </div>
-                <div class="text-end">
-                    <p class="text-muted mb-1 small">Date Range</p>
-                    <p class="fw-bold text-dark mb-0 small" id="datesDisplay">Aug 27</p>
+                <div class="text-end" id="quotaContainer">
+                    <p class="text-muted mb-1 small">Quota</p>
+                    <span
+                        class="badge bg-soft-info text-info border border-info border-opacity-25 rounded-pill px-2 py-1">45
+                        / 120 Mins Left</span>
                 </div>
+                <div class="text-end d-none" id="dateRangeContainer">
+                    <p class="text-muted mb-1 small">Date Range</p>
+                    <p class="fw-bold text-dark mb-0 small" id="datesDisplay">Aug 28</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info border-0 bg-soft-info py-2 px-3 mb-4 rounded-3 d-flex align-items-center gap-2"
+                id="limitWarning">
+                <i class="bi bi-info-circle text-info fs-5"></i>
+                <p class="mb-0 small text-dark fw-medium lh-sm" style="font-size: 0.75rem;">Max 120 mins allowed per
+                    month for Short Period.</p>
             </div>
 
             <!-- Slide to Request Button -->
@@ -197,34 +231,84 @@
         document.addEventListener('DOMContentLoaded', () => {
             const fromDateInput = document.getElementById('fromDate');
             const toDateInput = document.getElementById('toDate');
+            const fromTimeInput = document.getElementById('fromTime');
+            const toTimeInput = document.getElementById('toTime');
+            const outdoorTypeSelect = document.getElementById('outdoorType');
             const daysDisplay = document.getElementById('daysDisplay');
             const datesDisplay = document.getElementById('datesDisplay');
+            const durationLabel = document.getElementById('durationLabel');
+            const limitWarning = document.getElementById('limitWarning');
+            const quotaContainer = document.getElementById('quotaContainer');
+            const dateRangeContainer = document.getElementById('dateRangeContainer');
 
-            function calculateDays() {
-                if (fromDateInput.value && toDateInput.value) {
-                    const fromDate = new Date(fromDateInput.value);
-                    const toDate = new Date(toDateInput.value);
+            const MAX_MINUTES_PER_MONTH = 120;
+            const CURRENTLY_USED_MINUTES = 75; // Mock data: 75 minutes already used
+            const REMAINING_MINUTES = MAX_MINUTES_PER_MONTH - CURRENTLY_USED_MINUTES;
 
-                    if (toDate >= fromDate) {
-                        const diffTime = Math.abs(toDate - fromDate);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            function calculateDuration() {
+                const type = outdoorTypeSelect.value;
 
-                        daysDisplay.textContent = `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
+                if (type === 'full') {
+                    // Full Day Logic
+                    limitWarning.classList.add('d-none');
+                    quotaContainer.classList.add('d-none');
+                    dateRangeContainer.classList.remove('d-none');
 
-                        const formatOpt = { month: 'short', day: 'numeric' };
-                        const startStr = fromDate.toLocaleDateString('en-US', formatOpt);
-                        const endStr = toDate.toLocaleDateString('en-US', formatOpt);
-                        datesDisplay.textContent = startStr === endStr ? startStr : `${startStr} - ${endStr}`;
-                    } else {
-                        daysDisplay.textContent = `0 Days`;
-                        datesDisplay.textContent = `Invalid Range`;
+                    if (fromDateInput.value && toDateInput.value) {
+                        const fromDate = new Date(fromDateInput.value);
+                        const toDate = new Date(toDateInput.value);
+
+                        if (toDate >= fromDate) {
+                            const diffTime = Math.abs(toDate - fromDate);
+                            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+                            daysDisplay.textContent = `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
+                            daysDisplay.classList.remove('text-danger');
+                            durationLabel.textContent = 'Selected';
+
+                            const formatOpt = { month: 'short', day: 'numeric' };
+                            const startStr = fromDate.toLocaleDateString('en-US', formatOpt);
+                            const endStr = toDate.toLocaleDateString('en-US', formatOpt);
+                            datesDisplay.textContent = startStr === endStr ? startStr : `${startStr} - ${endStr}`;
+                        } else {
+                            daysDisplay.textContent = `0 Days`;
+                            datesDisplay.textContent = `Invalid Range`;
+                        }
+                    }
+                } else if (type === 'short') {
+                    // Short Period Logic
+                    limitWarning.classList.remove('d-none');
+                    quotaContainer.classList.remove('d-none');
+                    dateRangeContainer.classList.add('d-none');
+
+                    if (fromTimeInput.value && toTimeInput.value) {
+                        const [fromHour, fromMinute] = fromTimeInput.value.split(':').map(Number);
+                        const [toHour, toMinute] = toTimeInput.value.split(':').map(Number);
+
+                        let totalMinutes = (toHour * 60 + toMinute) - (fromHour * 60 + fromMinute);
+
+                        if (totalMinutes < 0) totalMinutes += 24 * 60; // Handle overnight case if needed
+
+                        daysDisplay.textContent = `${totalMinutes} Mins`;
+                        durationLabel.textContent = 'Selected';
+
+                        // Example validation
+                        if (totalMinutes > REMAINING_MINUTES) {
+                            daysDisplay.classList.add('text-danger');
+                            durationLabel.textContent = 'Exceeds Quota';
+                        } else {
+                            daysDisplay.classList.remove('text-danger');
+                        }
                     }
                 }
             }
 
-            fromDateInput.addEventListener('change', calculateDays);
-            toDateInput.addEventListener('change', calculateDays);
-            calculateDays();
+            fromDateInput.addEventListener('change', calculateDuration);
+            toDateInput.addEventListener('change', calculateDuration);
+            fromTimeInput.addEventListener('change', calculateDuration);
+            toTimeInput.addEventListener('change', calculateDuration);
+            outdoorTypeSelect.addEventListener('change', calculateDuration);
+            calculateDuration();
 
             // Slide to Request Logic
             const sliderContainer = document.querySelector('.slider-container');
@@ -279,32 +363,62 @@
                 document.removeEventListener('touchend', endDrag);
 
                 if (currentX > maxSlide * 0.8) {
-                    sliderThumb.style.transform = `translateX(${maxSlide}px)`;
-                    sliderBg.style.width = `100%`;
-                    sliderThumb.innerHTML = '<i class="bi bi-check fs-4"></i>';
-                    sliderThumb.classList.add('bg-success');
+                    // Check quota validation for short period before submitting
+                    const type = outdoorTypeSelect.value;
+                    let isValid = true;
+                    if (type === 'short') {
+                        const [fromHour, fromMinute] = fromTimeInput.value.split(':').map(Number);
+                        const [toHour, toMinute] = toTimeInput.value.split(':').map(Number);
+                        let totalMinutes = (toHour * 60 + toMinute) - (fromHour * 60 + fromMinute);
+                        if (totalMinutes < 0) totalMinutes += 24 * 60;
+                        if (totalMinutes > REMAINING_MINUTES) {
+                            isValid = false;
+                        }
+                    }
 
-                    setTimeout(() => {
+                    if (isValid) {
+                        sliderThumb.style.transform = `translateX(${maxSlide}px)`;
+                        sliderBg.style.width = `100%`;
+                        sliderThumb.innerHTML = '<i class="bi bi-check fs-4"></i>';
+                        sliderThumb.classList.add('bg-success');
+
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: 'Outdoor Duty Request Sent!',
+                                text: 'Your request has been submitted for approval.',
+                                icon: 'success',
+                                confirmButtonText: 'Great!',
+                                customClass: {
+                                    confirmButton: 'btn btn-primary rounded-pill px-4'
+                                },
+                                buttonsStyling: false
+                            }).then(() => {
+                                window.location.href = 'dashboard.html';
+                            });
+                        }, 300);
+                    } else {
+                        // Reset slider and show error
+                        sliderThumb.style.transition = 'transform 0.3s ease';
+                        sliderBg.style.transition = 'width 0.3s ease';
+                        sliderText.style.transition = 'opacity 0.3s ease';
+                        sliderThumb.style.transform = 'translateX(0px)';
+                        sliderBg.style.width = '0px';
+                        sliderText.style.opacity = 1;
+
                         Swal.fire({
-                            title: 'COff Request Sent!',
-                            text: 'Your request has been submitted for approval.',
-                            icon: 'success',
-                            confirmButtonText: 'Great!',
-                            customClass: {
-                                confirmButton: 'btn btn-primary rounded-pill px-4'
-                            },
-                            buttonsStyling: false
-                        }).then(() => {
-                            window.location.href = 'dashboard.html';
+                            title: 'Limit Exceeded',
+                            text: `You only have ${REMAINING_MINUTES} minutes available for Short Period Outdoor Duty in this month.`,
+                            icon: 'error',
+                            confirmButtonColor: '#d33'
                         });
-                    }, 300);
+                    }
                 } else {
                     sliderThumb.style.transition = 'transform 0.3s ease';
                     sliderBg.style.transition = 'width 0.3s ease';
                     sliderText.style.transition = 'opacity 0.3s ease';
                     sliderThumb.style.transform = 'translateX(0px)';
                     sliderBg.style.width = '0px';
-                    sliderText.style.opacity = 1;
+                    sliderText.opacity = 1;
                 }
             }
         });

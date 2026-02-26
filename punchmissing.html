@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminous Glass UI - COff Request</title>
+    <title>Luminous Glass UI - Punch Missing Request</title>
 
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +30,14 @@
         <!-- Header -->
         <div class="sticky-top pt-4 pb-3 px-3 z-3">
             <header class="d-flex justify-content-between align-items-center">
-                <h2 class="h3 mb-0 fw-bold text-dark">COff Request</h2>
+                <h2 class="h3 mb-0 fw-bold text-dark">Punch Missing</h2>
                 <a href="dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
             </header>
         </div>
 
         <div class="app-content px-3 pt-2">
 
-            <!-- COff Request Form -->
+            <!-- Punch Missing Request Form -->
             <form class="leave-request-form mb-5 pb-5">
 
                 <div class="d-flex flex-column gap-3">
@@ -49,7 +49,7 @@
                                 <i class="bi bi-hash glass-input-icon"></i>
                                 <div class="glass-input-content">
                                     <label class="glass-input-label">Doc No.</label>
-                                    <input type="number" class="premium-input text-muted" value="10234" disabled>
+                                    <input type="number" class="premium-input text-muted" value="10892" disabled>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <!-- Shift & Day Type Row -->
+                    <!-- Shift & In/Out Row -->
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="glass-input-wrapper">
@@ -82,40 +82,44 @@
                         </div>
                         <div class="col-6">
                             <div class="glass-input-wrapper">
-                                <i class="bi bi-sun glass-input-icon text-warning"></i>
+                                <i class="bi bi-arrow-left-right glass-input-icon text-info"></i>
                                 <div class="glass-input-content">
-                                    <label class="glass-input-label">Day Type</label>
+                                    <label class="glass-input-label">In/Out Type</label>
                                     <select class="premium-select">
-                                        <option value="full" selected>Full Day</option>
-                                        <option value="first-half">First Half</option>
-                                        <option value="second-half">Second Half</option>
+                                        <option value="in" selected>In</option>
+                                        <option value="out">Out</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Dates Row -->
+                    <!-- Attendance Date -->
+                    <div class="glass-input-wrapper">
+                        <i class="bi bi-calendar-date glass-input-icon text-primary"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Attendance Date</label>
+                            <input type="date" class="premium-input" value="2024-08-25">
+                        </div>
+                    </div>
+
+                    <!-- Log Date & Time Row -->
                     <div class="row g-3">
                         <div class="col-6">
-                            <div class="glass-input-wrapper pl-2 pr-1">
-                                <i class="bi bi-calendar-minus glass-input-icon text-primary"
-                                    style="font-size: 1rem;"></i>
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-calendar-plus glass-input-icon text-primary"></i>
                                 <div class="glass-input-content">
-                                    <label class="glass-input-label">From Date</label>
-                                    <input type="date" id="fromDate" class="premium-input" value="2024-08-27"
-                                        style="letter-spacing: -0.5px">
+                                    <label class="glass-input-label">Log Date</label>
+                                    <input type="date" class="premium-input" value="2024-08-25">
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="glass-input-wrapper pl-2 pr-1">
-                                <i class="bi bi-calendar-plus glass-input-icon text-primary"
-                                    style="font-size: 1rem;"></i>
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-clock glass-input-icon text-primary"></i>
                                 <div class="glass-input-content">
-                                    <label class="glass-input-label">To Date</label>
-                                    <input type="date" id="toDate" class="premium-input" value="2024-08-27"
-                                        style="letter-spacing: -0.5px">
+                                    <label class="glass-input-label">Time</label>
+                                    <input type="time" class="premium-input" value="09:00">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +140,7 @@
                         <div class="glass-input-content">
                             <label class="glass-input-label">Reason</label>
                             <textarea class="premium-textarea" rows="3"
-                                placeholder="Type your reason here..."></textarea>
+                                placeholder="State reason for missing punch..."></textarea>
                         </div>
                     </div>
 
@@ -150,18 +154,24 @@
         <div
             class="action-drawer bg-white rounded-top-5 p-4 position-fixed bottom-0 start-50 translate-middle-x w-100 shadow-lg z-3">
 
-            <div class="d-flex justify-content-between align-items-end mb-4">
+            <div class="mb-3 d-flex justify-content-between align-items-end">
                 <div>
-                    <p class="text-muted mb-1 small">Comp Off</p>
-                    <div class="d-flex align-items-baseline gap-2">
-                        <h2 class="display-6 fw-bold text-dark mb-0 lh-1" id="daysDisplay">1 Day</h2>
-                        <span class="text-primary fw-medium small">Selected</span>
-                    </div>
+                    <p class="text-muted mb-1 small">Request Summary</p>
+                    <h2 class="display-6 fw-bold text-dark mb-0 lh-1">Correction</h2>
                 </div>
                 <div class="text-end">
-                    <p class="text-muted mb-1 small">Date Range</p>
-                    <p class="fw-bold text-dark mb-0 small" id="datesDisplay">Aug 27</p>
+                    <p class="text-muted mb-1 small">Quota</p>
+                    <span
+                        class="badge bg-soft-danger text-danger border border-danger border-opacity-25 rounded-pill px-2 py-1">1
+                        / 3 Left</span>
                 </div>
+            </div>
+
+            <div
+                class="alert alert-warning border-0 bg-soft-warning py-2 px-3 mb-4 rounded-3 d-flex align-items-center gap-2">
+                <i class="bi bi-info-circle text-warning fs-5"></i>
+                <p class="mb-0 small text-dark fw-medium lh-sm" style="font-size: 0.75rem;">Max 3 punch corrections
+                    allowed per month.</p>
             </div>
 
             <!-- Slide to Request Button -->
@@ -195,37 +205,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const fromDateInput = document.getElementById('fromDate');
-            const toDateInput = document.getElementById('toDate');
-            const daysDisplay = document.getElementById('daysDisplay');
-            const datesDisplay = document.getElementById('datesDisplay');
-
-            function calculateDays() {
-                if (fromDateInput.value && toDateInput.value) {
-                    const fromDate = new Date(fromDateInput.value);
-                    const toDate = new Date(toDateInput.value);
-
-                    if (toDate >= fromDate) {
-                        const diffTime = Math.abs(toDate - fromDate);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-
-                        daysDisplay.textContent = `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
-
-                        const formatOpt = { month: 'short', day: 'numeric' };
-                        const startStr = fromDate.toLocaleDateString('en-US', formatOpt);
-                        const endStr = toDate.toLocaleDateString('en-US', formatOpt);
-                        datesDisplay.textContent = startStr === endStr ? startStr : `${startStr} - ${endStr}`;
-                    } else {
-                        daysDisplay.textContent = `0 Days`;
-                        datesDisplay.textContent = `Invalid Range`;
-                    }
-                }
-            }
-
-            fromDateInput.addEventListener('change', calculateDays);
-            toDateInput.addEventListener('change', calculateDays);
-            calculateDays();
-
             // Slide to Request Logic
             const sliderContainer = document.querySelector('.slider-container');
             const sliderThumb = document.querySelector('.slider-thumb');
@@ -286,7 +265,7 @@
 
                     setTimeout(() => {
                         Swal.fire({
-                            title: 'COff Request Sent!',
+                            title: 'Punch Correction Sent!',
                             text: 'Your request has been submitted for approval.',
                             icon: 'success',
                             confirmButtonText: 'Great!',
