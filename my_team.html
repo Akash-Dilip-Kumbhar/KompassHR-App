@@ -51,21 +51,21 @@
                     <div
                         class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
                         <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Total</span>
-                        <span class="fs-4 fw-bold text-primary">5</span>
+                        <span class="fs-4 fw-bold text-primary">10</span>
                     </div>
                 </div>
                 <div class="col-4">
                     <div
                         class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
                         <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Present</span>
-                        <span class="fs-4 fw-bold text-success">3</span>
+                        <span class="fs-4 fw-bold text-success">7</span>
                     </div>
                 </div>
                 <div class="col-4">
                     <div
                         class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
                         <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Leave</span>
-                        <span class="fs-4 fw-bold text-danger">2</span>
+                        <span class="fs-4 fw-bold text-danger">3</span>
                     </div>
                 </div>
             </div>
@@ -75,13 +75,14 @@
                 <div class="d-flex align-items-center justify-content-between mb-3 px-1">
                     <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
                         style="font-size: 0.75rem; letter-spacing: 1.5px;">Working Today</h6>
-                    <span class="badge bg-soft-primary text-primary rounded-pill">3</span>
+                    <span class="badge bg-soft-primary text-primary rounded-pill">4</span>
                 </div>
 
                 <div class="d-flex flex-column gap-3">
                     <!-- Expanded Card 1 -->
                     <div class="bg-white rounded-4 p-3 shadow-sm border border-white">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex align-items-center cursor-pointer" data-bs-toggle="collapse"
+                            data-bs-target="#actionsSarah" aria-expanded="true">
                             <div class="position-relative me-3">
                                 <img src="https://i.pravatar.cc/150?img=47" alt="Sarah"
                                     class="rounded-circle object-fit-cover"
@@ -97,19 +98,21 @@
                                 style="background-color: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe;">Office</span>
                         </div>
 
-                        <!-- Expanded Actions -->
-                        <div class="d-flex justify-content-around mt-4 pb-2">
-                            <div class="text-center cursor-pointer">
-                                <i class="bi bi-telephone-fill text-muted fs-5 d-block mb-1"></i>
-                                <span class="text-muted" style="font-size: 0.7rem;">Call</span>
-                            </div>
-                            <div class="text-center cursor-pointer">
-                                <i class="bi bi-chat-fill text-muted fs-5 d-block mb-1"></i>
-                                <span class="text-muted" style="font-size: 0.7rem;">Slack</span>
-                            </div>
-                            <div class="text-center cursor-pointer">
-                                <i class="bi bi-envelope-fill text-muted fs-5 d-block mb-1"></i>
-                                <span class="text-muted" style="font-size: 0.7rem;">Email</span>
+                        <!-- Toggleable Actions -->
+                        <div class="collapse show" id="actionsSarah">
+                            <div class="d-flex justify-content-around mt-4 pt-2 border-top border-light">
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-telephone-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Call</span>
+                                </a>
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-chat-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Slack</span>
+                                </a>
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-envelope-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Email</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -130,6 +133,40 @@
                         <span class="badge rounded-pill fw-bold px-3 py-2"
                             style="background-color: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe;">Office</span>
                     </div>
+
+                    <!-- Additional Card: Emily -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Emily"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #e2e8f0; padding: 0px;">
+                            <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Emily Stone</h5>
+                            <p class="text-muted mb-0 small">Copywriter</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe;">Office</span>
+                    </div>
+
+                    <!-- Additional Card: David L. -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="David L."
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #f1ebd8; padding: 0px;">
+                            <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">David Lee</h5>
+                            <p class="text-muted mb-0 small">Data Analyst</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #f8fafc; color: #0ea5e9; border: 1px solid #e0f2fe;">Field</span>
+                    </div>
                 </div>
             </div>
 
@@ -138,22 +175,77 @@
                 <div class="d-flex align-items-center justify-content-between mb-3 px-1">
                     <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
                         style="font-size: 0.75rem; letter-spacing: 1.5px;">Working From Home</h6>
-                    <span class="badge bg-soft-purple text-purple rounded-pill">1</span>
+                    <span class="badge bg-soft-purple text-purple rounded-pill">3</span>
                 </div>
 
                 <div class="d-flex flex-column gap-3">
-                    <!-- Card 3 -->
+                    <!-- Collapse Card 3 (Michael) -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white">
+                        <div class="d-flex align-items-center cursor-pointer" data-bs-toggle="collapse"
+                            data-bs-target="#actionsMichael" aria-expanded="false">
+                            <div class="position-relative me-3">
+                                <img src="https://i.pravatar.cc/150?img=11" alt="Michael"
+                                    class="rounded-circle object-fit-cover"
+                                    style="width: 50px; height: 50px; background-color: #f1ebd8; padding: 0px;">
+                                <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                    style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Michael Chen</h5>
+                                <p class="text-muted mb-0 small">Senior Developer</p>
+                            </div>
+                            <span class="badge rounded-pill fw-bold px-3 py-2"
+                                style="background-color: #faf5ff; color: #a855f7; border: 1px solid #e9d5ff;">WFH</span>
+                        </div>
+
+                        <!-- Toggleable Actions -->
+                        <div class="collapse" id="actionsMichael">
+                            <div class="d-flex justify-content-around mt-4 pt-2 border-top border-light">
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-telephone-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Call</span>
+                                </a>
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-chat-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Slack</span>
+                                </a>
+                                <a href="#" class="text-center text-decoration-none">
+                                    <i class="bi bi-envelope-fill text-muted fs-5 d-block mb-1"></i>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Email</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Card: Olivia -->
                     <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
                         <div class="position-relative me-3">
-                            <img src="https://i.pravatar.cc/150?img=11" alt="Michael"
+                            <img src="https://i.pravatar.cc/150?img=26" alt="Olivia"
                                 class="rounded-circle object-fit-cover"
                                 style="width: 50px; height: 50px; background-color: #f1ebd8; padding: 0px;">
                             <div class="position-absolute bg-success rounded-circle border border-2 border-white"
                                 style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
                         </div>
                         <div class="flex-grow-1">
-                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Michael Chen</h5>
-                            <p class="text-muted mb-0 small">Senior Developer</p>
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Olivia Martin</h5>
+                            <p class="text-muted mb-0 small">QA Engineer</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #faf5ff; color: #a855f7; border: 1px solid #e9d5ff;">WFH</span>
+                    </div>
+
+                    <!-- Additional Card: James -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=52" alt="James"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #e2e8f0; padding: 0px;">
+                            <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">James Wilson</h5>
+                            <p class="text-muted mb-0 small">Project Manager</p>
                         </div>
                         <span class="badge rounded-pill fw-bold px-3 py-2"
                             style="background-color: #faf5ff; color: #a855f7; border: 1px solid #e9d5ff;">WFH</span>
@@ -166,40 +258,62 @@
                 <div class="d-flex align-items-center justify-content-between mb-3 px-1">
                     <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
                         style="font-size: 0.75rem; letter-spacing: 1.5px;">On Leave / Holiday</h6>
-                    <span class="badge bg-soft-danger text-danger rounded-pill">2</span>
+                    <span class="badge bg-soft-danger text-danger rounded-pill">3</span>
                 </div>
 
                 <div class="d-flex flex-column gap-3">
                     <!-- Card 4 -->
-                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
-                        <div class="position-relative me-3">
-                            <img src="https://i.pravatar.cc/150?img=32" alt="Jessica"
-                                class="rounded-circle object-fit-cover"
-                                style="width: 50px; height: 50px; background-color: #e5e7eb; padding: 0px;">
-                            <!-- No status dot for leave -->
+                    <div class="bg-soft-danger rounded-4 p-3 shadow-sm border"
+                        style="border-color: #fecaca !important;">
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative me-3 opacity-75">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Jessica"
+                                    class="rounded-circle object-fit-cover"
+                                    style="width: 50px; height: 50px; border: 2px solid #fecaca; padding: 2px;">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-0 fw-bold" style="color: #ef4444; font-size: 1.05rem;">Jessica Wu</h5>
+                                <p class="text-danger mb-0 small opacity-75">HR Manager</p>
+                            </div>
+                            <span
+                                class="badge rounded-pill fw-bold px-3 py-2 bg-white text-danger border border-danger">Leave</span>
                         </div>
-                        <div class="flex-grow-1">
-                            <h5 class="mb-0 fw-bold" style="color: #64748b; font-size: 1.05rem;">Jessica Wu</h5>
-                            <p class="text-muted mb-0 small">HR Manager</p>
-                        </div>
-                        <span class="badge rounded-pill fw-bold px-3 py-2"
-                            style="background-color: #fef2f2; color: #ef4444; border: 1px solid #fecaca;">Leave</span>
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
-                        <div class="position-relative me-3">
-                            <img src="https://i.pravatar.cc/150?img=59" alt="David"
-                                class="rounded-circle object-fit-cover"
-                                style="width: 50px; height: 50px; background-color: #e2e8f0; padding: 0px;">
-                            <!-- No status dot for holiday -->
+                    <div class="bg-soft-danger rounded-4 p-3 shadow-sm border"
+                        style="border-color: #fecaca !important;">
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative me-3 opacity-75">
+                                <img src="https://i.pravatar.cc/150?img=59" alt="David"
+                                    class="rounded-circle object-fit-cover"
+                                    style="width: 50px; height: 50px; border: 2px solid #fecaca; padding: 2px;">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-0 fw-bold" style="color: #ef4444; font-size: 1.05rem;">David Miller</h5>
+                                <p class="text-danger mb-0 small opacity-75">VP Marketing</p>
+                            </div>
+                            <span
+                                class="badge rounded-pill fw-bold px-3 py-2 bg-white text-danger border border-danger">Holiday</span>
                         </div>
-                        <div class="flex-grow-1">
-                            <h5 class="mb-0 fw-bold" style="color: #475569; font-size: 1.05rem;">David Miller</h5>
-                            <p class="text-muted mb-0 small">VP Marketing</p>
+                    </div>
+
+                    <!-- Additional Card: Sophia -->
+                    <div class="bg-soft-danger rounded-4 p-3 shadow-sm border"
+                        style="border-color: #fecaca !important;">
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative me-3 opacity-75">
+                                <img src="https://i.pravatar.cc/150?img=43" alt="Sophia"
+                                    class="rounded-circle object-fit-cover"
+                                    style="width: 50px; height: 50px; border: 2px solid #fecaca; padding: 2px;">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-0 fw-bold" style="color: #ef4444; font-size: 1.05rem;">Sophia Patel</h5>
+                                <p class="text-danger mb-0 small opacity-75">Support Specialist</p>
+                            </div>
+                            <span
+                                class="badge rounded-pill fw-bold px-3 py-2 bg-white text-danger border border-danger">Leave</span>
                         </div>
-                        <span class="badge rounded-pill fw-bold px-3 py-2"
-                            style="background-color: #fffbeb; color: #f59e0b; border: 1px solid #fde68a;">Holiday</span>
                     </div>
                 </div>
             </div>
