@@ -602,6 +602,10 @@ body {
 }
 
 /* --- Reusable Utility Classes --- */
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
 .avatar-lg {
     width: 50px;
     height: 50px;
@@ -814,7 +818,7 @@ body {
 .premium-input,
 .premium-select,
 .premium-textarea {
-    background: transparent !important;
+    background-color: transparent !important;
     border: none !important;
     padding: 0 !important;
     color: var(--text-main) !important;
@@ -834,11 +838,11 @@ body {
 .premium-select {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2364748b'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 12px;
-    padding-right: 20px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6' /%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 8px center !important;
+    background-size: 18px 18px !important;
+    padding-right: 28px !important;
     cursor: pointer;
 }
 

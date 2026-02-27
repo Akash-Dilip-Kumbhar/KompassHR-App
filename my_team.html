@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Glass UI - My Team</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-luminous pb-5 mb-5 team-page-body">
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper min-vh-100 position-relative">
+
+        <!-- Header -->
+        <div class="pt-4 pb-2 px-4 z-3 d-flex justify-content-between align-items-start">
+            <div>
+                <h1 class="display-6 fw-bold text-dark mb-1" style="color: #1a2342 !important; letter-spacing: -1px;">
+                    Team Overview</h1>
+                <div class="d-flex align-items-center gap-2 cursor-pointer mt-1">
+                    <i class="bi bi-geo-alt text-primary fs-5"></i>
+                    <span class="text-primary fw-bold fs-6">All Locations</span>
+                    <i class="bi bi-chevron-down text-primary small"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="app-content px-3 pt-3">
+
+            <h2 class="h5 fw-bold text-dark mb-4">Today's Overview</h2>
+
+            <!-- Summary Stats -->
+            <div class="row g-2 mb-4">
+                <div class="col-4">
+                    <div
+                        class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
+                        <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Total</span>
+                        <span class="fs-4 fw-bold text-primary">5</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div
+                        class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
+                        <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Present</span>
+                        <span class="fs-4 fw-bold text-success">3</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div
+                        class="bg-white rounded-4 p-3 shadow-sm text-center h-100 border border-white d-flex flex-column justify-content-center">
+                        <span class="d-block text-muted small fw-bold text-uppercase tracking-wide mb-1">Leave</span>
+                        <span class="fs-4 fw-bold text-danger">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 1: Working in Office / Field -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3 px-1">
+                    <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
+                        style="font-size: 0.75rem; letter-spacing: 1.5px;">Working Today</h6>
+                    <span class="badge bg-soft-primary text-primary rounded-pill">3</span>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+                    <!-- Expanded Card 1 -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="position-relative me-3">
+                                <img src="https://i.pravatar.cc/150?img=47" alt="Sarah"
+                                    class="rounded-circle object-fit-cover"
+                                    style="width: 50px; height: 50px; border: 2px solid #f8ecc4; padding: 2px;">
+                                <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                    style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Sarah Jenkins</h5>
+                                <p class="text-muted mb-0 small">Product Designer</p>
+                            </div>
+                            <span class="badge rounded-pill fw-bold px-3 py-2"
+                                style="background-color: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe;">Office</span>
+                        </div>
+
+                        <!-- Expanded Actions -->
+                        <div class="d-flex justify-content-around mt-4 pb-2">
+                            <div class="text-center cursor-pointer">
+                                <i class="bi bi-telephone-fill text-muted fs-5 d-block mb-1"></i>
+                                <span class="text-muted" style="font-size: 0.7rem;">Call</span>
+                            </div>
+                            <div class="text-center cursor-pointer">
+                                <i class="bi bi-chat-fill text-muted fs-5 d-block mb-1"></i>
+                                <span class="text-muted" style="font-size: 0.7rem;">Slack</span>
+                            </div>
+                            <div class="text-center cursor-pointer">
+                                <i class="bi bi-envelope-fill text-muted fs-5 d-block mb-1"></i>
+                                <span class="text-muted" style="font-size: 0.7rem;">Email</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=60" alt="Ray"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #f1ebd8; padding: 0px;">
+                            <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Ray Johnson</h5>
+                            <p class="text-muted mb-0 small">Sales Lead</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #eff6ff; color: #3b82f6; border: 1px solid #bfdbfe;">Office</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 2: Working From Home -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3 px-1">
+                    <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
+                        style="font-size: 0.75rem; letter-spacing: 1.5px;">Working From Home</h6>
+                    <span class="badge bg-soft-purple text-purple rounded-pill">1</span>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Michael"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #f1ebd8; padding: 0px;">
+                            <div class="position-absolute bg-success rounded-circle border border-2 border-white"
+                                style="width: 12px; height: 12px; bottom: 0; right: 0;"></div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #1a2342; font-size: 1.05rem;">Michael Chen</h5>
+                            <p class="text-muted mb-0 small">Senior Developer</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #faf5ff; color: #a855f7; border: 1px solid #e9d5ff;">WFH</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 3: On Leave -->
+            <div class="mb-5 pb-5">
+                <div class="d-flex align-items-center justify-content-between mb-3 px-1">
+                    <h6 class="text-muted text-uppercase fw-bold mb-0 tracking-wide"
+                        style="font-size: 0.75rem; letter-spacing: 1.5px;">On Leave / Holiday</h6>
+                    <span class="badge bg-soft-danger text-danger rounded-pill">2</span>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Jessica"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #e5e7eb; padding: 0px;">
+                            <!-- No status dot for leave -->
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #64748b; font-size: 1.05rem;">Jessica Wu</h5>
+                            <p class="text-muted mb-0 small">HR Manager</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #fef2f2; color: #ef4444; border: 1px solid #fecaca;">Leave</span>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-4 p-3 shadow-sm border border-white d-flex align-items-center">
+                        <div class="position-relative me-3">
+                            <img src="https://i.pravatar.cc/150?img=59" alt="David"
+                                class="rounded-circle object-fit-cover"
+                                style="width: 50px; height: 50px; background-color: #e2e8f0; padding: 0px;">
+                            <!-- No status dot for holiday -->
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0 fw-bold" style="color: #475569; font-size: 1.05rem;">David Miller</h5>
+                            <p class="text-muted mb-0 small">VP Marketing</p>
+                        </div>
+                        <span class="badge rounded-pill fw-bold px-3 py-2"
+                            style="background-color: #fffbeb; color: #f59e0b; border: 1px solid #fde68a;">Holiday</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End App Content -->
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-2">
+            <a href="dashboard.html"
+                class="nav-item active text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-house-door-fill fs-5"></i>
+                <span class="nav-label">HOME</span>
+            </a>
+            <a href="Leave-Dashboard.html"
+                class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-bar-chart-fill fs-5"></i>
+                <span class="nav-label">LEAVES</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-calendar4-week fs-5"></i>
+                <span class="nav-label">CALENDAR</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-person-fill fs-5"></i>
+                <span class="nav-label">PROFILE</span>
+            </a>
+        </nav>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

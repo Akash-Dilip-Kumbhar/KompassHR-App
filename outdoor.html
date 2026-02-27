@@ -31,7 +31,7 @@
         <div class="sticky-top pt-4 pb-3 px-3 z-3">
             <header class="d-flex justify-content-between align-items-center">
                 <h2 class="h3 mb-0 fw-bold text-dark">Outdoor Duty</h2>
-                <a href="dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
+                <a href="outdoor-dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
             </header>
         </div>
 
@@ -91,6 +91,45 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Row -->
+                    <div class="row g-3">
+                        
+                        <div class="col-6">
+                            <div class="glass-input-wrapper justify-content-center px-1">
+                                <div class="glass-input-content text-center">
+                                    <label class="glass-input-label text-center">Is Night?</label>
+                                    <div class="form-check form-switch d-inline-block mt-1 mb-0 custom-switch">
+                                        <input class="form-check-input shadow-none m-0" type="checkbox" role="switch"
+                                            id="isNightToggle"
+                                            style="height: 1.2rem; cursor: pointer; width: 50%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="glass-input-wrapper">
+                                <i class="bi bi-geo-alt-fill glass-input-icon text-info"></i>
+                                <div class="glass-input-content">
+                                    <label class="glass-input-label">Location</label>
+                                    <select class="premium-select" id="locationSelect">
+                                        <option value="site1" selected>Site 1</option>
+                                        <option value="site2">Site 2</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Location Name (Conditional) -->
+                    <div class="glass-input-wrapper d-none mb-3" id="otherLocationWrapper">
+                        <i class="bi bi-building glass-input-icon text-info"></i>
+                        <div class="glass-input-content">
+                            <label class="glass-input-label">Enter Location</label>
+                            <input type="text" class="premium-input" placeholder="Specify other location...">
                         </div>
                     </div>
 
@@ -310,6 +349,20 @@
             outdoorTypeSelect.addEventListener('change', calculateDuration);
             calculateDuration();
 
+            // Location Toggle Logic
+            const locationSelect = document.getElementById('locationSelect');
+            const otherLocationWrapper = document.getElementById('otherLocationWrapper');
+
+            if (locationSelect && otherLocationWrapper) {
+                locationSelect.addEventListener('change', (e) => {
+                    if (e.target.value === 'other') {
+                        otherLocationWrapper.classList.remove('d-none');
+                    } else {
+                        otherLocationWrapper.classList.add('d-none');
+                    }
+                });
+            }
+
             // Slide to Request Logic
             const sliderContainer = document.querySelector('.slider-container');
             const sliderThumb = document.querySelector('.slider-thumb');
@@ -393,7 +446,7 @@
                                 },
                                 buttonsStyling: false
                             }).then(() => {
-                                window.location.href = 'dashboard.html';
+                                window.location.href = 'outdoor-dashboard.html';
                             });
                         }, 300);
                     } else {
