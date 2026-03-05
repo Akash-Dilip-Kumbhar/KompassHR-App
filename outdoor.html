@@ -27,11 +27,20 @@
     <!-- Mobile Wrapper -->
     <div class="mobile-wrapper min-vh-100 position-relative">
 
-        <!-- Header -->
-        <div class="sticky-top pt-4 pb-3 px-3 z-3">
+        <!-- Sticky Header -->
+        <div class="sticky-top bg-luminous-header pt-4 pb-2 px-3 z-3">
             <header class="d-flex justify-content-between align-items-center">
-                <h2 class="h3 mb-0 fw-bold text-dark">Outdoor Duty</h2>
-                <a href="outdoor-dashboard.html" class="text-muted fw-medium text-decoration-none">Cancel</a>
+                <a href="outdoor-dashboard.html" class="text-dark fs-4 text-decoration-none">
+                    <i class="bi bi-chevron-left fw-bold"></i>
+                </a>
+                <h2 class="h5 mb-0 fw-bold">Outdoor Duty</h2>
+                <a href="userprofile.html" class="profile-avatar position-relative text-decoration-none">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
+                        class="rounded-circle shadow-sm border border-2 border-white"
+                        style="width: 45px; height: 45px; object-fit: cover;">
+                    <span class="status-indicator position-absolute bg-success border border-light rounded-circle"
+                        style="width: 12px; height: 12px; bottom: 2px; right: 0;"></span>
+                </a>
             </header>
         </div>
 
@@ -96,15 +105,14 @@
 
                     <!-- Location Row -->
                     <div class="row g-3">
-                        
+
                         <div class="col-6">
                             <div class="glass-input-wrapper justify-content-center px-1">
                                 <div class="glass-input-content text-center">
                                     <label class="glass-input-label text-center">Is Night?</label>
                                     <div class="form-check form-switch d-inline-block mt-1 mb-0 custom-switch">
                                         <input class="form-check-input shadow-none m-0" type="checkbox" role="switch"
-                                            id="isNightToggle"
-                                            style="height: 1.2rem; cursor: pointer; width: 50%;">
+                                            id="isNightToggle" style="height: 1.2rem; cursor: pointer; width: 50%;">
                                     </div>
                                 </div>
                             </div>
