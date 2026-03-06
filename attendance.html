@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Glass UI - Attendance</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-luminous">
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper">
+
+        <!-- App Content -->
+        <div class="app-content pb-5">
+<!-- Sticky Header Container -->
+        <div class="sticky-top bg-luminous-header pt-4 pb-2 px-3 z-3">
+            <header class="d-flex justify-content-between align-items-center">
+                <a href="dashboard.html" class="text-dark fs-4 text-decoration-none">
+                    <i class="bi bi-chevron-left fw-bold"></i>
+                </a>
+                <h2 class="h5 mb-0 fw-bold">Attendance</h2>
+
+                <a href="userprofile.html">
+                    <div class="profile-avatar border border-2 border-white rounded-circle shadow-sm overflow-hidden"
+                        style="width: 40px; height: 40px; background-color: #fce7db;">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
+                            class="img-fluid w-100 h-100 object-fit-cover opacity-75 mix-blend-multiply">
+                    </div>
+                </a>
+            </header>
+        </div>
+
+         
+
+            <!-- Main Content Area -->
+            <div class="px-3 mb-4">
+                <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden mb-3">
+
+                    <!-- Top: Time and Date -->
+                    <div class="mb-2">
+                        <h2 id="liveTimeDisplay" class="time-display display-5 fw-bold mb-0 text-dark">09:41:25</h2>
+                        <p id="liveDateDisplay"
+                            class="date-display text-uppercase fw-semibold text-muted tracking-wide mb-0"
+                            style="font-size: 0.8rem;">
+                            Monday, 12 Aug</p>
+                    </div>
+
+                    <!-- Face Recognition Message -->
+                    <div class="bg-soft-info text-info border border-info border-opacity-25 rounded-pill py-2 px-3 d-inline-block mb-4 shadow-sm"
+                        style="font-size: 0.75rem; font-weight: 500;">
+                        <i class="bi bi-person-bounding-box me-1"></i> Face Recognition coming soon
+                    </div>
+
+                    <!-- Camera Placeholder -->
+                    <div class="camera-placeholder bg-dark rounded-4 mb-4 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden shadow"
+                        style="height: 250px; border: 4px solid rgba(255,255,255,0.3);">
+                        <i class="bi bi-camera-video text-white-50 fs-1 mb-2"></i>
+                        <span class="text-white-50 fw-medium small tracking-wider text-uppercase"
+                            style="font-size: 0.7rem;">Camera feed will appear here</span>
+
+                        <!-- Decorative scanner line -->
+                        <div class="scanner-line position-absolute w-100 start-0"
+                            style="height: 2px; background: rgba(13, 110, 253, 0.8); box-shadow: 0 0 10px rgba(13, 110, 253, 1); top: 50%; z-index: 2;">
+                        </div>
+                    </div>
+
+                    <!-- Location Selector & Refresh Button -->
+                    <div class="d-flex gap-2 mb-4 align-items-center">
+                        <div
+                            class="input-group flex-grow-1 bg-white bg-opacity-75 border-white rounded-3 shadow-sm p-1">
+                            <span class="input-group-text bg-transparent border-0 text-primary ps-3 pe-2">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </span>
+                            <select
+                                class="form-select border-0 bg-transparent text-dark shadow-none fw-medium flex-grow-1"
+                                style="cursor: pointer; font-size: 0.9rem;">
+                                <option value="" disabled selected>Select Location</option>
+                                <option value="hq">Headquarters (Mumbai)</option>
+                                <option value="branch-1">Branch Office (Pune)</option>
+                                <option value="wfh">Work From Home</option>
+                                <option value="client">Client Location</option>
+                            </select>
+                        </div>
+                        <button
+                            class="btn btn-primary rounded-3 d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 48px; height: 48px; flex-shrink: 0;" title="Refresh Location">
+                            <i class="bi bi-arrow-clockwise fs-5 text-white"></i>
+                        </button>
+                    </div>
+
+                    <!-- In/Out Toggle & Mark Attendance -->
+                    <div class="d-flex flex-column gap-3 mt-2">
+                        <!-- IN / OUT Toggle -->
+                        <div class="p-1 bg-white bg-opacity-75 border border-white rounded-pill d-flex position-relative shadow-sm mx-auto"
+                            style="width: 100%; max-width: 250px;">
+                            <input type="radio" class="btn-check" name="attendanceType" id="checkIn" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-primary border-0 rounded-pill flex-grow-1 fw-bold fs-6 py-2"
+                                for="checkIn">Check In</label>
+
+                            <input type="radio" class="btn-check" name="attendanceType" id="checkOut"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary border-0 rounded-pill flex-grow-1 fw-bold fs-6 py-2"
+                                for="checkOut">Check Out</label>
+                        </div>
+
+                        <!-- Mark Attendance Button -->
+                        <button
+                            class="btn btn-primary bg-gradient rounded-pill py-3 fw-bold fs-6 shadow w-100 text-uppercase tracking-wide d-flex align-items-center justify-content-center gap-2 border-0">
+                            <i class="bi bi-fingerprint fs-4"></i>
+                            Mark Attendance
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- End App Content -->
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-2">
+            <a href="dashboard.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-grid fs-5"></i>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="attendance.html"
+                class="nav-item active text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-camera-fill fs-5"></i>
+                <span class="nav-label">Attendance</span>
+            </a>
+            <a href="my_team.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-people fs-5"></i>
+                <span class="nav-label">My Team</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-person fs-5"></i>
+                <span class="nav-label">Profile</span>
+            </a>
+        </nav>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+
+    <script>
+        // --- Live Clock for Check-In Widget ---
+        function updateLiveClock() {
+            const timeDisplay = document.getElementById('liveTimeDisplay');
+            const dateDisplay = document.getElementById('liveDateDisplay');
+
+            if (!timeDisplay || !dateDisplay) return;
+
+            const now = new Date();
+
+            // Format strictly to Indian Standard Time (IST), 12-hour AM/PM
+            const timeOptions = {
+                timeZone: 'Asia/Kolkata',
+                hour12: true,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const timeString = new Intl.DateTimeFormat('en-IN', timeOptions).format(now);
+            timeDisplay.textContent = timeString;
+
+            // Format Date: Weekday, DD Mon
+            const dateOptions = {
+                timeZone: 'Asia/Kolkata',
+                weekday: 'long',
+                day: '2-digit',
+                month: 'short'
+            };
+            const dateParts = new Intl.DateTimeFormat('en-IN', dateOptions).formatToParts(now);
+
+            let weekday = '', day = '', month = '';
+            dateParts.forEach(({ type, value }) => {
+                if (type === 'weekday') weekday = value;
+                if (type === 'day') day = value;
+                if (type === 'month') month = value;
+            });
+            dateDisplay.textContent = `${weekday}, ${day} ${month}`;
+        }
+
+        // Update clock immediately then every 1 second
+        updateLiveClock();
+        setInterval(updateLiveClock, 1000);
+
+        // Simple animation for scanner line
+        const scannerLine = document.querySelector('.scanner-line');
+        if (scannerLine) {
+            let pos = 0;
+            let direction = 1;
+            setInterval(() => {
+                pos += direction * 2;
+                if (pos > 90 || pos < 10) {
+                    direction *= -1;
+                }
+                scannerLine.style.top = pos + '%';
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>

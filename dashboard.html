@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminous Glass UI - Dashboard</title>
+    <title>KompassHR - Dashboard</title>
 
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,33 +67,54 @@
                 </div>
             </header>
 
-            <!-- Check-in Widget (Luminous Glass Card) -->
+            <!-- Check-in Widget (Map Card) -->
             <div class="px-3 mb-4">
-                <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden">
-                    <h2 id="liveTimeDisplay" class="time-display display-3 fw-bold mb-1">09:41:25</h2>
-                    <p id="liveDateDisplay" class="date-display text-uppercase fw-medium text-muted tracking-wide mb-3">
-                        Monday, 12 Aug</p>
-
-                    <!-- Explicit Check In/Out Times -->
-                    <div class="d-flex justify-content-center gap-4 mb-4">
-                        <div class="text-start">
-                            <p class="mb-0 text-muted fw-semibold text-xs text-uppercase">CHECK IN AT</p>
-                            <p class="mb-0 fw-bold text-dark fs-6">09:15 AM</p>
-                        </div>
-                        <div class="border-start border-secondary opacity-25"></div>
-                        <div class="text-start">
-                            <p class="mb-0 text-muted fw-semibold text-xs text-uppercase">CHECK OUT AT</p>
-                            <p class="mb-0 fw-bold text-dark fs-6">--:-- --</p>
-                        </div>
+                <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden"
+                    style="min-height: 260px;">
+                    <!-- Google Map Background -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d73.8567!3d18.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMxJzEzLjQiTiA3M8KwNTEnMjQuMSJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                        class="position-absolute top-0 start-0 w-100 h-100 border-0"
+                        style="z-index: 0; pointer-events: none; filter: saturate(1.1);" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <!-- Dark Overlay -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100"
+                        style="z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);">
                     </div>
 
-                    <div
-                        class="check-in-btn rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3 shadow-lg">
-                        <i class="bi bi-camera fs-3"></i>
-                    </div>
+                    <!-- Floating Content -->
+                    <div class="position-relative" style="z-index: 2;">
+                        <!-- Location Pin -->
+                        <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+                            <i class="bi bi-geo-alt-fill text-white fs-5"></i>
+                            <span class="text-white fw-semibold small">Pune, Maharashtra</span>
+                        </div>
 
-                    <p class="swipe-text mb-0 fw-medium">click to <span class="text-primary fw-bold">Check Out</span>
-                    </p>
+                        <!-- Check In/Out Times -->
+                        <div class="d-flex justify-content-center gap-4 mb-4">
+                            <div class="text-start px-3 py-2 rounded-3"
+                                style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);">
+                                <p class="mb-0 text-white-50 fw-semibold text-xs text-uppercase">CHECK IN AT</p>
+                                <p class="mb-0 fw-bold text-white fs-6">09:15 AM</p>
+                            </div>
+                            <div class="text-start px-3 py-2 rounded-3"
+                                style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);">
+                                <p class="mb-0 text-white-50 fw-semibold text-xs text-uppercase">CHECK OUT AT</p>
+                                <p class="mb-0 fw-bold text-white fs-6">--:-- --</p>
+                            </div>
+                        </div>
+
+                        <!-- Check-in Button -->
+                        <div
+                            class="check-in-btn rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3 shadow-lg">
+                            <i class="bi bi-camera fs-3"></i>
+                        </div>
+
+                        <p class="swipe-text mb-0 fw-medium text-white">click to <span class="text-info fw-bold">Check
+                                Out</span>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -324,6 +345,97 @@
                             <h5 class="text-white h6 fw-bold text-shadow mb-1">Q2 Performance Review & Market Update
                             </h5>
                             <p class="text-white-50 mb-0" style="font-size: 0.7rem;">A message from the CEO...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- LMS - Learning Management System -->
+            <div class="px-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title h5 fw-bold mb-0">LMS - Learning Management</h4>
+                    <a href="#" class="text-primary smaller fw-bold text-decoration-none">View All</a>
+                </div>
+
+                <!-- Induction Section -->
+                <h6 class="fw-bold text-muted mb-2 tracking-wide text-uppercase" style="font-size: 0.7rem;">Induction
+                </h6>
+                <div class="horizontal-scroll-container d-flex gap-3 pb-3 pe-3 mb-2">
+                    <!-- Induction Card 1: POSH -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/posh_training_lms.jpg" alt="POSH Training"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">POSH Training
+                            </h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Induction Module</p>
+                        </div>
+                    </div>
+                    <!-- Induction Card 2: Exit Management -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/exit_management_lms.jpg" alt="Exit Management"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">Exit
+                                Management</h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Induction Module</p>
+                        </div>
+                    </div>
+                    <!-- Induction Card 3: Company Culture -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/company_culture_lms_expanded.jpg" alt="Company Culture"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">Company
+                                Culture</h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Values & Ethics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Section -->
+                <h6 class="fw-bold text-muted mb-2 tracking-wide text-uppercase" style="font-size: 0.7rem;">Training
+                </h6>
+                <div class="horizontal-scroll-container d-flex gap-3 pb-2 pe-3">
+                    <!-- Training Card 1: Guest Lecture -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/guest_lecture_training_lms.jpg" alt="Guest Lecture"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">Guest Lecture
+                            </h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Technical Upskilling</p>
+                        </div>
+                    </div>
+                    <!-- Training Card 2: Cyber Security -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/cyber_security_training_lms.jpg" alt="Cyber Security Training"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">Cyber
+                                Security</h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Security Awareness</p>
+                        </div>
+                    </div>
+                    <!-- Training Card 3: Leadership Development -->
+                    <div class="news-card news-card-img position-relative overflow-hidden flex-shrink-0"
+                        style="width: 200px; height: 130px; border-radius: 18px;">
+                        <img src="./Img/leadership_development_lms.jpg" alt="Leadership Development"
+                            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+                        <div class="position-absolute bottom-0 start-0 p-3 w-100">
+                            <h5 class="text-white h6 fw-bold text-shadow mb-0" style="font-size: 0.85rem;">Leadership
+                            </h5>
+                            <p class="text-white-50 mb-0" style="font-size: 0.65rem;">Managerial Skills</p>
                         </div>
                     </div>
                 </div>
@@ -581,10 +693,9 @@
                 <i class="bi bi-grid-fill fs-5"></i>
                 <span class="nav-label">Home</span>
             </a>
-            <a href="Leave-Dashboard.html"
-                class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
-                <i class="bi bi-file-earmark-text fs-5"></i>
-                <span class="nav-label">Requests</span>
+            <a href="Attendance.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-camera fs-5"></i>
+                <span class="nav-label">Attendance</span>
             </a>
             <a href="my_team.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
                 <i class="bi bi-people fs-5"></i>
