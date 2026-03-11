@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KompassHR - Attendance Calendar</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Custom CSS (Shares dashboard styles) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Calendar specific additional styles -->
+    <style>
+        /* Shared calendar container styles */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        .calendar-day-header {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-bottom: 0.5rem;
+        }
+
+        .calendar-day {
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--bs-dark);
+            position: relative;
+        }
+
+        .calendar-day.empty {
+            color: #D1D5DB;
+            cursor: default !important;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cursor-pointer:not(.empty):hover .calendar-day {
+            background-color: rgba(13, 110, 253, 0.05);
+            border-radius: 8px;
+        }
+
+
+        /* The indicator dots under dates */
+        .status-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin-top: 2px;
+        }
+
+        .status-dot.regular {
+            background-color: var(--bs-success);
+        }
+
+        .status-dot.overtime {
+            background-color: var(--bs-warning);
+        }
+
+        /* Or Orange */
+        .status-dot.holiday {
+            background-color: var(--primary-color, #0d6efd);
+        }
+
+        .status-dot.absent {
+            background-color: var(--bs-danger);
+        }
+
+        .status-dot.coff {
+            background-color: var(--bs-info);
+        }
+
+        /* Current day highlight */
+        .current-day-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--primary-color, #0d6efd);
+            background: rgba(13, 110, 253, 0.05);
+            /* very light primary tint */
+        }
+
+        .current-day-wrap .calendar-day {
+            color: var(--primary-color, #0d6efd);
+        }
+
+        /* Detail List Cards */
+        .detail-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+
+        }
+
+        /* Left accent borders */
+        .accent-border-overtime {
+            border-left: 4px solid var(--bs-warning) !important;
+        }
+
+        .accent-border-holiday {
+            border-left: 4px solid var(--primary-color, #0d6efd) !important;
+        }
+
+        .accent-border-regular {
+            border-left: 4px solid var(--bs-success) !important;
+        }
+
+        /* List Badges */
+        .status-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.35rem 0.6rem;
+            border-radius: 50rem;
+        }
+
+        .status-badge.bg-overtime {
+            background-color: rgba(255, 193, 7, 0.15);
+            /* Warning soft */
+            color: #d39e00;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .status-badge.bg-holiday {
+            background-color: rgba(13, 110, 253, 0.1);
+            /* Primary soft */
+            color: var(--primary-color, #0d6efd);
+            border: 1px solid rgba(13, 110, 253, 0.2);
+        }
+
+        .status-badge.bg-regular {
+            background-color: rgba(25, 135, 84, 0.1);
+            /* Success soft */
+            color: var(--bs-success);
+            border: 1px solid rgba(25, 135, 84, 0.2);
+        }
+
+        .time-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .time-box-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+
+
+        /* Dropdowns */
+        .glass-select {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            color: var(--bs-dark);
+            font-weight: 600;
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212529' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            padding-right: 2.25rem;
+        }
+
+        .glass-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+            border-color: #86b7fe;
+        }
+    </style>
+</head>
+
+<body class="bg-luminous">
+
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper">
+
+        <!-- Sticky Header Container -->
+        <div class="sticky-top bg-luminous-header pt-4 pb-2 px-3 z-3">
+            <header class="d-flex justify-content-between align-items-center">
+                <a href="dashboard.html" class="text-dark fs-4 text-decoration-none">
+                    <i class="bi bi-chevron-left fw-bold"></i>
+                </a>
+                <h2 class="h5 mb-0 fw-bold">Attendance</h2>
+
+                <a href="userprofile.html">
+                    <div class="profile-avatar border border-2 border-white rounded-circle shadow-sm overflow-hidden"
+                        style="width: 40px; height: 40px; background-color: #fce7db;">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Profile avatar"
+                            class="img-fluid w-100 h-100 object-fit-cover opacity-75 mix-blend-multiply">
+                    </div>
+                </a>
+            </header>
+        </div>
+
+        <!-- Main Content -->
+        <div class="app-content px-3 pb-5 mb-5">
+
+            <!-- Month & Year Selector Dropdowns -->
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-4">
+                <select id="monthSelect" class="form-select glass-select flex-grow-1" aria-label="Select Month">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select>
+
+                <select id="yearSelect" class="form-select glass-select flex-grow-1" aria-label="Select Year">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="glass-effect rounded-4 p-4 mb-4 shadow-sm">
+                <!-- Days of Week Header -->
+                <div class="calendar-grid mb-2">
+                    <div class="calendar-day-header">SUN</div>
+                    <div class="calendar-day-header">MON</div>
+                    <div class="calendar-day-header">TUE</div>
+                    <div class="calendar-day-header">WED</div>
+                    <div class="calendar-day-header">THU</div>
+                    <div class="calendar-day-header">FRI</div>
+                    <div class="calendar-day-header">SAT</div>
+                </div>
+
+                <!-- Calendar Grid (Dynamically generated by JS) -->
+                <div id="calendarGrid" class="calendar-grid">
+                    <!-- Javascript will populate days here -->
+                </div>
+
+                <!-- Legend -->
+                <div class="d-flex justify-content-center gap-4 mt-4 pt-4 border-top border-light border-opacity-50">
+                    <div class="d-flex align-items-center gap-1">
+                        <div class="status-dot regular shadow-sm me-1"></div>
+                        <span class="text-muted fw-bold"
+                            style="font-size: 0.6rem; letter-spacing: 0.5px;">REGULAR</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+                        <div class="status-dot overtime shadow-sm me-1"></div>
+                        <span class="text-muted fw-bold"
+                            style="font-size: 0.6rem; letter-spacing: 0.5px;">OVERTIME</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+                        <div class="status-dot holiday shadow-sm me-1"></div>
+                        <span class="text-muted fw-bold"
+                            style="font-size: 0.6rem; letter-spacing: 0.5px;">HOLIDAY</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter & Daily Details Header -->
+            <div class="d-flex align-items-center justify-content-between mt-4 mb-3 ps-1">
+                <h3 class="h6 fw-bold text-dark mb-0">Daily Details</h3>
+                <select id="statusFilter" class="form-select form-select-sm glass-select text-muted"
+                    style="width: auto; padding-top: 0.25rem; padding-bottom: 0.25rem; font-size: 0.75rem;">
+                    <option value="all" selected>All Statuses</option>
+                    <option value="present">Present</option>
+                    <option value="absent">Absent</option>
+                    <option value="overtime">Overtime</option>
+                    <option value="holiday">Holiday</option>
+                    <option value="coff">Comp Off (COFF)</option>
+                </select>
+            </div>
+
+            <!-- Daily Details List (Dynamically updated by JS in LIFO order) -->
+            <div id="dailyDetailsContainer">
+                <!-- JS will render detail cards here -->
+            </div>
+
+            <!-- Default Empty State placeholder -->
+            <div id="emptyListState" class="text-center p-5 glass-effect rounded-4 text-muted d-none mb-4">
+                <i class="bi bi-calendar-x fs-1 mb-2"></i>
+                <p class="mb-0 fw-bold">No attendance records found.</p>
+            </div>
+
+        </div> <!-- End App Content -->
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav d-flex justify-content-around align-items-center px-2 py-2">
+            <a href="dashboard.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-grid fs-5"></i>
+                <span class="nav-label text-muted">Home</span>
+            </a>
+            <a href="calendar.html"
+                class="nav-item active text-decoration-none d-flex flex-column align-items-center gap-1">
+                <!-- Using different active state icon -->
+                <i class="bi bi-calendar-event-fill fs-5 text-primary"></i>
+                <span class="nav-label text-primary fw-bold">Attendance</span>
+            </a>
+            <!-- Keep icons visually consistent with dashboard.html bottom nav-->
+            <a href="my_team.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-people fs-5"></i>
+                <span class="nav-label text-muted">My Team</span>
+            </a>
+            <a href="#" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-person fs-5"></i>
+                <span class="nav-label text-muted">Profile</span>
+            </a>
+        </nav>
+
+    </div> <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.css"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const calendarGrid = document.getElementById('calendarGrid');
+            const dailyDetailsContainer = document.getElementById('dailyDetailsContainer');
+            const emptyListState = document.getElementById('emptyListState');
+
+            const monthSelect = document.getElementById('monthSelect');
+            const yearSelect = document.getElementById('yearSelect');
+            const statusFilter = document.getElementById('statusFilter');
+
+            // --- Initialization ---
+            const today = new Date();
+            let currentYear = today.getFullYear();
+            let currentMonth = today.getMonth(); // 0-11
+
+            let currentSelectedDateStr = null; // null = show full month list
+            let generatedMonthData = {};
+
+            // Populate Year Dropdown (10 years back, 1 year forward)
+            for (let y = currentYear - 10; y <= currentYear + 1; y++) {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                yearSelect.appendChild(opt);
+            }
+
+            // Set initial dropdown values
+            monthSelect.value = currentMonth;
+            yearSelect.value = currentYear;
+
+            // --- Mock Data Generator ---
+            // Generates realistic attendance data for a given month and year
+            function generateMockDataForMonth(year, month) {
+                const data = {};
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Define possible statuses
+                const statuses = ['present', 'present', 'present', 'present', 'overtime', 'absent', 'coff'];
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const loopsDate = new Date(year, month, day);
+                    const dayOfWeek = loopsDate.getDay();
+                    const dateStr = formatDate(loopsDate);
+
+                    // Skip weekends entirely from having records, or set as fixed 'weekend' tag
+                    if (dayOfWeek === 0 || dayOfWeek === 6) {
+                        data[dateStr] = { type: 'weekend', title: 'Weekend Off' };
+                        continue;
+                    }
+
+                    // Hardcode a holiday for demo purposes (e.g., the 13th)
+                    if (day === 13) {
+                        data[dateStr] = {
+                            type: 'holiday',
+                            title: 'Public Holiday (Diwali)',
+                            in: '00:00', out: '00:00',
+                            durationTitle: 'Special Pay',
+                            durationText: '2.0x Multiplier'
+                        };
+                        continue;
+                    }
+
+                    // Randomly assign status
+                    const randStatus = statuses[Math.floor(Math.random() * statuses.length)];
+
+                    if (randStatus === 'present') {
+                        data[dateStr] = { type: 'present', title: 'Regular Day', in: '09:00 AM', out: '06:00 PM', durationText: '9h 00m' };
+                    } else if (randStatus === 'absent') {
+                        data[dateStr] = { type: 'absent', title: 'Absent', in: '--:--', out: '--:--', durationTitle: 'Status', durationText: 'Absent' };
+                    } else if (randStatus === 'coff') {
+                        data[dateStr] = { type: 'coff', title: 'Compensatory Off', in: '--:--', out: '--:--', durationTitle: 'Status', durationText: 'Approved' };
+                    } else if (randStatus === 'overtime') {
+                        const extraHours = Math.floor(Math.random() * 3) + 1;
+                        data[dateStr] = {
+                            type: 'overtime',
+                            title: 'Overtime Day',
+                            in: '09:00 AM',
+                            out: `0${6 + extraHours}:00 PM`,
+                            durationText: `${9 + extraHours}h 00m`,
+                            extraWidgetHTML: `<span class="badge rounded-pill text-white tracking-wide border-0 shadow-sm" style="background-color: var(--bs-warning); font-size: 0.65rem;">+${extraHours}h 00m</span>`
+                        };
+                    }
+                }
+                return data;
+            }
+
+            // --- Helper Functions ---
+            function formatDate(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            function getStatusDotClass(type) {
+                switch (type) {
+                    case 'present': return 'regular'; // uses generic green status
+                    case 'overtime': return 'overtime';
+                    case 'holiday': return 'holiday';
+                    case 'coff': return 'holiday'; // reusing primary/blue color for coff
+                    case 'absent': return 'absent'; // no dot or grey dot
+                    case 'weekend': return 'holiday';
+                    default: return 'empty';
+                }
+            }
+
+            // --- Central Logic ---
+
+            // Called when month or year changes. Fully regenerates month context.
+            function updateCalendarContext() {
+                currentYear = parseInt(yearSelect.value);
+                currentMonth = parseInt(monthSelect.value);
+
+                // Clear any individual date selection
+                currentSelectedDateStr = null;
+                statusFilter.value = 'all'; // reset filter
+
+                generatedMonthData = generateMockDataForMonth(currentYear, currentMonth);
+
+                renderCalendarGrid();
+                renderDetailedList();
+            }
+
+            function renderCalendarGrid() {
+                calendarGrid.innerHTML = '';
+
+                const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+                const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+                // Render previous month padding
+                for (let i = firstDayOfMonth - 1; i >= 0; i--) {
+                    const dayNum = daysInPrevMonth - i;
+                    calendarGrid.innerHTML += `<div class="calendar-day empty">${dayNum}</div>`;
+                }
+
+                // Render current month days
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const loopDate = new Date(currentYear, currentMonth, day);
+                    const dateStr = formatDate(loopDate);
+                    const recordInfo = generatedMonthData[dateStr];
+                    const dotClass = recordInfo ? getStatusDotClass(recordInfo.type) : 'empty';
+
+                    const isSelected = (dateStr === currentSelectedDateStr);
+
+                    let dayHTML = '';
+
+                    if (!recordInfo || recordInfo.type === 'weekend') {
+                        // Weekends / Empty
+                        dayHTML = `<div class="calendar-day empty cursor-pointer" onclick="selectSpecificDate('${dateStr}')">${day}</div>`;
+                    } else if (isSelected) {
+                        dayHTML = `
+                        <div class="d-flex align-items-center justify-content-center cursor-pointer" onclick="selectSpecificDate('${dateStr}')">
+                            <div class="current-day-wrap shadow-sm">
+                                <div class="calendar-day p-0 h-auto">
+                                    <span>${day}</span>
+                                    <div class="status-dot ${dotClass} position-absolute" style="bottom: -8px;"></div>
+                                </div>
+                            </div>
+                        </div>`;
+                    } else {
+                        dayHTML = `
+                        <div class="calendar-day cursor-pointer" onclick="selectSpecificDate('${dateStr}')">
+                            <span>${day}</span>
+                            <div class="status-dot ${dotClass}"></div>
+                        </div>`;
+                    }
+                    calendarGrid.innerHTML += dayHTML;
+                }
+            }
+
+            window.selectSpecificDate = function (dateStr) {
+                // Toggle logic: clicking the already selected date removes the selection
+                if (currentSelectedDateStr === dateStr) {
+                    currentSelectedDateStr = null;
+                } else {
+                    currentSelectedDateStr = dateStr;
+                }
+                renderCalendarGrid(); // Update active circle UI
+                renderDetailedList(); // Re-render the list based on selection
+            }
+
+            function renderDetailedList() {
+                dailyDetailsContainer.innerHTML = '';
+                const selectedFilter = statusFilter.value;
+                let recordsToRender = [];
+
+                // 1. Gather Records
+                if (currentSelectedDateStr) {
+                    // Single date selected from calendar
+                    const record = generatedMonthData[currentSelectedDateStr];
+                    if (record && record.type !== 'weekend') {
+                        recordsToRender.push({ dateStr: currentSelectedDateStr, ...record });
+                    }
+                } else {
+                    // Full month selected
+                    for (const [dateStr, record] of Object.entries(generatedMonthData)) {
+                        if (record.type !== 'weekend') {
+                            recordsToRender.push({ dateStr, ...record });
+                        }
+                    }
+                }
+
+                // 2. Apply Filters
+                if (selectedFilter !== 'all') {
+                    recordsToRender = recordsToRender.filter(record => record.type === selectedFilter);
+                }
+
+                // 3. Sort LIFO (Descending Order: 31st down to 1st)
+                recordsToRender.sort((a, b) => {
+                    return new Date(b.dateStr) - new Date(a.dateStr);
+                });
+
+                // 4. Render HTML
+                if (recordsToRender.length === 0) {
+                    emptyListState.classList.remove('d-none');
+                } else {
+                    emptyListState.classList.add('d-none');
+                    recordsToRender.forEach(record => {
+                        const html = generateRecordCardHTML(record);
+                        dailyDetailsContainer.innerHTML += html;
+                    });
+                }
+            }
+
+            function generateRecordCardHTML(record) {
+                // Parse date for display
+                const dateObj = new Date(record.dateStr);
+                const options = { weekday: 'short', month: 'short', day: 'numeric' };
+                const formattedDisplayDate = dateObj.toLocaleDateString('en-US', options).toUpperCase();
+
+                // Style mappings
+                const styleMaps = {
+                    'present': { text: 'PRESENT', class: 'bg-regular', border: 'accent-border-regular' },
+                    'overtime': { text: 'OVERTIME', class: 'bg-overtime', border: 'accent-border-overtime' },
+                    'holiday': { text: 'HOLIDAY', class: 'bg-holiday', border: 'accent-border-holiday' },
+                    'coff': { text: 'COFF', class: 'bg-holiday', border: 'accent-border-holiday' },
+                    'absent': { text: 'ABSENT', class: 'bg-overtime', border: 'accent-border-overtime', styleOverride: 'background-color: rgba(220, 53, 69, 0.1); color: #dc3545; border-color: rgba(220, 53, 69, 0.2);' }
+                };
+
+                const styleObj = styleMaps[record.type] || styleMaps['present'];
+
+                // Specific Absent Border styling overrides since we didn't define a red accent CSS
+                let borderStyleOverride = '';
+                if (record.type === 'absent') borderStyleOverride = 'border-left: 4px solid #dc3545 !important;';
+
+                const durationTitle = record.durationTitle || 'Total Work Duration';
+                const extraHTML = record.extraWidgetHTML || '';
+                const durationValueColor = record.type === 'overtime' ? 'color: #d39e00 !important;' : (record.type === 'absent' ? 'color: #dc3545;' : 'color: var(--bs-dark);');
+
+                return `
+                <div class="detail-card ${styleObj.border}  mb-4 p-2" style="animation: fadeIn 0.3s ease-in-out; ${borderStyleOverride}">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <p class="mb-0 text-muted fw-bold text-uppercase tracking-wide" style="font-size: 0.65rem;">${formattedDisplayDate}</p>
+                            <h4 class="h6 fw-bold text-dark mb-0 mt-1">${record.title}</h4>
+                        </div>
+                        <span class="status-badge ${styleObj.class}" style="${styleObj.styleOverride || ''}">${styleObj.text}</span>
+                    </div>
+                    
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="time-box">
+                                <div class="time-box-icon"><i class="bi bi-box-arrow-in-right fs-5"></i></div>
+                                <div>
+                                    <p class="mb-0 text-muted fw-bold text-uppercase" style="font-size: 0.55rem; letter-spacing: -0.2px;">IN TIME</p>
+                                    <p class="mb-0 fw-bold text-dark text-sm">${record.in}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="time-box">
+                                <div class="time-box-icon"><i class="bi bi-box-arrow-right fs-5"></i></div>
+                                <div>
+                                    <p class="mb-0 text-muted fw-bold text-uppercase" style="font-size: 0.55rem; letter-spacing: -0.2px;">OUT TIME</p>
+                                    <p class="mb-0 fw-bold text-dark text-sm">${record.out}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light border-opacity-50">
+                        <span class="text-muted text-xs fw-medium">${durationTitle}</span>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fw-bold" style="${durationValueColor} font-size: 0.85rem;">${record.durationText}</span>
+                            ${extraHTML}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }
+
+            // --- Event Listeners ---
+            monthSelect.addEventListener('change', updateCalendarContext);
+            yearSelect.addEventListener('change', updateCalendarContext);
+
+            // Listen for filter changes
+            statusFilter.addEventListener('change', () => {
+                currentSelectedDateStr = null; // Clear active date so filter applies to whole month
+                renderCalendarGrid(); // Remove active circle UI
+                renderDetailedList();
+            });
+
+            // --- Start Application ---
+            updateCalendarContext();
+        });
+    </script>
+</body>
+
+</html>
