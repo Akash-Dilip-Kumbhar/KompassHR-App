@@ -72,7 +72,7 @@
                 <div class="luminous-card text-center py-4 px-3 position-relative overflow-hidden"
                     style="min-height: 260px;">
                     <!-- Google Map Background -->
-                    <iframe
+                    <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d73.8567!3d18.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMxJzEzLjQiTiA3M8KwNTEnMjQuMSJF!5e0!3m2!1sen!2sin!4v1700000000000"
                         class="position-absolute top-0 start-0 w-100 h-100 border-0"
                         style="z-index: 0; pointer-events: none; filter: saturate(1.1);" allowfullscreen=""
@@ -231,26 +231,41 @@
                 </div>
                 <!-- Glass card for mini leave summary -->
                 <div class="horizontal-scroll-container d-flex gap-3 pb-2">
-                    <div class="glass-effect p-3 d-flex text-center flex-shrink-0">
-                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                    <div class="glass-effect p-3 d-flex text-center flex-shrink-0 align-items-center">
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-3 text-center">
                             <p class="mb-1 text-muted fw-bold text-xs">PRIVILEGE</p>
-                            <h4 class="mb-0 fw-bold text-primary">12</h4>
+                            <h4 class="mb-0 fw-bold text-primary d-flex align-items-baseline justify-content-center gap-1">
+                                12 <span class="text-muted fw-medium" style="font-size: 0.85rem;">/ 20</span>
+                            </h4>
+                            <p class="mb-0 text-muted mt-1 text-nowrap" style="font-size: 0.65rem;">Used / Allowed</p>
                         </div>
-                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-3 text-center">
                             <p class="mb-1 text-muted fw-bold text-xs">SICK</p>
-                            <h4 class="mb-0 fw-bold text-danger">4</h4>
+                            <h4 class="mb-0 fw-bold text-danger d-flex align-items-baseline justify-content-center gap-1">
+                                4 <span class="text-muted fw-medium" style="font-size: 0.85rem;">/ 10</span>
+                            </h4>
+                            <p class="mb-0 text-muted mt-1 text-nowrap" style="font-size: 0.65rem;">Used / Allowed</p>
                         </div>
-                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-3 text-center">
                             <p class="mb-1 text-muted fw-bold text-xs">CASUAL</p>
-                            <h4 class="mb-0 fw-bold text-warning">2</h4>
+                            <h4 class="mb-0 fw-bold text-warning d-flex align-items-baseline justify-content-center gap-1">
+                                2 <span class="text-muted fw-medium" style="font-size: 0.85rem;">/ 8</span>
+                            </h4>
+                            <p class="mb-0 text-muted mt-1 text-nowrap" style="font-size: 0.65rem;">Used / Allowed</p>
                         </div>
-                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-2 text-center">
+                        <div class="flex-grow-1 border-end border-light border-opacity-50 px-3 text-center">
                             <p class="mb-1 text-muted fw-bold text-xs">MATERNITY</p>
-                            <h4 class="mb-0 fw-bold text-purple">90</h4>
+                            <h4 class="mb-0 fw-bold text-purple d-flex align-items-baseline justify-content-center gap-1">
+                                90 <span class="text-muted fw-medium" style="font-size: 0.85rem;">/ 180</span>
+                            </h4>
+                            <p class="mb-0 text-muted mt-1 text-nowrap" style="font-size: 0.65rem;">Used / Allowed</p>
                         </div>
-                        <div class="flex-grow-1 px-2 text-center">
-                            <p class="mb-1 text-muted fw-bold text-xs">COMP OFF</p>
-                            <h4 class="mb-0 fw-bold text-success">1</h4>
+                        <div class="flex-grow-1 px-3 text-center">
+                            <p class="mb-1 text-muted fw-bold text-xs text-nowrap">COMP OFF</p>
+                            <h4 class="mb-0 fw-bold text-success d-flex align-items-baseline justify-content-center gap-1">
+                                1 <span class="text-muted fw-medium" style="font-size: 0.85rem;">/ 5</span>
+                            </h4>
+                            <p class="mb-0 text-muted mt-1 text-nowrap" style="font-size: 0.65rem;">Used / Allowed</p>
                         </div>
                     </div>
                 </div>
@@ -268,7 +283,10 @@
 
                 <div class="horizontal-scroll-container d-flex gap-3 pb-2 pe-3">
                     <!-- Approval Card 1 -->
-                    <div class="approval-card flex-shrink-0 p-3">
+                    <div class="approval-card flex-shrink-0 p-3 cursor-pointer" onclick="showApprovalDetails(this)" 
+                        data-type="Leave Request" data-user="Sarah K." data-avatar="https://i.pravatar.cc/150?img=5" 
+                        data-dates="12-15 Aug (4 Days)" data-applied="14 Aug 2024" data-reason="Attending a family wedding out of station." 
+                        data-balance="Privilege Leave (Bal: 12)" style="cursor: pointer;">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="d-flex gap-2">
                                 <img src="https://i.pravatar.cc/150?img=5" alt="Sarah K."
@@ -284,13 +302,16 @@
                             </div>
                         </div>
                         <div class="d-flex gap-2 mt-2">
-                            <button class="btn btn-sm btn-soft-primary flex-grow-1 fw-semibold">Approve</button>
-                            <button class="btn btn-sm btn-soft-danger flex-grow-1 fw-semibold">Reject</button>
+                            <button class="btn btn-sm btn-soft-primary flex-grow-1 fw-semibold" onclick="event.stopPropagation()">Approve</button>
+                            <button class="btn btn-sm btn-soft-danger flex-grow-1 fw-semibold" onclick="event.stopPropagation()">Reject</button>
                         </div>
                     </div>
 
                     <!-- Approval Card 2 -->
-                    <div class="approval-card flex-shrink-0 p-3">
+                    <div class="approval-card flex-shrink-0 p-3 cursor-pointer" onclick="showApprovalDetails(this)"
+                        data-type="WFH Request" data-user="Rahul M." data-avatar="https://i.pravatar.cc/150?img=12" 
+                        data-dates="16 Aug (1 Day)" data-applied="15 Aug 2024" data-reason="Not feeling well, working from home to rest while working." 
+                        data-balance="WFH Allowance (Bal: 4)" style="cursor: pointer;">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="d-flex gap-2">
                                 <img src="https://i.pravatar.cc/150?img=12" alt="Rahul M."
@@ -306,8 +327,8 @@
                             </div>
                         </div>
                         <div class="d-flex gap-2 mt-2">
-                            <button class="btn btn-sm btn-soft-primary flex-grow-1 fw-semibold">Approve</button>
-                            <button class="btn btn-sm btn-soft-danger flex-grow-1 fw-semibold">Reject</button>
+                            <button class="btn btn-sm btn-soft-primary flex-grow-1 fw-semibold" onclick="event.stopPropagation()">Approve</button>
+                            <button class="btn btn-sm btn-soft-danger flex-grow-1 fw-semibold" onclick="event.stopPropagation()">Reject</button>
                         </div>
                     </div>
                 </div>
@@ -684,6 +705,49 @@
                 </div>
             </div>
 
+            <!-- Approval Details Modal -->
+            <div class="modal fade" id="approvalDetailsModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content rounded-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                        <div class="modal-header border-bottom-0 pb-0">
+                            <h5 class="modal-title fw-bold text-dark" id="modalRequestType">Leave Request</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <img src="" id="modalUserAvatar" class="rounded-circle shadow-sm border border-2 border-white" style="width: 55px; height: 55px; object-fit: cover;" alt="Avatar">
+                                <div>
+                                    <h5 class="mb-0 fw-bold h6 text-dark" id="modalUserName">User Name</h5>
+                                    <p class="mb-0 text-muted small" id="modalAppliedDate">Applied on ...</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-light rounded-4 p-3 mb-3 border border-light bg-opacity-50">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6">
+                                        <p class="text-muted text-xs fw-bold mb-1">DATES</p>
+                                        <p class="fw-semibold small mb-0 text-dark" id="modalDates">...</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="text-muted text-xs fw-bold mb-1">LEAVE TYPE</p>
+                                        <p class="fw-semibold small mb-0 text-primary" id="modalLeaveType">...</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-muted text-xs fw-bold mb-1">REASON</p>
+                                    <p class="small mb-0 text-dark" id="modalReason" style="line-height: 1.4;">...</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-4 pb-2">
+                                <button type="button" class="btn btn-primary flex-grow-1 fw-bold rounded-pill" id="modalBtnApprove">Approve Request</button>
+                                <button type="button" class="btn btn-danger flex-grow-1 fw-bold rounded-pill" id="modalBtnReject">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div> <!-- End App Content -->
 
         <!-- Bottom Navigation -->
@@ -693,7 +757,7 @@
                 <i class="bi bi-grid-fill fs-5"></i>
                 <span class="nav-label">Home</span>
             </a>
-            <a href="Attendance.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
+            <a href="attendance.html" class="nav-item text-decoration-none d-flex flex-column align-items-center gap-1">
                 <i class="bi bi-camera fs-5"></i>
                 <span class="nav-label">Attendance</span>
             </a>
@@ -808,6 +872,51 @@
                 });
             });
         });
+
+        // --- Show Approval Details Modal Logic ---
+        function showApprovalDetails(card) {
+            const type = card.getAttribute('data-type');
+            const user = card.getAttribute('data-user');
+            const avatar = card.getAttribute('data-avatar');
+            const dates = card.getAttribute('data-dates');
+            const applied = card.getAttribute('data-applied');
+            const reason = card.getAttribute('data-reason');
+            const leaveType = card.getAttribute('data-balance');
+
+            document.getElementById('modalRequestType').textContent = type;
+            document.getElementById('modalUserName').textContent = user;
+            document.getElementById('modalUserAvatar').src = avatar;
+            document.getElementById('modalDates').textContent = dates;
+            document.getElementById('modalAppliedDate').textContent = 'Applied on ' + applied;
+            document.getElementById('modalReason').textContent = reason;
+            document.getElementById('modalLeaveType').textContent = leaveType;
+
+            const myModal = new bootstrap.Modal(document.getElementById('approvalDetailsModal'));
+            myModal.show();
+            
+            // Handle Approve Button inside Modal
+            const btnApprove = document.getElementById('modalBtnApprove');
+            const newBtnApprove = btnApprove.cloneNode(true);
+            btnApprove.parentNode.replaceChild(newBtnApprove, btnApprove);
+
+            newBtnApprove.addEventListener('click', () => {
+                myModal.hide();
+                const origBtn = card.querySelector('.btn-soft-primary');
+                origBtn.click();
+            });
+            
+            // Handle Reject Button inside Modal
+            const btnReject = document.getElementById('modalBtnReject');
+            const newBtnReject = btnReject.cloneNode(true);
+            btnReject.parentNode.replaceChild(newBtnReject, btnReject);
+
+            newBtnReject.addEventListener('click', () => {
+                myModal.hide();
+                const origBtn = card.querySelector('.btn-soft-danger');
+                origBtn.click();
+            });
+        }
+
 
         // --- Live Clock for Check-In Widget ---
         function updateLiveClock() {
