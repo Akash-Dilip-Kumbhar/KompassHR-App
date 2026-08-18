@@ -25,7 +25,8 @@
     --danger: #dc2626;
     --soft-indigo: rgba(79, 70, 229, 0.15);
     --indigo: #4f46e5;
-
+    --soft-info: rgba(13, 202, 240, 0.15);
+    --info: #0cd0f0;
     /* Glassmorphism Variables */
     --glass-bg: rgba(255, 255, 255, 0.65);
     --glass-border: rgba(255, 255, 255, 0.8);
@@ -119,7 +120,12 @@ body {
 .text-indigo {
     color: var(--indigo) !important;
 }
-
+.bg-soft-info {
+    background-color: var(--soft-info);
+}
+.text-info {
+    color: var(--info) !important;
+}
 
 /* --- Layout Constraints (Mobile Feel on Desktop) --- */
 .mobile-wrapper {

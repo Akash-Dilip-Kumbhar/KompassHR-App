@@ -138,7 +138,8 @@
                     </div>
                 </div>
 
-            </div> <!-- End Leave Balances -->
+            </div> 
+            <!-- End Leave Balances -->
 
             <!-- Detailed Breakdown -->
             <div class="mb-5">
@@ -211,37 +212,113 @@
                     <a href="#" class="text-primary smaller fw-bold text-decoration-none">View All</a>
                 </div>
 
+                <!-- Search Bar -->
+                <div class="mb-4">
+                    <div class="glass-effect rounded-pill d-flex align-items-center px-3 py-2 shadow-sm border border-light border-opacity-50">
+                        <i class="bi bi-search text-muted me-2"></i>
+                        <input type="text" class="form-control border-0 bg-transparent shadow-none p-0 text-dark" placeholder="Search leave requests..." style="font-size: 0.9rem;">
+                    </div>
+                </div>
+
                 <div class="d-flex flex-column gap-3">
 
-                    <!-- Request 1 -->
-                    <div class="request-card glass-effect p-3 d-flex align-items-center gap-3">
-                        <div class="date-box text-center">
-                            <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">OCT</span>
-                            <span class="d-block text-dark fw-bold fs-5 lh-1">12</span>
-                        </div>
-                        <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
-                            <h5 class="mb-0 fw-bold small text-dark">Privilege Leave</h5>
-                            <p class="mb-0 text-muted smaller">2 days (Oct 12-13)</p>
-                        </div>
-                        <span
-                            class="badge bg-soft-success text-success fw-bold rounded-pill px-3 py-2 border border-success border-opacity-25"
-                            style="font-size: 0.65rem;">APPROVED</span>
-                    </div>
+                <!-- Request 1 -->
+<div class="request-card glass-effect p-3 d-flex flex-column gap-2">
+    <!-- Top Row: Date, Title/Details, and Status Badge -->
+    <div class="d-flex align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3 flex-grow-1">
+            <!-- Date Box -->
+            <div class="date-box text-center">
+                <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">MAR</span>
+                <span class="d-block text-dark fw-bold fs-5 lh-1">02</span>
+                <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">2026</span>
+            </div>
+
+            <!-- Details -->
+            <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
+                <div class="d-flex flex-column">
+                    <h5 class="mb-1 fw-bold small text-dark">SL (Full Day)</h5>
+                    <p class="mb-0 text-muted fw-semibold smaller">	02/Mar/2026 - 02/Mar/2026 </p>
+                    <p class="mb-0 text-muted smaller">(1 days)</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Badge -->
+        <div style="display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;">
+            <span class="badge bg-soft-danger text-danger fw-bold rounded-pill px-2 py-1 border border-danger border-opacity-25" style="font-size: 0.6rem;">
+                CANCELLED
+            </span>
+             <!-- Bottom Row: Action Buttons -->
+    <div class="d-flex justify-content-end gap-2 pt-2 border-top border-light border-opacity-50">
+        <a href="Leave-details.html" class="btn btn-sm bg-soft-primary text-primary rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" title="View Details">
+            <i class="bi bi-eye"></i>
+        </a>
+        <button class="btn btn-sm bg-soft-info text-info rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#hierarchyModal" title="Hierarchy">
+            <i class="bi bi-diagram-3"></i>
+        </button>
+        <button class="btn btn-sm bg-soft-danger text-danger rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#cancelModal" title="Cancel Request">
+            <i class="bi bi-trash"></i>
+        </button>
+    </div>
+        </div>
+    </div>
+
+   
+</div>
 
                     <!-- Request 2 -->
-                    <div class="request-card glass-effect p-3 d-flex align-items-center gap-3">
-                        <div class="date-box text-center">
-                            <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">NOV</span>
-                            <span class="d-block text-dark fw-bold fs-5 lh-1">05</span>
-                        </div>
-                        <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
-                            <h5 class="mb-0 fw-bold small text-dark">Casual Leave</h5>
-                            <p class="mb-0 text-muted smaller">1 day (Nov 05)</p>
-                        </div>
-                        <span
-                            class="badge bg-soft-warning text-warning fw-bold rounded-pill px-3 py-2 border border-warning border-opacity-25"
-                            style="font-size: 0.65rem;">PENDING</span>
-                    </div>
+<div class="request-card glass-effect p-3 d-flex flex-column gap-2">
+    <!-- Top Row: Date, Title/Details, and Status Badge -->
+    <div class="d-flex align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3 flex-grow-1">
+            <!-- Date Box -->
+            <div class="date-box text-center">
+                <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">NOV</span>
+                <span class="d-block text-dark fw-bold fs-5 lh-1">05</span>
+                <span class="d-block text-muted fw-bold" style="font-size: 0.7rem;">2026</span>
+            </div>
+
+            <!-- Details -->
+            <div class="flex-grow-1 border-start ps-3 border-light border-opacity-50">
+                <div class="d-flex flex-column">
+                    <h5 class="mb-1 fw-bold small text-dark">Casual Leave</h5>
+                    <p class="mb-0 text-muted fw-semibold smaller">	05/Nov/2026 - 05/Nov/2026 </p>
+                    <p class="mb-0 text-muted smaller">(1 days)</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Badge -->
+        <div style="display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;">
+            <span class="badge bg-soft-warning text-warning fw-bold rounded-pill px-2 py-1 border border-warning border-opacity-25" style="font-size: 0.6rem;">
+                PENDING
+            </span>
+             <!-- Bottom Row: Action Buttons -->
+    <div class="d-flex justify-content-end gap-2 pt-2 border-top border-light border-opacity-50">
+        <button class="btn btn-sm bg-soft-primary text-primary rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#leaveDetailsModal" title="View Details">
+            <i class="bi bi-eye"></i>
+        </button>
+        <button class="btn btn-sm bg-soft-info text-info rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#hierarchyModal" title="Hierarchy">
+            <i class="bi bi-diagram-3"></i>
+        </button>
+        <button class="btn btn-sm bg-soft-danger text-danger rounded-circle d-flex align-items-center justify-content-center border-0" style="width: 32px; height: 32px;" data-bs-toggle="modal" data-bs-target="#cancelModal" title="Cancel Request">
+            <i class="bi bi-trash"></i>
+        </button>
+    </div>
+        </div>
+    </div>
+
+   
+</div>
 
                 </div>
             </div>
@@ -275,6 +352,237 @@
                 <span class="nav-label">PROFILE</span>
             </a>
         </nav>
+
+        <!-- Leave Details Modal -->
+        <div class="modal fade" id="leaveDetailsModal" tabindex="-1" aria-labelledby="leaveDetailsLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content border-0 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                    <div class="modal-header border-bottom border-light pb-2">
+                        <div>
+                            <h5 class="modal-title fw-bold text-dark mb-1" id="leaveDetailsLabel">SL (Full Day)</h5>
+                            <span class="badge bg-soft-danger text-danger fw-bold rounded-pill px-2 py-1" style="font-size: 0.65rem;">CANCELLED 4 MONTHS AGO</span>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-3 pb-4">
+                        <div class="row g-3">
+                            
+                            <div class="col-6">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-primary text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-file-earmark-text text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Doc No.</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-info text-info rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-calendar-check text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Applied On</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">07/Mar/2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-purple text-purple rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-person-badge text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Employee</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">DHEERENDRA KUMAR JOSHI (001668)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-warning text-warning rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-building text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Business Unit</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">Head Office</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-danger text-danger rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-tags text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Leave Type</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">SL (Full Day)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-success text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-calendar-range text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">For Date</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">02/Mar/2026 - 02/Mar/2026 (1 days)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-indigo text-indigo rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-clock text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Shift</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">General Shift ( 9:00AM-5:30PM )</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-primary text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-chat-left-text text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Reason</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">s</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-purple text-purple rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-person-check text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Approver</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">DHEERENDRA KUMAR JOSHI - 001668</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-success text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-check-circle text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Approve On</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">07-03-2026 4.40.36 PM (Manually)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="d-flex align-items-start gap-2">
+                                    <div class="icon-wrapper bg-soft-danger text-danger rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-paperclip text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 text-muted text-xxs fw-bold text-uppercase">Attachment</p>
+                                        <p class="mb-0 text-dark small fw-medium lh-sm">File not found</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-light">
+                        <button class="btn btn-outline-danger w-100 fw-bold rounded-pill shadow-sm" style="font-size: 0.85rem;" data-bs-dismiss="modal">Close / Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hierarchy Modal -->
+        <div class="modal fade" id="hierarchyModal" tabindex="-1" aria-labelledby="hierarchyLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content border-0 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                    <div class="modal-header border-bottom border-light pb-2">
+                        <h5 class="modal-title fw-bold text-dark" id="hierarchyLabel">Hierarchy</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-4 pb-4">
+                        <div class="position-relative ms-2">
+                            <!-- Vertical Line -->
+                            <div class="position-absolute h-100" style="left: 19px; top: 0; width: 2px; background-color: #e2e8f0; z-index: 0;"></div>
+                            
+                            <!-- Item 1 -->
+                            <div class="d-flex gap-3 mb-4 position-relative z-1">
+                                <div class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; border: 3px solid white; flex-shrink: 0;">
+                                    <i class="bi bi-check fs-5"></i>
+                                </div>
+                                <div class="pt-1">
+                                    <h6 class="fw-bold text-success mb-1">Request Submitted</h6>
+                                    <p class="text-dark small mb-0">DHEERENDRA KUMAR JOSHI</p>
+                                    <p class="text-muted smaller mb-0">19/Jun/2026 12:05:30 ( 1 month ago )</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 2 -->
+                            <div class="d-flex gap-3 position-relative z-1">
+                                <div class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; border: 3px solid white; flex-shrink: 0;">
+                                    <i class="bi bi-check fs-5"></i>
+                                </div>
+                                <div class="pt-1">
+                                    <h6 class="fw-bold text-success mb-1">Request Approved</h6>
+                                    <p class="text-dark small mb-0">DHEERENDRA KUMAR JOSHI</p>
+                                    <p class="text-muted smaller mb-0">20/Jun/2026 17:21:45 ( 1 month ago )</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-light">
+                        <button class="btn btn-outline-secondary w-100 fw-bold rounded-pill shadow-sm" style="font-size: 0.85rem;" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancel Request Modal -->
+        <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                    <div class="modal-header border-bottom border-light pb-2">
+                        <h5 class="modal-title fw-bold text-dark" id="cancelLabel">Remark For Cancel</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-4 pb-3">
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted text-xxs fw-bold text-uppercase mb-2">Select Approver Name</label>
+                            <select class="form-select bg-light border-0 shadow-sm rounded-3 py-2 text-dark small fw-medium">
+                                <option selected disabled>--Select--</option>
+                                <option value="1">DHEERENDRA KUMAR JOSHI</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label class="form-label text-muted text-xxs fw-bold text-uppercase mb-2">Enter Remark</label>
+                            <textarea class="form-control bg-light border-0 shadow-sm rounded-3 py-2 text-dark small fw-medium" rows="3" placeholder="Enter remark..."></textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer border-top border-light d-flex gap-2">
+                        <button type="button" class="btn btn-light fw-bold rounded-pill shadow-sm flex-grow-1" style="font-size: 0.85rem;" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger fw-bold rounded-pill shadow-sm flex-grow-1" style="font-size: 0.85rem;">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div> <!-- End Mobile Wrapper -->
 

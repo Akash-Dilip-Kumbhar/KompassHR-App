@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luminous Glass UI - Request Week Off</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Glass Input Custom Rules */
+      .glass-input-wrapper-compact {
+        padding-left: 0.5rem;
+        padding-right: 0.25rem;
+      }
+
+      .icon-sm {
+        font-size: 1rem;
+      }
+
+      .icon-top-offset {
+        margin-top: 0.25rem;
+      }
+
+      .input-tight-spacing {
+        letter-spacing: -0.5px;
+      }
+
+      /* Slider / Drawer Controls */
+      .slide-button-track {
+        height: 64px;
+      }
+
+      .slider-bg {
+        width: 0px;
+        transition: width 0.3s ease;
+        z-index: 0;
+        border-radius: 50rem;
+      }
+
+      .slider-text {
+        z-index: 1;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .slide-knob {
+        width: 48px;
+        height: 48px;
+        left: 8px;
+        z-index: 2;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body class="bg-luminous pb-5 mb-5 new-request-body">
+    <!-- Mobile Wrapper -->
+    <div class="mobile-wrapper min-vh-100 position-relative">
+      
+      <!-- Sticky Header Container -->
+      <div class="sticky-top bg-luminous-header pt-4 pb-2 px-3 z-3">
+        <header class="d-flex justify-content-between align-items-center">
+          <a
+            href="WeekoffChange.html"
+            class="text-dark fs-4 text-decoration-none">
+            <i class="bi bi-chevron-left fw-bold"></i>
+          </a>
+          <h2 class="h5 mb-0 fw-bold">Request Week Off</h2>
+
+          <div style="width: 32px; height: 32px;"></div> <!-- placeholder to center title -->
+        </header>
+      </div>
+
+      <div class="app-content px-3 pt-4">
+
+        <!-- Form -->
+        <form class="leave-request-form mb-5 pb-5">
+          <div class="d-flex flex-column gap-3">
+            
+            <!-- Date Row -->
+            <div class="glass-input-wrapper">
+              <i class="bi bi-calendar-event glass-input-icon text-primary"></i>
+              <div class="glass-input-content">
+                <label class="glass-input-label">Off Date</label>
+                <input
+                  type="date"
+                  id="offDate"
+                  class="premium-input"
+                  value="2026-08-15" />
+              </div>
+            </div>
+
+            <!-- Reason -->
+            <div class="glass-input-wrapper align-items-start">
+              <i class="bi bi-pencil-square glass-input-icon text-primary icon-top-offset"></i>
+              <div class="glass-input-content">
+                <label class="glass-input-label">Reason</label>
+                <textarea
+                  class="premium-textarea"
+                  rows="4"
+                  placeholder="Type your reason here..."></textarea>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <!-- End App Content -->
+
+      <!-- Bottom Action Drawer -->
+      <div class="action-drawer bg-white rounded-top-5 p-4 position-fixed bottom-0 start-50 translate-middle-x w-100 shadow-lg z-3">
+        
+        <div class="text-center mb-3">
+            <h6 class="fw-bold text-dark mb-0">Submit Request</h6>
+            <p class="text-muted small mb-0">Confirm your week off change</p>
+        </div>
+
+        <!-- Slide to Request Button -->
+        <div class="slider-container slide-button-track rounded-pill d-flex align-items-center p-2 position-relative w-100 overflow-hidden">
+          <!-- Expanding Background -->
+          <div class="slider-bg position-absolute top-0 start-0 h-100 bg-success"></div>
+
+          <!-- Shimmer text -->
+          <p class="slider-text w-100 text-center mb-0 fw-bold text-muted">
+            Slide to Submit
+          </p>
+
+          <!-- Slide Knob -->
+          <div class="slider-thumb slide-knob rounded-circle text-white d-flex justify-content-center align-items-center shadow-sm position-absolute cursor-pointer" style="background: linear-gradient(135deg, #0ea5e9, #2563eb);">
+            <i class="bi bi-chevron-right fs-5"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Mobile Wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Slide to Request Interaction ---
+        const sliderContainer = document.querySelector(".slider-container");
+        const sliderThumb = document.querySelector(".slider-thumb");
+        const sliderText = document.querySelector(".slider-text");
+        const sliderBg = document.querySelector(".slider-bg");
+        let isDragging = false;
+        let startX = 0;
+        let maxSlide = 0;
+
+        maxSlide = sliderContainer.offsetWidth - sliderThumb.offsetWidth - 8; // 4px padding on each side
+
+        sliderThumb.addEventListener("mousedown", startDrag);
+        sliderThumb.addEventListener("touchstart", startDrag, {
+          passive: true,
+        });
+
+        function startDrag(e) {
+          isDragging = true;
+          sliderThumb.style.transition = "none";
+          sliderBg.style.transition = "none";
+          startX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+
+          document.addEventListener("mousemove", onDrag);
+          document.addEventListener("touchmove", onDrag, { passive: false });
+          document.addEventListener("mouseup", endDrag);
+          document.addEventListener("touchend", endDrag);
+        }
+
+        function onDrag(e) {
+          if (!isDragging) return;
+
+          // Prevent default scrolling on touch devices while sliding
+          if (e.cancelable) e.preventDefault();
+
+          const currentX = e.type.includes("mouse")
+            ? e.pageX
+            : e.touches[0].pageX;
+          let moveX = currentX - startX;
+
+          if (moveX < 0) moveX = 0;
+          if (moveX > maxSlide) moveX = maxSlide;
+
+          sliderThumb.style.transform = `translateX(${moveX}px)`;
+          sliderBg.style.width = `${moveX + sliderThumb.offsetWidth / 2}px`;
+
+          // Opacity fade as you slide
+          const progress = moveX / maxSlide;
+          sliderText.style.opacity = 1 - progress;
+        }
+
+        function endDrag() {
+          if (!isDragging) return;
+          isDragging = false;
+
+          const currentTransform = sliderThumb.style.transform;
+          const match = currentTransform.match(/translateX\(([-\d.]+)px\)/);
+          const currentX = match ? parseFloat(match[1]) : 0;
+
+          document.removeEventListener("mousemove", onDrag);
+          document.removeEventListener("touchmove", onDrag);
+          document.removeEventListener("mouseup", endDrag);
+          document.removeEventListener("touchend", endDrag);
+
+          if (currentX > maxSlide * 0.8) {
+            // Success! Slide completed
+            sliderThumb.style.transform = `translateX(${maxSlide}px)`;
+            sliderBg.style.width = `100%`;
+
+            // Change icon to check
+            sliderThumb.innerHTML = '<i class="bi bi-check fs-4"></i>';
+            sliderThumb.style.background = "none"; // reset gradient
+            sliderThumb.style.backgroundColor = "var(--success)";
+
+            // Use SweetAlert2 for success msg
+            setTimeout(() => {
+              Swal.fire({
+                title: "Submitted!",
+                text: "Your week off change request has been submitted successfully.",
+                icon: "success",
+                background: "rgba(255, 255, 255, 0.95)",
+                customClass: {
+                  popup: "rounded-4 shadow-lg border border-white",
+                  confirmButton: "btn btn-primary rounded-pill px-4",
+                  title: "fs-4 fw-bold text-dark",
+                  htmlContainer: "text-muted",
+                },
+                buttonsStyling: false,
+                confirmButtonText: "Great!",
+              }).then((result) => {
+                // Redirect to dashboard after clicking OK
+                window.location.href = "WeekoffChange.html";
+              });
+            }, 300);
+          } else {
+            // Snap back
+            sliderThumb.style.transition = "transform 0.3s ease";
+            sliderBg.style.transition = "width 0.3s ease";
+            sliderText.style.transition = "opacity 0.3s ease";
+
+            sliderThumb.style.transform = "translateX(0px)";
+            sliderBg.style.width = "0px";
+            sliderText.style.opacity = 1;
+          }
+        }
+
+        // Recalculate maxSlide on window resize
+        window.addEventListener("resize", () => {
+          maxSlide = sliderContainer.offsetWidth - sliderThumb.offsetWidth - 8;
+          if (
+            !isDragging &&
+            sliderThumb.style.transform === "translateX(0px)"
+          ) {
+            sliderBg.style.width = "0px";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
